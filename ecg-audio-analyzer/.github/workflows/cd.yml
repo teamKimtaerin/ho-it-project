@@ -1,0 +1,332 @@
+# ECG Audio Analyzer - Continuous Deployment
+# Automated deployment to AWS EC2 g4dn.xlarge with GPU optimization
+name: CD - Production Deployment
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - "examples/**"
+      - "assets/**"
+  workflow_dispatch:
+    inputs:
+      force_deploy:
+        description: "Force deployment (skip some checks)"
+        required: false
+        default: false
+        type: boolean
+      target_instance:
+        description: "Target EC2 instance type"
+        required: false
+        default: "g4dn.xlarge"
+        type: choice
+        options:
+          - "g4dn.xlarge"
+          - "g4dn.2xlarge"
+          - "p3.2xlarge"
+
+# Security: Ensure only one deployment at a time
+concurrency:
+  group: production-deployment
+  cancel-in-progress: false
+
+env:
+  # Application configuration
+  APP_NAME: ecg-audio-analyzer
+  DOCKER_IMAGE: ecg-audio-analyzer:latest
+  CONTAINER_NAME: ecg-audio-analyzer
+
+  # AWS Configuration
+  AWS_REGION: us-east-1
+  ECR_REGISTRY: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com
+  EC2_INSTANCE_ID: ${{ secrets.EC2_INSTANCE_ID }}
+
+  # Deployment configuration
+  DEPLOYMENT_TIMEOUT: 600 # 10 minutes
+  HEALTH_CHECK_TIMEOUT: 180 # 3 minutes
+
+jobs:
+  # =============================================================================
+  # Pre-deployment Validation
+  # =============================================================================
+  pre-deployment-checks:
+    name: 🔍 Pre-deployment Validation
+    runs-on: ubuntu-latest
+    outputs:
+      should_deploy: ${{ steps.changes.outputs.should_deploy }}
+      version: ${{ steps.version.outputs.version }}
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: 🔍 Check for significant changes
+        id: changes
+        run: |
+          # Check if we should skip deployment
+          if [[ "${{ github.event.inputs.force_deploy }}" == "true" ]]; then
+            echo "should_deploy=true" >> $GITHUB_OUTPUT
+            echo "🚀 Force deployment requested"
+            exit 0
+          fi
+
+          # Check for code changes (not just docs/readme)
+          if git diff --name-only HEAD~1 | grep -E '\.(py|yml|yaml|toml|txt|sh)$'; then
+            echo "should_deploy=true" >> $GITHUB_OUTPUT
+            echo "✅ Code changes detected, deployment needed"
+          else
+            echo "should_deploy=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No significant code changes, skipping deployment"
+          fi
+
+      - name: 📝 Generate version tag
+        id: version
+        run: |
+          # Generate version from timestamp and commit SHA
+          VERSION="v$(date +'%Y%m%d')-$(git rev-parse --short HEAD)"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "🏷️ Generated version: $VERSION"
+
+  # =============================================================================
+  # Prepare Code for Deployment
+  # =============================================================================
+  prepare-deployment:
+    name: 🏗️ Prepare Code for Deployment
+    runs-on: ubuntu-latest
+    needs: [pre-deployment-checks]
+    if: needs.pre-deployment-checks.outputs.should_deploy == 'true'
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Create deployment archive
+        run: |
+          # Create a clean deployment package in temp directory
+          mkdir -p /tmp/deployment
+          tar -czf /tmp/deployment/ecg-audio-analyzer-${{ needs.pre-deployment-checks.outputs.version }}.tar.gz \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='docker' \
+            --exclude='venv' \
+            --exclude='__pycache__' \
+            --exclude='*.pyc' \
+            --exclude='tests' \
+            .
+          # Move back to workspace
+          mv /tmp/deployment/ecg-audio-analyzer-${{ needs.pre-deployment-checks.outputs.version }}.tar.gz .
+
+      - name: 📊 Show package info
+        run: |
+          ls -lh ecg-audio-analyzer-*.tar.gz
+          echo "✅ Deployment package created successfully"
+
+  # =============================================================================
+  # Deploy to EC2 Instance
+  # =============================================================================
+  deploy-to-ec2:
+    name: 🚀 Deploy to EC2
+    runs-on: ubuntu-latest
+    needs: [pre-deployment-checks, prepare-deployment]
+    environment: production
+
+    steps:
+      - name: 📥 Checkout deployment scripts
+        uses: actions/checkout@v4
+
+      - name: 🔐 Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: 🔧 Install Session Manager plugin
+        run: |
+          # Install AWS CLI Session Manager plugin
+          curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+          sudo dpkg -i session-manager-plugin.deb
+
+      - name: 📊 Check EC2 instance status
+        run: |
+          # Check if instance is running
+          INSTANCE_STATE=$(aws ec2 describe-instances \
+            --instance-ids ${{ env.EC2_INSTANCE_ID }} \
+            --query 'Reservations[0].Instances[0].State.Name' \
+            --output text)
+
+          echo "🖥️ Instance state: $INSTANCE_STATE"
+
+          if [[ "$INSTANCE_STATE" != "running" ]]; then
+            echo "❌ Instance is not running. Current state: $INSTANCE_STATE"
+            exit 1
+          fi
+
+      - name: 🧹 Cleanup and prepare EC2
+        run: |
+          echo "🧹 Step 1: Environment cleanup..."
+
+          COMMAND_ID=$(aws ssm send-command \
+            --instance-ids ${{ env.EC2_INSTANCE_ID }} \
+            --document-name "AWS-RunShellScript" \
+            --parameters 'commands=["echo \"🧹 Cleaning up existing processes...\"","sudo pkill -f \"ml_api_server.py\" || true","sudo pkill -f \"python.*ml_api_server\" || true","sleep 2","cd ~/ecg-audio-analyzer","echo \"Current disk usage:\"","df -h /","echo \"✅ Cleanup completed\""]' \
+            --output text \
+            --query 'Command.CommandId')
+
+          echo "Command ID: $COMMAND_ID"
+          echo "Waiting for cleanup to complete..."
+          sleep 15
+
+      - name: 📦 Deploy code to EC2
+        timeout-minutes: 10
+        run: |
+          echo "📦 Step 2: Code deployment..."
+
+          COMMAND_ID=$(aws ssm send-command \
+            --instance-ids ${{ env.EC2_INSTANCE_ID }} \
+            --document-name "AWS-RunShellScript" \
+            --parameters 'commands=["cd ~/ecg-audio-analyzer","echo \"📦 Updating code from Git...\"","git fetch origin","git checkout main","git pull origin main","echo \"📋 Syncing to backup directory...\"","rsync -av --exclude=\".git\" --exclude=\"venv\" ~/ecg-audio-analyzer/ ~/ecg-audio-analyzer.backup/","echo \"✅ Code deployment completed\"","ls -la ~/ecg-audio-analyzer.backup/"]' \
+            --output text \
+            --query 'Command.CommandId')
+
+          echo "Command ID: $COMMAND_ID"
+          echo "Waiting for code deployment to complete..."
+          sleep 20
+
+      - name: 🐳 Build and Run Docker Container
+        timeout-minutes: 20
+        run: |
+          echo "🐳 Step 3: Docker build and run..."
+
+          COMMAND_ID=$(aws ssm send-command \
+            --instance-ids ${{ env.EC2_INSTANCE_ID }} \
+            --document-name "AWS-RunShellScript" \
+            --parameters 'commands=["cd ~/ecg-audio-analyzer.backup","echo \"🐳 Stopping existing container...\"","sudo docker stop ecg-audio-analyzer || true","sudo docker rm ecg-audio-analyzer || true","echo \"🐳 Building Docker image...\"","sudo docker build -t ecg-audio-analyzer:latest . 2>&1 | tail -20","echo \"✅ Docker build completed, checking images...\"","sudo docker images | grep ecg-audio-analyzer","echo \"🚀 Starting Docker container...\"","CONTAINER_ID=$(sudo docker run -d --name ecg-audio-analyzer --gpus all -p 8080:8080 --restart unless-stopped -e CUDA_VISIBLE_DEVICES=0 ecg-audio-analyzer:latest)","echo \"Container ID: $CONTAINER_ID\"","sleep 5","echo \"📊 Container status:\"","sudo docker ps -a | grep ecg-audio-analyzer","echo \"📋 Container logs:\"","sudo docker logs ecg-audio-analyzer 2>&1 | tail -20 || echo \"No logs available\"","echo \"🔍 Checking if container is running:\"","sudo docker inspect ecg-audio-analyzer --format=\"{{.State.Status}} - {{.State.ExitCode}}\" || echo \"Container inspect failed\""]' \
+            --output text \
+            --query 'Command.CommandId')
+
+          echo "Command ID: $COMMAND_ID"
+          echo "Waiting for Docker build and run to complete (this may take several minutes)..."
+          sleep 180
+          
+          # Get Docker build results
+          echo "📋 Docker build and run results:"
+          aws ssm get-command-invocation \
+            --instance-id ${{ env.EC2_INSTANCE_ID }} \
+            --command-id $COMMAND_ID \
+            --output text \
+            --query 'StandardOutputContent' || echo "Command still running"
+
+
+      - name: 🏥 Health check
+        timeout-minutes: 5
+        run: |
+          echo "🏥 Step 4: Performing health check..."
+
+          # Health check for Docker container using SSM
+          for i in {1..18}; do
+            COMMAND_ID=$(aws ssm send-command \
+              --instance-ids ${{ env.EC2_INSTANCE_ID }} \
+              --document-name "AWS-RunShellScript" \
+              --parameters 'commands=["echo \"🏥 Performing Docker health check...\"","sudo docker ps | grep ecg-audio-analyzer || echo \"Container not running\"","curl -f http://localhost:8080/health || echo \"Health check failed\"","curl -f http://localhost:8080/ || echo \"Root endpoint failed\"","echo \"📊 Docker container status:\"","sudo docker logs --tail 10 ecg-audio-analyzer 2>/dev/null || echo \"No container logs\"","netstat -tlnp | grep :8080 || echo \"Port not listening\"","echo \"✅ Health check completed\""]' \
+              --output text \
+              --query 'Command.CommandId')
+            
+            sleep 15
+            
+            # Get health check results
+            HEALTH_OUTPUT=$(aws ssm get-command-invocation \
+              --instance-id ${{ env.EC2_INSTANCE_ID }} \
+              --command-id $COMMAND_ID \
+              --output text \
+              --query 'StandardOutputContent' 2>/dev/null || echo "Command still running")
+            
+            echo "Health check output:"
+            echo "$HEALTH_OUTPUT"
+            
+            # Check if health check passed
+            if echo "$HEALTH_OUTPUT" | grep -q "HTTP/1.1 200 OK\|\"status\":\"ok\""; then
+              echo "✅ Health check passed!"
+              break
+            fi
+            
+            if [ $i -eq 18 ]; then
+              echo "❌ Health check failed after 5 minutes"
+              # Get container logs for debugging
+              aws ssm send-command \
+                --instance-ids ${{ env.EC2_INSTANCE_ID }} \
+                --document-name "AWS-RunShellScript" \
+                --parameters 'commands=["sudo docker logs --tail 50 ecg-audio-analyzer 2>/dev/null || echo \"No container logs found\""]' \
+                --output text
+              exit 1
+            fi
+            
+            echo "⏳ Waiting for ML API server to be ready... (attempt $i/18)"
+            sleep 10
+          done
+
+      - name: 📊 Post-deployment validation
+        run: |
+          echo "📊 Step 5: Post-deployment validation..."
+          
+          COMMAND_ID=$(aws ssm send-command \
+            --instance-ids ${{ env.EC2_INSTANCE_ID }} \
+            --document-name "AWS-RunShellScript" \
+            --parameters 'commands=["echo \"📊 Post-deployment system status:\"","echo \"🐳 Docker container status:\"","sudo docker ps | grep ecg-audio-analyzer","echo \"🌐 Port status:\"","netstat -tlnp | grep :8080","echo \"🎮 GPU status:\"","nvidia-smi --query-gpu=name,utilization.gpu,memory.used,memory.total --format=csv,noheader || echo \"No GPU info available\"","echo \"💾 Disk usage:\"","df -h /","echo \"📋 Container logs:\"","sudo docker logs --tail 10 ecg-audio-analyzer 2>/dev/null || echo \"No container logs found\"","echo \"✅ Validation completed\""]' \
+            --output text \
+            --query 'Command.CommandId')
+          
+          echo "Command ID: $COMMAND_ID"
+          sleep 15
+          
+          # Get validation results
+          aws ssm get-command-invocation \
+            --instance-id ${{ env.EC2_INSTANCE_ID }} \
+            --command-id $COMMAND_ID \
+            --output text \
+            --query 'StandardOutputContent'
+
+  # =============================================================================
+  # Deployment Notification and Rollback
+  # =============================================================================
+  post-deployment:
+    name: 📢 Post-deployment Actions
+    runs-on: ubuntu-latest
+    needs: [pre-deployment-checks, prepare-deployment, deploy-to-ec2]
+    if: always()
+
+    steps:
+      - name: 📊 Deployment Summary
+        run: |
+          echo "## 🚀 Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Version**: ${{ needs.pre-deployment-checks.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Target**: AWS EC2 g4dn.xlarge" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployment Time**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [[ "${{ needs.deploy-to-ec2.result }}" == "success" ]]; then
+            echo "✅ **Status**: Deployment Successful" >> $GITHUB_STEP_SUMMARY
+            echo "🔗 **Application**: http://10.0.10.42:8080" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Status**: Deployment Failed" >> $GITHUB_STEP_SUMMARY
+            echo "🔄 **Action**: Check logs and consider rollback" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: 🚨 Rollback on failure
+        if: needs.deploy-to-ec2.result == 'failure'
+        run: |
+          echo "🚨 Deployment failed, initiating rollback..."
+          # In a real scenario, you would implement rollback logic here
+          echo "⚠️ Manual intervention required for rollback"
+
+      - name: ✅ Success notification
+        if: needs.deploy-to-ec2.result == 'success'
+        run: |
+          echo "🎉 Deployment completed successfully!"
+          echo "🔗 Application is now running at: http://10.0.10.42:8080"
+          echo "📊 Monitor the application performance and logs"

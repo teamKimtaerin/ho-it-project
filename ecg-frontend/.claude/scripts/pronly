@@ -1,0 +1,310 @@
+#!/bin/bash
+# PR-Only 도구 - 이미 커밋된 내용으로 PR 생성 (Claude Code와 함께 사용)
+
+COMMIT_HASH="$1"
+
+echo "🔍 Git 상태 확인 중..."
+
+# 현재 브랜치 확인
+CURRENT_BRANCH=$(git branch --show-current)
+if [ "$CURRENT_BRANCH" = "main" ] ; then
+    echo "❌ main/dev 브랜치에서는 PR을 생성할 수 없습니다."
+    echo "   feature 브랜치로 이동해주세요."
+    exit 1
+fi
+
+# 항상 dev를 사용
+DEV_BRANCH="dev"
+
+echo "📊 브랜치 정보:"
+echo "  - 현재 브랜치: $CURRENT_BRANCH"
+echo "  - 베이스 브랜치: $DEV_BRANCH"
+
+# diff 분석 대상 결정
+if [ -n "$COMMIT_HASH" ]; then
+    DIFF_TARGET="$COMMIT_HASH..HEAD"
+    ANALYSIS_MODE="특정 커밋 ($COMMIT_HASH) 이후 변경사항"
+    echo "  - 분석 대상: $ANALYSIS_MODE"
+else
+    DIFF_TARGET="origin/$DEV_BRANCH..HEAD"
+    ANALYSIS_MODE="$DEV_BRANCH 브랜치와의 차이점"
+    echo "  - 분석 대상: $ANALYSIS_MODE"
+fi
+
+# 커밋 이력 확인
+COMMITS=$(git log --oneline $DIFF_TARGET 2>/dev/null)
+if [ -z "$COMMITS" ]; then
+    echo "❌ 분석할 커밋이 없습니다."
+    if [ -n "$COMMIT_HASH" ]; then
+        echo "   커밋 해시 '$COMMIT_HASH'를 확인해주세요."
+    else
+        echo "   현재 브랜치가 $DEV_BRANCH와 동일하거나 뒤쳐져 있습니다."
+    fi
+    exit 1
+fi
+
+echo "✅ 분석할 커밋 발견:"
+echo "$COMMITS" | head -3
+
+# 변경사항 분석
+echo ""
+echo "📝 변경사항 분석 중..."
+
+# diff 생성
+DIFF_CONTENT=$(git diff $DIFF_TARGET 2>/dev/null)
+if [ -z "$DIFF_CONTENT" ]; then
+    echo "❌ 변경사항이 없습니다."
+    exit 1
+fi
+
+# 변경된 파일들 추출
+CHANGED_FILES=$(git diff --name-only $DIFF_TARGET | head -5 | tr '\n' ',' | sed 's/,$//')
+
+# 추가된 라인 수
+ADDED_LINES=$(git diff --numstat $DIFF_TARGET | awk '{ added += $1 } END { print added }')
+
+# 삭제된 라인 수  
+DELETED_LINES=$(git diff --numstat $DIFF_TARGET | awk '{ deleted += $2 } END { print deleted }')
+
+# 커밋 메시지들에서 작업 요약 추출
+COMMIT_MESSAGES=$(git log --pretty=format:"%s" $DIFF_TARGET)
+FIRST_COMMIT_MSG=$(echo "$COMMIT_MESSAGES" | head -1)
+
+echo "📊 변경사항 요약:"
+echo "  - 변경된 파일: $CHANGED_FILES"
+echo "  - 추가된 라인: +$ADDED_LINES"
+echo "  - 삭제된 라인: -$DELETED_LINES"
+echo "  - 분석 모드: $ANALYSIS_MODE"
+
+# 원격에 푸시되어 있는지 확인 및 푸시
+echo ""
+if git ls-remote --heads origin $CURRENT_BRANCH | grep -q $CURRENT_BRANCH; then
+    echo "✅ 브랜치가 이미 원격에 존재합니다."
+    echo "🔄 최신 변경사항 푸시 중..."
+    git push origin $CURRENT_BRANCH
+else
+    echo "🚀 origin/$CURRENT_BRANCH 에 push 중..."
+    git push -u origin $CURRENT_BRANCH
+fi
+
+if [ $? -ne 0 ]; then
+    echo "❌ Push 실패"
+    exit 1
+fi
+
+echo "✅ Push 완료"
+
+# Claude Code용 프롬프트 생성
+CLAUDE_PROMPT="## 작성 요구사항
+다음 형식으로 한글 PR 설명을 작성해주세요:
+
+### PR 제목
+[타입] 간단한 설명 (예: [Feat] 블로그 생성 기능 구현)
+
+### PR 본문
+## 개요
+- 무엇을 수정했는지
+- 왜 수정했는지  
+- 핵심 변경사항 요약
+
+## 설명
+
+### What (무엇을 수정했나요?)
+구체적으로 어떤 기능이 추가/수정/삭제되었는지 설명
+
+### Why (왜 수정했나요?)
+이 변경이 필요했던 이유, 해결하려던 문제점
+
+### How (어떻게 수정했나요?)
+기술적인 구현 방법, 사용한 기술, 아키텍처 변경사항
+
+## 📋 체크리스트
+- [ ] 기능 테스트 완료
+- [ ] 코드 리뷰 준비 완료
+- [ ] 문서 업데이트 (필요시)
+
+## 🔍 리뷰 포인트
+리뷰어가 특별히 확인해야 할 부분
+
+---
+🤖 Generated with Claude Code
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+다음 Git 변경사항을 분석해서 위 요구사항에 따라 한글로 상세한 PR 설명을 작성해주세요.
+
+## 작업 요약
+$FIRST_COMMIT_MSG
+
+## 커밋 이력
+$COMMIT_MESSAGES
+
+## 분석 대상
+$ANALYSIS_MODE
+
+## 변경 통계
+- 변경된 파일: $CHANGED_FILES
+- 추가: +$ADDED_LINES lines
+- 삭제: -$DELETED_LINES lines
+
+## 변경사항 Diff
+\`\`\`diff
+$DIFF_CONTENT
+\`\`\`"
+
+# 프롬프트 라인 수 체크
+PROMPT_LINE_COUNT=$(echo "$CLAUDE_PROMPT" | wc -l | xargs)
+
+if [ "$PROMPT_LINE_COUNT" -gt 1000 ]; then
+    # 임시 디렉토리 생성
+    TEMP_DIR=".claude/tmp"
+    mkdir -p "$TEMP_DIR"
+    
+    # 타임스탬프 기반 파일명 생성
+    TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+    TEMP_FILE="$TEMP_DIR/prompt_$TIMESTAMP.md"
+    
+    # 프롬프트를 임시 파일에 저장
+    echo "$CLAUDE_PROMPT" > "$TEMP_FILE"
+    
+    # 클립보드에 파일 참조 명령어 복사
+    FILE_REF_COMMAND="@$TEMP_FILE 파일을 읽고 지시사항을 수행해주세요"
+    
+    if command -v pbcopy &> /dev/null; then
+        echo "$FILE_REF_COMMAND" | pbcopy
+        echo ""
+        echo "📁 프롬프트가 너무 길어서 임시 파일에 저장했습니다!"
+        echo "   파일 위치: $TEMP_FILE"
+        echo "✅ 파일 참조 명령어가 클립보드에 복사되었습니다!"
+        echo ""
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "🤖 다음 단계를 따라주세요:"
+        echo ""
+        echo "1. Claude Code (claude.ai/code) 열기"
+        echo "2. Cmd+V로 파일 참조 명령어 붙여넣기 (이미 복사됨)"
+        echo "3. Claude가 파일을 읽고 분석 결과 생성"
+        echo "4. 아래에서 Enter 누르고 결과 붙여넣기"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    else
+        echo ""
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "🤖 Claude Code 명령어:"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "$FILE_REF_COMMAND"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo ""
+        echo "📁 프롬프트 파일: $TEMP_FILE"
+        echo "위 명령어를 복사해서 Claude Code에 붙여넣으세요."
+    fi
+else
+    # 기존 로직: 1000줄 이하일 경우 전체 내용 복사
+    if command -v pbcopy &> /dev/null; then
+        echo "$CLAUDE_PROMPT" | pbcopy
+        echo ""
+        echo "✅ 프롬프트가 클립보드에 복사되었습니다!"
+        echo ""
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "🤖 다음 단계를 따라주세요:"
+        echo ""
+        echo "1. Claude Code (claude.ai/code) 열기"
+        echo "2. Cmd+V로 프롬프트 붙여넣기 (이미 복사됨)"
+        echo "3. Claude의 분석 결과 복사"
+        echo "4. 아래에서 Enter 누르고 결과 붙여넣기"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    else
+        echo ""
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "🤖 Claude Code 프롬프트:"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "$CLAUDE_PROMPT"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo ""
+        echo "위 프롬프트를 복사해서 Claude Code에 붙여넣으세요."
+    fi
+fi
+
+echo ""
+read -p "🔄 Claude 분석 완료 후 Enter를 누르세요..."
+
+# PR 제목과 본문 입력 받기
+echo ""
+echo "📝 PR 제목을 입력하세요 (예: [Feat] 블로그 생성 기능 구현):"
+read -r PR_TITLE
+
+if [ -z "$PR_TITLE" ]; then
+    PR_TITLE="$FIRST_COMMIT_MSG"
+fi
+
+echo ""
+echo "📄 PR 본문을 입력하세요 (여러 줄 가능, 입력 완료 시 Ctrl+D):"
+echo "(💡 팁: Claude Code에서 생성된 내용을 복사해서 붙여넣으세요)"
+PR_BODY=$(cat)
+
+# PR 본문이 비어있으면 기본 템플릿 사용
+if [ -z "$PR_BODY" ]; then
+    PR_BODY="## 개요
+- $FIRST_COMMIT_MSG 작업 완료
+- $ANALYSIS_MODE 반영
+- 변경된 파일: $CHANGED_FILES
+
+## 설명
+
+### What (무엇을 수정했나요?)
+- $(echo "$COMMIT_MESSAGES" | head -3 | sed 's/^/- /')
+- 총 $(echo $CHANGED_FILES | tr ',' '\n' | wc -l)개 파일 수정
+- 추가: +$ADDED_LINES lines, 삭제: -$DELETED_LINES lines
+
+### Why (왜 수정했나요?)  
+- 요구사항에 따른 기능 구현/수정
+- 코드 품질 개선 및 최적화
+
+### How (어떻게 수정했나요?)
+- Claude Code를 통해 분석된 내용으로 업데이트 예정
+- 기존 아키텍처를 유지하면서 개선
+
+## 📋 체크리스트
+- [x] 코드 작성 완료
+- [ ] 기능 테스트
+- [ ] 코드 리뷰 준비
+
+## 🔍 리뷰 포인트
+- 변경사항 검토 필요
+
+---
+🤖 Generated with Claude Code (pronly mode)"
+fi
+
+# PR 생성
+echo ""
+echo "🚀 PR 생성 중..."
+gh pr create \
+    --title "$PR_TITLE" \
+    --body "$PR_BODY" \
+    --base "$DEV_BRANCH" \
+    --head "$CURRENT_BRANCH"
+
+if [ $? -eq 0 ]; then
+    echo ""
+    echo "✅ PR 생성 완료!"
+    echo ""
+    
+    # PR URL 가져오기
+    PR_URL=$(gh pr view --json url -q .url)
+    if [ -n "$PR_URL" ]; then
+        echo "🔗 PR URL: $PR_URL"
+        
+        # 브라우저에서 열기 옵션
+        read -p "브라우저에서 PR을 열까요? (y/n): " -n 1 -r
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            gh pr view --web
+        fi
+    fi
+else
+    echo "❌ PR 생성 실패. GitHub CLI 설정을 확인해주세요."
+    echo ""
+    echo "💡 수동으로 PR을 생성하려면:"
+    echo "gh pr create --title \"$PR_TITLE\" --base \"$DEV_BRANCH\" --head \"$CURRENT_BRANCH\""
+fi
+
+echo ""
+echo "🎉 작업 완료!"

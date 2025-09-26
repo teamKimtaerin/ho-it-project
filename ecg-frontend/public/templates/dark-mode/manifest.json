@@ -1,0 +1,39 @@
+{
+  "id": "dark-mode",
+  "name": "Dark Mode",
+  "version": "1.0.0",
+  "description": "다크 모드를 위한 전용 템플릿으로, 눈의 피로를 줄이고 세련된 느낌을 제공합니다.",
+  "category": "Themes",
+  "type": "free",
+  "author": "UI Team",
+  "thumbnail": "/templates/dark-mode/thumbnail.svg",
+  "preview": {
+    "type": "color",
+    "value": "#2d3748"
+  },
+  "parameters": {
+    "primaryColor": {
+      "type": "color",
+      "default": "#2d3748",
+      "label": "주요 색상"
+    },
+    "accentColor": {
+      "type": "color",
+      "default": "#68d391",
+      "label": "강조 색상"
+    },
+    "textColor": {
+      "type": "color",
+      "default": "#e2e8f0",
+      "label": "텍스트 색상"
+    },
+    "contrast": {
+      "type": "number",
+      "default": 0.8,
+      "min": 0.5,
+      "max": 1,
+      "step": 0.1,
+      "label": "대비"
+    }
+  }
+}

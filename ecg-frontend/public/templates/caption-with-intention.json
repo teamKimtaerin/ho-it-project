@@ -1,0 +1,323 @@
+{
+  "id": "caption-with-intention",
+  "name": "Caption with Intention",
+  "description": "Dynamic captions that emphasize important words based on volume, pitch, and emotional content. Loud words get bouncing effects, high-pitched words get rotation, and emotional peaks get scaling.",
+  "version": "1.0.0",
+  "author": "ECG Template System",
+  "category": "emphasis",
+
+  "style": {
+    "text": {
+      "fontFamily": "Roboto Flex, sans-serif",
+      "fontSize": "5vh",
+      "fontWeight": 600,
+      "color": "#ffffff",
+      "textAlign": "center",
+      "textShadow": "2px 2px 4px rgba(0,0,0,0.8)",
+      "letterSpacing": "0.02em",
+      "lineHeight": 1.2
+    },
+    "background": {
+      "type": "box",
+      "color": "#000000",
+      "opacity": 0.9,
+      "borderRadius": 8,
+      "padding": "12px 16px",
+      "borderWidth": 0
+    },
+    "effects": {
+      "dropShadow": "0 4px 8px rgba(0,0,0,0.3)"
+    }
+  },
+
+  "layout": {
+    "track": {
+      "position": "bottom",
+      "safeArea": {
+        "top": "87.5%",
+        "bottom": "7.5%",
+        "left": "5%",
+        "right": "5%"
+      },
+      "maxWidth": "90%",
+      "alignment": "center"
+    },
+    "words": {
+      "spacing": "0.3em",
+      "lineBreaking": "auto",
+      "maxWordsPerLine": 8
+    }
+  },
+
+  "variables": {
+    "loud_threshold": {
+      "name": "Loud Volume Threshold",
+      "description": "Words louder than this threshold get emphasis animations",
+      "expression": "({{volume_statistics.global_max_db}} - {{volume_statistics.baseline_db}}) * 0.9 + {{volume_statistics.baseline_db}}",
+      "cached": true
+    },
+    "whisper_threshold": {
+      "name": "Whisper Volume Threshold",
+      "description": "Words quieter than this threshold get subtle animations",
+      "expression": "({{volume_statistics.baseline_db}} - {{volume_statistics.global_min_db}}) * 0.3 + {{volume_statistics.global_min_db}}",
+      "cached": true
+    },
+    "high_pitch_threshold": {
+      "name": "High Pitch Threshold",
+      "description": "Words with pitch higher than this get rotation effects",
+      "expression": "{{pitch_statistics.baseline_range.max_hz}} + ({{pitch_statistics.global_max_hz}} - {{pitch_statistics.baseline_range.max_hz}}) * 0.6",
+      "cached": true
+    },
+    "low_pitch_threshold": {
+      "name": "Low Pitch Threshold",
+      "description": "Words with pitch lower than this get different emphasis",
+      "expression": "{{pitch_statistics.baseline_range.min_hz}} - ({{pitch_statistics.baseline_range.min_hz}} - {{pitch_statistics.global_min_hz}}) * 0.6",
+      "cached": true
+    }
+  },
+
+  "animationRules": [
+    {
+      "id": "loud-bounce",
+      "name": "Loud Word Bounce",
+      "description": "Apply bouncing animation to loud words",
+      "condition": {
+        "field": "volume_db",
+        "operator": "gte",
+        "value": "{{loud_threshold}}"
+      },
+      "animation": {
+        "pluginName": "cwi-bouncing",
+        "params": {
+          "amplitude": [0.1, 0.3],
+          "frequency": [2, 4],
+          "damping": 0.8,
+          "direction": "vertical"
+        },
+        "timing": {
+          "offset": ["-0.1s", "+0.2s"],
+          "easing": "easeOutBounce"
+        },
+        "intensity": {
+          "min": 0.5,
+          "max": 1.0,
+          "mapping": "exponential"
+        }
+      },
+      "priority": 8,
+      "exclusive": false
+    },
+
+    {
+      "id": "high-pitch-rotation",
+      "name": "High Pitch Rotation",
+      "description": "Rotate words with high pitch for emphasis",
+      "condition": {
+        "field": "pitch_hz",
+        "operator": "gt",
+        "value": "{{high_pitch_threshold}}"
+      },
+      "animation": {
+        "pluginName": "rotation",
+        "params": {
+          "angle": [5, 15],
+          "axis": "z",
+          "oscillate": true,
+          "cycles": 2
+        },
+        "timing": {
+          "offset": ["-0.05s", "+0.1s"],
+          "easing": "easeInOutSine"
+        },
+        "intensity": {
+          "min": 0.3,
+          "max": 0.8,
+          "mapping": "linear"
+        }
+      },
+      "priority": 6,
+      "exclusive": false
+    },
+
+    {
+      "id": "emotional-scale",
+      "name": "Emotional Scaling",
+      "description": "Scale words in emotional segments",
+      "condition": {
+        "field": "segment.emotion.confidence",
+        "operator": "gt",
+        "value": 0.7,
+        "and": [
+          {
+            "field": "segment.emotion.emotion",
+            "operator": "in",
+            "value": ["joy", "anger", "surprise"]
+          }
+        ]
+      },
+      "animation": {
+        "pluginName": "elastic",
+        "params": {
+          "scale": [1.05, 1.15],
+          "elasticity": 0.6,
+          "duration": 0.3
+        },
+        "timing": {
+          "offset": ["0s", "+0.2s"],
+          "easing": "easeOutElastic"
+        },
+        "intensity": {
+          "min": 0.4,
+          "max": 0.9,
+          "mapping": "linear"
+        }
+      },
+      "priority": 7,
+      "exclusive": false
+    },
+
+    {
+      "id": "whisper-fade",
+      "name": "Whisper Fade Effect",
+      "description": "Subtle fade-in for very quiet words",
+      "condition": {
+        "field": "volume_db",
+        "operator": "lt",
+        "value": "{{whisper_threshold}}"
+      },
+      "animation": {
+        "pluginName": "fade",
+        "params": {
+          "startOpacity": 0.3,
+          "endOpacity": 1.0,
+          "fadeInDuration": 0.2
+        },
+        "timing": {
+          "offset": ["-0.1s", "0s"],
+          "easing": "easeInQuad"
+        },
+        "intensity": {
+          "min": 0.6,
+          "max": 1.0,
+          "mapping": "linear"
+        }
+      },
+      "priority": 4,
+      "exclusive": false
+    },
+
+    {
+      "id": "low-pitch-emphasis",
+      "name": "Low Pitch Emphasis",
+      "description": "Subtle glow effect for low-pitched words",
+      "condition": {
+        "field": "pitch_hz",
+        "operator": "lt",
+        "value": "{{low_pitch_threshold}}"
+      },
+      "animation": {
+        "pluginName": "glow",
+        "params": {
+          "color": "#ffffff",
+          "intensity": [0.2, 0.5],
+          "blur": [2, 4],
+          "spread": 1
+        },
+        "timing": {
+          "offset": ["0s", "+0.15s"],
+          "easing": "easeInOutQuad"
+        },
+        "intensity": {
+          "min": 0.3,
+          "max": 0.7,
+          "mapping": "logarithmic"
+        }
+      },
+      "priority": 5,
+      "exclusive": false
+    },
+
+    {
+      "id": "speaker-highlight",
+      "name": "Speaker Change Highlight",
+      "description": "Highlight words when speaker changes",
+      "condition": {
+        "field": "segment.speaker.speaker_id",
+        "operator": "neq",
+        "value": "{{previousSpeaker}}"
+      },
+      "animation": {
+        "pluginName": "highlight",
+        "params": {
+          "backgroundColor": "#ffff0033",
+          "duration": 0.5,
+          "fadeOut": true
+        },
+        "timing": {
+          "offset": ["-0.1s", "+0.4s"],
+          "easing": "easeOutQuad"
+        },
+        "intensity": {
+          "min": 0.5,
+          "max": 0.8,
+          "mapping": "linear"
+        }
+      },
+      "priority": 3,
+      "exclusive": false
+    },
+
+    {
+      "id": "question-bounce",
+      "name": "Question Mark Bounce",
+      "description": "Special animation for question words",
+      "condition": {
+        "field": "word",
+        "operator": "contains",
+        "value": "?",
+        "or": [
+          {
+            "field": "word",
+            "operator": "in",
+            "value": ["what", "why", "how", "when", "where", "who", "which"]
+          }
+        ]
+      },
+      "animation": {
+        "pluginName": "cwi-bouncing",
+        "params": {
+          "amplitude": [0.05, 0.15],
+          "frequency": [3, 5],
+          "damping": 0.9,
+          "direction": "vertical"
+        },
+        "timing": {
+          "offset": ["0s", "+0.3s"],
+          "easing": "easeOutBounce"
+        },
+        "intensity": {
+          "min": 0.6,
+          "max": 1.0,
+          "mapping": "linear"
+        }
+      },
+      "priority": 9,
+      "exclusive": false
+    }
+  ],
+
+  "metadata": {
+    "tags": ["emphasis", "dynamic", "audio-driven", "emotional"],
+    "useCase": ["conversation", "interview", "presentation", "storytelling"],
+    "audioFeatures": ["volume_db", "pitch_hz", "emotion", "speaker_id"],
+    "complexity": "moderate",
+    "performance": {
+      "estimatedRenderTime": "medium",
+      "memoryUsage": "medium"
+    },
+    "compatibility": {
+      "minRendererVersion": "2.0.0",
+      "supportedAspectRatios": ["16:9", "9:16", "1:1"]
+    }
+  }
+}

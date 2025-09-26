@@ -1,0 +1,1365 @@
+@import 'tailwindcss';
+
+/* Range slider styles for plugin controls */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-track {
+  background: #4b5563;
+  height: 8px;
+  border-radius: 4px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #7c3aed;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type='range']::-moz-range-track {
+  background: #4b5563;
+  height: 8px;
+  border-radius: 4px;
+  border: none;
+}
+
+input[type='range']::-moz-range-thumb {
+  background: #7c3aed;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+/* Custom scrollbar styles for dark dropdown */
+.dropdown-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand-sub) var(--color-brand-main);
+}
+
+.dropdown-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-brand-main);
+  border-radius: 3px;
+}
+
+.dropdown-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-brand-sub);
+  border-radius: 3px;
+}
+
+.dropdown-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-light);
+}
+
+/* Slide animations */
+@keyframes slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-right {
+  animation: slide-right 0.2s ease-out;
+}
+
+/* Shimmer animation for processing modal */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+/* Custom scrollbar with position indicator */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand-sub) #ffffff;
+  position: relative;
+}
+
+/* WebKit browsers custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 6px;
+  position: relative;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-brand-sub);
+  border-radius: 6px;
+  border: 2px solid #ffffff;
+  position: relative;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-main);
+}
+
+/* Scroll position indicator */
+.custom-scrollbar::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 12px;
+  height: var(--scroll-progress);
+  background: linear-gradient(180deg, #3b82f6 0%, #60a5fa 100%);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 6px;
+  transition: height 0.1s ease-out;
+}
+
+:root {
+  /* ========================================
+     COLOR SYSTEM
+     ======================================== */
+
+  /* Primary Colors - Brand Purple */
+  --color-primary: #7c3aed;
+  --color-primary-dark: #5b21b6;
+  --color-primary-light: #a855f7;
+  --color-primary-very-light: #f3e8ff;
+
+  /* Brand Colors */
+  --color-brand-main: #7c3aed;
+  --color-brand-sub: #a855f7;
+  --color-brand-dark: #5b21b6;
+  --color-brand-light: #f3e8ff;
+
+  /* Neutral Colors */
+  --color-black: #080808;
+  --color-white: #ffffff;
+  --color-gray-slate: #76797d;
+  --color-gray-medium: #e2e8f0;
+  --color-gray-light: #f8fafc;
+
+  /* Error Colors */
+  --color-red-50: #fef2f2;
+  --color-red-100: #fee2e2;
+  --color-red-200: #fecaca;
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
+
+  /* Status Light Colors - reusing existing colors where possible */
+  --color-informative: var(--color-primary); /* #146EF5 - reuse primary */
+  --color-neutral: var(--color-gray-slate); /* #76797d - reuse gray-slate */
+  --color-positive: #10b981;
+  --color-notice: #f59e0b;
+  --color-negative: var(--color-red-600); /* #DC2626 - reuse red-600 */
+  --color-indigo: #6366f1;
+  --color-celery: #84cc16;
+  --color-chartreuse: #a3e635;
+  --color-yellow: #eab308;
+  --color-magenta: #ec4899;
+  --color-fuchsia: #d946ef;
+  --color-purple: #8b5cf6;
+  --color-seafoam: #14b8a6;
+
+  /* Badge Colors - additional colors for extended palette */
+  --color-gray: var(--color-gray-slate);
+  --color-red: var(--color-red-600);
+  --color-orange: #ea580c;
+  --color-cyan: #0891b2;
+  --color-blue: var(--color-primary);
+
+  /* Alert Banner Colors - reusing existing color system */
+  --color-alert-neutral-bg: var(--color-gray-light); /* #F8FAFC */
+  --color-alert-informative-bg: var(--color-primary-very-light); /* #DBEAFE */
+  --color-alert-negative-bg: var(--color-red-50); /* #FEF2F2 */
+  --color-alert-neutral-text: #374151;
+  --color-alert-informative-text: #1e40af;
+  --color-alert-negative-text: var(
+    --color-red-700
+  ); /* #991B1B -> use existing red-700 */
+  --color-alert-neutral-border: var(
+    --color-gray-medium
+  ); /* #E5E7EB -> similar to gray-medium */
+  --color-alert-informative-border: #93c5fd;
+  --color-alert-negative-border: var(
+    --color-red-200
+  ); /* #FECACA -> use existing red-200 */
+
+  /* Theme Variables */
+  --background: var(--color-black);
+  --foreground: var(--color-white);
+
+  /* ========================================
+     LAYOUT SYSTEM
+     ======================================== */
+
+  /* Spacing & Sizing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* Border Radius */
+  --radius-default: 3px;
+  --radius-small: 8px;
+  --radius-full: 30px;
+
+  /* Border Width */
+  --border-thin: 1px;
+  --border-medium: 2px;
+  --border-thick: 4px;
+
+  /* ========================================
+     TYPOGRAPHY SYSTEM
+     ======================================== */
+
+  /* Font Families */
+  --font-primary:
+    var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Font Sizes */
+  --font-size-h1: clamp(2.5rem, 5vw, 3.5rem);
+  --font-size-h2: clamp(1.75rem, 3vw, 2.25rem);
+  --font-size-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --font-size-body: clamp(1rem, 1.5vw, 1.125rem);
+  --font-size-caption: clamp(0.75rem, 1vw, 0.875rem);
+
+  /* Animation Sidebar Typography (based on AssetCard patterns) */
+  --font-size-sidebar-title: 0.875rem; /* text-sm */
+  --font-size-sidebar-body: 0.875rem; /* text-sm */
+  --font-size-sidebar-caption: 0.75rem; /* text-xs */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* Line Heights & Letter Spacing */
+  --line-height-tight: 1.4;
+  --line-height-normal: 1.6;
+  --line-height-long: 1.8;
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-long: 0.01em;
+
+  /* ========================================
+     COMPONENT SYSTEM
+     ======================================== */
+
+  /* Icon Sizes */
+  --icon-size-small: 16px;
+  --icon-size-medium: 24px;
+  --icon-size-large: 32px;
+  --icon-size-social: 40px;
+  --icon-size-decorative: 64px;
+  --icon-size-favicon: 32px;
+  --icon-size-touch: 256px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 200ms ease-in-out;
+  --transition-slow: 300ms ease-in-out;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+/* Typography Classes */
+.text-h1 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.text-h2 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.text-h3 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.text-body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-long);
+  letter-spacing: var(--letter-spacing-long);
+}
+
+.text-caption {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+/* Font Weight Classes */
+.font-light {
+  font-weight: var(--font-weight-light);
+}
+.font-regular {
+  font-weight: var(--font-weight-regular);
+}
+.font-medium {
+  font-weight: var(--font-weight-medium);
+}
+.font-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+.font-bold {
+  font-weight: var(--font-weight-bold);
+}
+.font-black {
+  font-weight: var(--font-weight-black);
+}
+
+/* ========================================
+   BACKGROUND COLOR UTILITIES
+   ======================================== */
+
+.bg-background {
+  background-color: var(--color-black);
+}
+.bg-surface {
+  background-color: var(--color-white);
+}
+.bg-surface-secondary {
+  background-color: var(--color-gray-light);
+}
+
+/* Primary Colors */
+.bg-primary {
+  background-color: var(--color-primary);
+}
+.bg-primary-opaque {
+  background-color: rgba(20, 110, 245, 0.1);
+}
+.bg-primary-dark {
+  background-color: var(--color-primary-dark);
+}
+.bg-primary-light {
+  background-color: var(--color-primary-light);
+}
+.bg-primary-very-light {
+  background-color: var(--color-primary-very-light);
+}
+.bg-accent {
+  background-color: var(--color-positive);
+}
+.bg-secondary {
+  background-color: var(--color-gray-slate);
+}
+.bg-negative {
+  background-color: var(--color-negative);
+}
+
+/* Neutral Colors */
+.bg-white {
+  background-color: var(--color-white);
+}
+.bg-black {
+  background-color: var(--color-black);
+}
+.bg-gray-light {
+  background-color: var(--color-gray-light);
+}
+.bg-gray-medium {
+  background-color: var(--color-gray-medium);
+}
+.bg-gray-slate {
+  background-color: var(--color-gray-slate);
+}
+
+/* Error Colors */
+.bg-red-50 {
+  background-color: var(--color-red-50);
+}
+.bg-red-100 {
+  background-color: var(--color-red-100);
+}
+.bg-red-200 {
+  background-color: var(--color-red-200);
+}
+
+/* ========================================
+   HOVER UTILITIES
+   ======================================== */
+
+/* Hover Background Colors */
+.hover\:bg-primary:hover {
+  background-color: var(--color-primary);
+}
+.hover\:bg-primary-dark:hover {
+  background-color: var(--color-primary-dark);
+}
+.hover\:bg-primary-light:hover {
+  background-color: var(--color-primary-light);
+}
+.hover\:bg-surface-secondary:hover {
+  background-color: var(--color-gray-light);
+}
+.hover\:bg-gray-light:hover {
+  background-color: var(--color-gray-light);
+}
+.hover\:bg-gray-medium:hover {
+  background-color: var(--color-gray-medium);
+}
+.hover\:bg-gray-slate:hover {
+  background-color: var(--color-gray-slate);
+}
+.hover\:bg-black:hover {
+  background-color: var(--color-black);
+}
+.hover\:bg-white:hover {
+  background-color: var(--color-white);
+}
+.hover\:bg-red-100:hover {
+  background-color: var(--color-red-100);
+}
+.hover\:bg-red-200:hover {
+  background-color: var(--color-red-200);
+}
+
+/* Hover Text Colors */
+.hover\:text-white:hover {
+  color: var(--color-white);
+}
+.hover\:text-black:hover {
+  color: var(--color-black);
+}
+.hover\:text-primary:hover {
+  color: var(--color-primary);
+}
+
+/* ========================================
+   TEXT COLOR UTILITIES
+   ======================================== */
+
+/* Default Text Colors (for black background) */
+.text-text-primary {
+  color: var(--color-white);
+}
+.text-text-secondary {
+  color: var(--color-gray-medium);
+}
+.text-text-accent {
+  color: var(--color-primary-light);
+}
+
+/* Direct Color Classes */
+.text-primary {
+  color: var(--color-primary);
+}
+.text-white {
+  color: var(--color-white);
+}
+.text-black {
+  color: var(--color-black);
+}
+.text-red-600 {
+  color: var(--color-red-600);
+}
+.text-red-700 {
+  color: var(--color-red-700);
+}
+
+/* Status Color Text Classes (for semantic consistency) */
+.text-status-informative {
+  color: var(--color-informative);
+}
+.text-status-neutral {
+  color: var(--color-neutral);
+}
+.text-status-positive {
+  color: var(--color-positive);
+}
+.text-status-notice {
+  color: var(--color-notice);
+}
+.text-status-negative {
+  color: var(--color-negative);
+}
+
+/* Status Light Color Classes */
+.bg-status-informative {
+  background-color: var(--color-informative);
+}
+.bg-status-neutral {
+  background-color: var(--color-neutral);
+}
+.bg-status-positive {
+  background-color: var(--color-positive);
+}
+.bg-status-notice {
+  background-color: var(--color-notice);
+}
+.bg-status-negative {
+  background-color: var(--color-negative);
+}
+.bg-status-indigo {
+  background-color: var(--color-indigo);
+}
+.bg-status-celery {
+  background-color: var(--color-celery);
+}
+.bg-status-chartreuse {
+  background-color: var(--color-chartreuse);
+}
+.bg-status-yellow {
+  background-color: var(--color-yellow);
+}
+.bg-status-magenta {
+  background-color: var(--color-magenta);
+}
+.bg-status-fuchsia {
+  background-color: var(--color-fuchsia);
+}
+.bg-status-purple {
+  background-color: var(--color-purple);
+}
+.bg-status-seafoam {
+  background-color: var(--color-seafoam);
+}
+
+/* Badge Color Classes - extended color palette */
+.bg-badge-gray {
+  background-color: var(--color-gray);
+}
+.bg-badge-red {
+  background-color: var(--color-red);
+}
+.bg-badge-orange {
+  background-color: var(--color-orange);
+}
+.bg-badge-cyan {
+  background-color: var(--color-cyan);
+}
+.bg-badge-blue {
+  background-color: var(--color-blue);
+}
+
+.text-badge-gray {
+  color: var(--color-white);
+}
+.text-badge-red {
+  color: var(--color-white);
+}
+.text-badge-orange {
+  color: var(--color-white);
+}
+.text-badge-cyan {
+  color: var(--color-white);
+}
+.text-badge-blue {
+  color: var(--color-white);
+}
+
+/* Alert Banner Color Classes - using CSS variables */
+.bg-alert-neutral {
+  background-color: var(--color-alert-neutral-bg);
+}
+.bg-alert-informative {
+  background-color: var(--color-alert-informative-bg);
+}
+.bg-alert-negative {
+  background-color: var(--color-alert-negative-bg);
+}
+
+.text-alert-neutral {
+  color: var(--color-alert-neutral-text);
+}
+.text-alert-informative {
+  color: var(--color-alert-informative-text);
+}
+.text-alert-negative {
+  color: var(--color-alert-negative-text);
+}
+
+.border-alert-neutral {
+  border-color: var(--color-alert-neutral-border);
+}
+.border-alert-informative {
+  border-color: var(--color-alert-informative-border);
+}
+.border-alert-negative {
+  border-color: var(--color-alert-negative-border);
+}
+
+/* Contextual Text Colors (for light backgrounds) */
+.bg-white .text-text-primary,
+.bg-surface .text-text-primary,
+.bg-surface-secondary .text-text-primary,
+.bg-gray-light .text-text-primary {
+  color: var(--color-black);
+}
+
+.bg-white .text-text-secondary,
+.bg-surface .text-text-secondary,
+.bg-surface-secondary .text-text-secondary,
+.bg-gray-light .text-text-secondary {
+  color: var(--color-gray-slate);
+}
+
+/* ========================================
+   SHADOW UTILITIES
+   ======================================== */
+
+/* TailwindCSS provides basic shadow classes, we just ensure our variables work */
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+.shadow-none {
+  box-shadow: none;
+}
+
+.hover\:shadow-md:hover {
+  box-shadow: var(--shadow-md);
+}
+.active\:shadow-none:active {
+  box-shadow: none;
+}
+
+/* ========================================
+   TRANSFORM UTILITIES
+   ======================================== */
+
+.translate-y-px {
+  transform: translateY(1px);
+}
+.translate-y-0 {
+  transform: translateY(0);
+}
+
+/* Active Transform Classes */
+.active\:translate-y-px:active {
+  transform: translateY(1px);
+}
+.active\:translate-y-0:active {
+  transform: translateY(0);
+}
+
+/* ========================================
+   TRANSITION UTILITIES
+   ======================================== */
+
+.transition-all {
+  transition: all var(--transition-normal);
+}
+.transition-colors {
+  transition:
+    color,
+    background-color,
+    border-color var(--transition-normal);
+}
+.duration-200 {
+  transition-duration: 200ms;
+}
+.transform-none {
+  transform: none;
+}
+
+/* ========================================
+   LAYOUT UTILITIES
+   ======================================== */
+
+/* Border Colors */
+.border-border {
+  border-color: var(--color-gray-slate);
+}
+.border-primary {
+  border-color: var(--color-primary);
+}
+.border-white {
+  border-color: var(--color-white);
+}
+.border-black {
+  border-color: var(--color-black);
+}
+.border-red-200 {
+  border-color: var(--color-red-200);
+}
+
+/* Status Color Borders (for semantic consistency) */
+.border-status-informative {
+  border-color: var(--color-informative);
+}
+.border-status-neutral {
+  border-color: var(--color-neutral);
+}
+.border-status-positive {
+  border-color: var(--color-positive);
+}
+.border-status-notice {
+  border-color: var(--color-notice);
+}
+.border-status-negative {
+  border-color: var(--color-negative);
+}
+
+/* Border Radius */
+.rounded-default {
+  border-radius: var(--radius-default);
+}
+.rounded-small {
+  border-radius: var(--radius-small);
+}
+.rounded-full {
+  border-radius: var(--radius-full);
+}
+
+/* Border Width */
+.border-1 {
+  border-width: var(--border-thin);
+}
+.border-2 {
+  border-width: var(--border-medium);
+}
+.border-4 {
+  border-width: var(--border-thick);
+}
+
+/* ========================================
+   ICON UTILITIES
+   ======================================== */
+
+.icon-favicon {
+  width: var(--icon-size-favicon);
+  height: var(--icon-size-favicon);
+  color: var(--color-black);
+}
+.icon-touch {
+  width: var(--icon-size-touch);
+  height: var(--icon-size-touch);
+  color: var(--color-black);
+}
+.icon-ui-small {
+  width: var(--icon-size-small);
+  height: var(--icon-size-small);
+  color: var(--color-black);
+}
+.icon-ui-medium {
+  width: var(--icon-size-medium);
+  height: var(--icon-size-medium);
+  color: var(--color-black);
+}
+.icon-ui-large {
+  width: var(--icon-size-large);
+  height: var(--icon-size-large);
+  color: var(--color-black);
+}
+.icon-social {
+  width: var(--icon-size-social);
+  height: var(--icon-size-social);
+  color: var(--color-black);
+}
+.icon-decorative {
+  width: var(--icon-size-decorative);
+  height: var(--icon-size-decorative);
+  color: var(--color-black);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes blob {
+  0% {
+    transform: translate3d(0px, 0px, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(30px, -50px, 0) scale(1.1);
+  }
+  66% {
+    transform: translate3d(-20px, 20px, 0) scale(0.9);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* ========================================
+   SCROLL ANIMATIONS
+   ======================================== */
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-section.delay-1 {
+  transition-delay: 0.1s;
+}
+
+.fade-in-section.delay-2 {
+  transition-delay: 0.2s;
+}
+
+.fade-in-section.delay-3 {
+  transition-delay: 0.3s;
+}
+
+/* Hero section should be visible immediately */
+.fade-in-section:first-of-type {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Icon Grid Helper */
+.icon-grid {
+  background-image:
+    linear-gradient(to right, rgba(20, 110, 245, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 110, 245, 0.1) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+/* Icon Container */
+.icon-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-slate);
+  border-radius: var(--radius-default);
+}
+
+/* ========================================
+   PERFORMANCE OPTIMIZATION UTILITIES
+   ======================================== */
+
+/* GPU acceleration hints */
+.gpu-accelerated {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimized backdrop blur alternative */
+.backdrop-blur-optimized {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Replace expensive backdrop-blur with optimized version */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Performance optimized button hover states */
+.btn-hover-optimized {
+  transition:
+    background-color 0.15s ease-out,
+    color 0.15s ease-out;
+}
+
+.btn-hover-optimized:hover {
+  transform: none; /* Avoid expensive transforms on hover */
+}
+
+/* Dark theme dropdown styles for dashboard */
+.dropdown-dark button {
+  background: linear-gradient(to right, #475569, #64748b) !important;
+  border-color: rgba(71, 85, 105, 0.7) !important;
+  color: #e2e8f0 !important;
+  backdrop-filter: blur(4px);
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dropdown-dark button:hover {
+  background: linear-gradient(to right, #334155, #475569) !important;
+  border-color: rgba(148, 163, 184, 0.8) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.dropdown-dark button:focus {
+  border-color: rgba(148, 163, 184, 0.9) !important;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.2) !important;
+  outline: none !important;
+}
+
+.dropdown-dark ul {
+  background: linear-gradient(to bottom, #334155, #475569) !important;
+  border-color: rgba(71, 85, 105, 0.7) !important;
+  color: #e2e8f0 !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dropdown-dark li {
+  color: #e2e8f0 !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.dropdown-dark li:hover {
+  background: linear-gradient(to right, #475569, #64748b) !important;
+  color: white !important;
+}
+
+/* Custom dark theme checkbox */
+.custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #555555;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.custom-checkbox:hover {
+  border-color: #4a90e2;
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+.custom-checkbox:checked {
+  background-color: #4a90e2;
+  border-color: #4a90e2;
+}
+
+.custom-checkbox:checked::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.custom-checkbox:focus {
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+}
+
+.custom-checkbox:indeterminate {
+  background-color: #4a90e2;
+  border-color: #4a90e2;
+}
+
+.custom-checkbox:indeterminate::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 7px;
+  width: 8px;
+  height: 2px;
+  background-color: white;
+  transform: none;
+}
+
+/* Dark theme slider styles for editor */
+.dropdown-dark .bg-surface {
+  background: linear-gradient(to right, #475569, #64748b) !important;
+}
+
+.dropdown-dark .bg-surface-secondary {
+  background: linear-gradient(to right, #334155, #475569) !important;
+}
+
+.dropdown-dark .text-text-primary {
+  color: #e2e8f0 !important;
+}
+
+.dropdown-dark .text-text-secondary {
+  color: #94a3b8 !important;
+}
+
+.dropdown-dark .border-border {
+  border-color: rgba(71, 85, 105, 0.7) !important;
+}
+
+/* Sidebar slide animations */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
+
+/* Sidebar transition */
+.sidebar-transition {
+  transition:
+    transform 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+}
+
+.sidebar-hidden-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.sidebar-hidden-right {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.sidebar-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob-optimized {
+    animation: none;
+  }
+
+  .animate-slide-in-left,
+  .animate-slide-in-right,
+  .sidebar-transition {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   BRAND COLOR UTILITIES
+   ======================================== */
+
+/* Brand Background Colors */
+.bg-brand-main {
+  background-color: var(--color-brand-main);
+}
+.bg-brand-sub {
+  background-color: var(--color-brand-sub);
+}
+.bg-brand-dark {
+  background-color: var(--color-brand-dark);
+}
+.bg-brand-light {
+  background-color: var(--color-brand-light);
+}
+
+/* Brand Text Colors */
+.text-brand-main {
+  color: var(--color-brand-main);
+}
+.text-brand-sub {
+  color: var(--color-brand-sub);
+}
+.text-brand-dark {
+  color: var(--color-brand-dark);
+}
+
+/* Brand Border Colors */
+.border-brand-main {
+  border-color: var(--color-brand-main);
+}
+.border-brand-sub {
+  border-color: var(--color-brand-sub);
+}
+.border-brand-dark {
+  border-color: var(--color-brand-dark);
+}
+
+/* Brand Hover States */
+.hover\:bg-brand-main:hover {
+  background-color: var(--color-brand-main);
+}
+.hover\:bg-brand-sub:hover {
+  background-color: var(--color-brand-sub);
+}
+.hover\:text-brand-main:hover {
+  color: var(--color-brand-main);
+}
+.hover\:text-brand-sub:hover {
+  color: var(--color-brand-sub);
+}
+
+/* ========================================
+   ANIMATION SIDEBAR TYPOGRAPHY UTILITIES
+   ======================================== */
+
+/* Based on AssetCard and AssetGrid patterns */
+.text-sidebar-title {
+  font-size: var(--font-size-sidebar-title);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.text-sidebar-body {
+  font-size: var(--font-size-sidebar-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+}
+
+.text-sidebar-caption {
+  font-size: var(--font-size-sidebar-caption);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+}
+
+/* ========================================
+   MODERN BUTTON STYLES (Based on proposed designs)
+   ======================================== */
+
+/* Modern pill-shaped buttons with brand colors */
+.btn-modern-primary {
+  background-color: var(--color-brand-main);
+  color: white;
+  border: none;
+  border-radius: 9999px; /* fully rounded */
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-modern-primary:hover {
+  background-color: var(--color-brand-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+}
+
+.btn-modern-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(124, 58, 237, 0.25);
+}
+.btn-modern-black {
+  background-color: var(--color-black);
+  color: white;
+  border: none;
+  border-radius: 9999px; /* fully rounded */
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-modern-black:hover {
+  background-color: #1a1a1a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(8, 8, 8, 0.25);
+}
+.btn-modern-black:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(8, 8, 8, 0.25);
+}
+
+.btn-modern-secondary {
+  background-color: #f8fafc;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-modern-secondary:hover {
+  background-color: #f1f5f9;
+  color: #475569;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-modern-secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-modern-dark {
+  background-color: #1e293b;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-modern-dark:hover {
+  background-color: #0f172a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-modern-dark:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Size variations for modern buttons */
+.btn-modern-sm {
+  padding: 8px 16px;
+  font-size: 13px;
+}
+
+.btn-modern-lg {
+  padding: 16px 32px;
+  font-size: 16px;
+}
+
+/* Disabled state for modern buttons */
+.btn-modern-primary:disabled,
+.btn-modern-secondary:disabled,
+.btn-modern-dark:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Loading state for modern buttons */
+.btn-modern-loading {
+  pointer-events: none;
+  position: relative;
+}
+
+.btn-modern-loading::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

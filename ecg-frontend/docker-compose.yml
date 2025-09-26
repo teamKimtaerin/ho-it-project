@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      target: ${MODE:-dev}
+      args:
+        MODE: ${MODE:-dev}
+    ports:
+      - '${FRONTEND_PORT:-3000}:3000'
+    environment:
+      # Next.js 환경변수
+      - NODE_ENV=${NODE_ENV:-development}
+      - NEXT_TELEMETRY_DISABLED=1
+      - DOCKER=true
+      - BACKEND_URL=${BACKEND_URL:-http://localhost:8000}
+    volumes:
+      # 개발모드에서만 볼륨 마운트
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    stdin_open: true
+    tty: true
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:3000/api/health']
+      interval: 30s
+      timeout: 10s
+      start-period: 30s
+      retries: 3
+    networks:
+      - ecg-network
+
+networks:
+  ecg-network:
+    name: ecg-network
+    driver: bridge

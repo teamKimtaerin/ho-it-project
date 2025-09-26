@@ -1,0 +1,33 @@
+{
+  "id": "minimal-clean",
+  "name": "Minimal Clean",
+  "version": "1.0.0",
+  "description": "미니멀하고 깔끔한 디자인으로, 어떤 콘텐츠에도 잘 어울리는 기본 템플릿입니다.",
+  "category": "Basic",
+  "type": "free",
+  "author": "Design Team",
+  "thumbnail": "/templates/minimal-clean/thumbnail.svg",
+  "preview": {
+    "type": "color",
+    "value": "#f8f9fa"
+  },
+  "parameters": {
+    "backgroundColor": {
+      "type": "color",
+      "default": "#f8f9fa",
+      "label": "배경 색상"
+    },
+    "textColor": {
+      "type": "color",
+      "default": "#495057",
+      "label": "텍스트 색상"
+    },
+    "spacing": {
+      "type": "number",
+      "default": 20,
+      "min": 10,
+      "max": 50,
+      "label": "여백"
+    }
+  }
+}

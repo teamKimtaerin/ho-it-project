@@ -1,0 +1,37 @@
+{
+  "id": "neon-glow",
+  "name": "Neon Glow",
+  "version": "1.0.0",
+  "description": "네온 글로우 효과로 강렬하고 생생한 느낌을 연출하는 프리미엄 템플릿입니다.",
+  "category": "Effects",
+  "type": "premium",
+  "author": "FX Studio",
+  "thumbnail": "/templates/neon-glow/thumbnail.svg",
+  "preview": {
+    "type": "gradient",
+    "value": "#ff6b6b",
+    "secondary": "#4ecdc4"
+  },
+  "parameters": {
+    "glowColor": {
+      "type": "gradient",
+      "default": ["#ff6b6b", "#4ecdc4"],
+      "label": "글로우 색상"
+    },
+    "glowIntensity": {
+      "type": "number",
+      "default": 3,
+      "min": 1,
+      "max": 10,
+      "label": "글로우 강도"
+    },
+    "animationSpeed": {
+      "type": "number",
+      "default": 2,
+      "min": 0.5,
+      "max": 5,
+      "step": 0.5,
+      "label": "애니메이션 속도"
+    }
+  }
+}

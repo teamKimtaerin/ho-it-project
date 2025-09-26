@@ -1,0 +1,79 @@
+name: Frontend CI
+
+on:
+  # 풀 리퀘스트가 main, dev 브랜치를 대상으로 생성되거나 업데이트될 때 트리거
+  pull_request:
+    branches: ['main', 'dev']
+  # main, dev 브랜치에 코드가 푸시될 때 워크플로우를 트리거
+  push:
+    branches: ['main', 'dev']
+
+jobs:
+  # 가상 머신 프로비저닝
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 워크플로우가 저장소의 파일에 접근할 수 있도록 코드를 가져옴
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Next.js 프로젝트에 필요한 Node.js 버전을 설정
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'yarn'
+
+      # Yarn 최신 버전 활성화
+      - name: Enable Yarn
+        run: corepack enable
+
+      # Yarn 캐시 클리어
+      - name: Clear Yarn cache
+        run: yarn cache clean
+
+      # 의존성 설치
+      - name: Install dependencies
+        run: yarn install
+
+      # Prettier 포맷팅 검사
+      - name: Check code formatting
+        run: yarn format:check
+
+      # 코드 린팅 검사
+      - name: Run ESLint
+        run: yarn lint
+
+      # TypeScript 타입 체크
+      - name: Run TypeScript type check
+        run: yarn type-check
+
+      # 프로젝트 빌드
+      - name: Build project
+        run: yarn build
+
+      # Jest 단위 테스트 실행
+      - name: Run Jest unit tests
+        run: yarn test --ci --coverage --passWithNoTests
+        if: hashFiles('jest.config.*') != ''
+
+      # Playwright E2E 테스트 실행
+      - name: Install Playwright browsers
+        run: yarn playwright install --with-deps
+        if: hashFiles('playwright.config.*') != ''
+
+      - name: Run Playwright E2E tests
+        run: yarn test:e2e --reporter=list
+        if: hashFiles('playwright.config.*') != '' && hashFiles('tests/**/*.spec.*') != ''
+
+      # 테스트 결과 업로드 (실패 시 디버깅용)
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: test-results
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 7

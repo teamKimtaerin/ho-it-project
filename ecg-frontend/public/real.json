@@ -1,0 +1,4124 @@
+{
+  "metadata": {
+    "filename": "friends.mp4",
+    "duration": 143.39325,
+    "sample_rate": 16000,
+    "processed_at": "2025-09-02T23:14:20.931881",
+    "processing_time": 210.445225,
+    "total_segments": 25,
+    "unique_speakers": 4,
+    "dominant_emotion": "joy",
+    "avg_confidence": 0.9,
+    "processing_mode": "real_ml_models",
+    "config": {
+      "enable_gpu": false,
+      "segment_length": 5.0,
+      "language": "en",
+      "unified_model": "whisperx-base-with-diarization",
+      "emotion_model": "j-hartmann/emotion-english-distilroberta-base"
+    },
+    "subtitle_optimization": true
+  },
+  "speakers": {
+    "SPEAKER_03": {
+      "total_duration": 25.677999999999994,
+      "segment_count": 8,
+      "avg_confidence": 0.9,
+      "emotions": ["joy", "anger", "sadness"]
+    },
+    "SPEAKER_01": {
+      "total_duration": 28.625,
+      "segment_count": 10,
+      "avg_confidence": 0.9,
+      "emotions": ["anger", "joy"]
+    },
+    "SPEAKER_02": {
+      "total_duration": 28.64,
+      "segment_count": 6,
+      "avg_confidence": 0.9,
+      "emotions": ["anger", "sadness", "joy"]
+    },
+    "SPEAKER_00": {
+      "total_duration": 0.9659999999999798,
+      "segment_count": 1,
+      "avg_confidence": 0.9,
+      "emotions": ["joy"]
+    }
+  },
+  "segments": [
+    {
+      "start_time": 4.908,
+      "end_time": 8.754,
+      "duration": 3.845999999999999,
+      "speaker": {
+        "speaker_id": "SPEAKER_03",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "sadness",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.152,
+          "sadness": 0.152,
+          "anger": 0.148,
+          "fear": 0.14,
+          "surprise": 0.14,
+          "disgust": 0.133,
+          "neutral": 0.136
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 2423.8204379965805,
+        "spectral_rolloff": 4759.1038223140495,
+        "zero_crossing_rate": 0.17036173166322313,
+        "energy": 0.044201504439115524,
+        "pitch_mean": 1434.42041015625,
+        "pitch_std": 1114.5167236328125,
+        "mfcc_mean": [
+          -238.49871826171875, 50.113983154296875, 5.9943766593933105,
+          14.645605087280273, -16.042510986328125, 9.71273422241211,
+          -3.3477976322174072, -1.5124081373214722, -2.77310848236084,
+          -5.530782222747803, -2.656604290008545, -2.426649332046509,
+          3.9166183471679688
+        ]
+      },
+      "text": "You know, we should all do. Go see a musical.",
+      "words": [
+        {
+          "word": "You",
+          "start": 4.908,
+          "end": 4.988,
+          "confidence": 0.0,
+          "volume_db": -19.874582304601297,
+          "pitch_hz": 851.09765625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1877.9698904198722
+        },
+        {
+          "word": "know,",
+          "start": 5.008,
+          "end": 5.168,
+          "confidence": 0.0,
+          "volume_db": -19.360538387946107,
+          "pitch_hz": 1132.3160400390625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1597.9201982776942
+        },
+        {
+          "word": "we",
+          "start": 5.188,
+          "end": 5.269,
+          "confidence": 0.0,
+          "volume_db": -19.69437082221614,
+          "pitch_hz": 1744.360595703125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2168.705464251988
+        },
+        {
+          "word": "should",
+          "start": 5.289,
+          "end": 5.449,
+          "confidence": 0.0,
+          "volume_db": -28.749006170204055,
+          "pitch_hz": 2149.1044921875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3231.7833654931073
+        },
+        {
+          "word": "all",
+          "start": 5.649,
+          "end": 5.809,
+          "confidence": 0.0,
+          "volume_db": -20.284986922724283,
+          "pitch_hz": 891.5743408203125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1898.1078823794094
+        },
+        {
+          "word": "do.",
+          "start": 5.869,
+          "end": 6.05,
+          "confidence": 0.0,
+          "volume_db": -21.507772100561553,
+          "pitch_hz": 557.9385986328125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1910.9714922380754
+        },
+        {
+          "word": "Go",
+          "start": 6.11,
+          "end": 7.752,
+          "confidence": 0.0,
+          "volume_db": -34.38242700222419,
+          "pitch_hz": 1104.6513671875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2414.381269914449
+        },
+        {
+          "word": "see",
+          "start": 7.812,
+          "end": 8.033,
+          "confidence": 0.0,
+          "volume_db": -24.65820980952341,
+          "pitch_hz": 2344.689208984375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3496.4897370033614
+        },
+        {
+          "word": "a",
+          "start": 8.113,
+          "end": 8.153,
+          "confidence": 0.0,
+          "volume_db": -32.07647615169064,
+          "pitch_hz": 873.953369140625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1808.3474940417118
+        },
+        {
+          "word": "musical.",
+          "start": 8.273,
+          "end": 8.754,
+          "confidence": 0.0,
+          "volume_db": -30.149410036089286,
+          "pitch_hz": 1424.2364501953125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2441.8063744186793
+        }
+      ]
+    },
+    {
+      "start_time": 12.279,
+      "end_time": 12.74,
+      "duration": 0.4610000000000003,
+      "speaker": {
+        "speaker_id": "SPEAKER_01",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "joy",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.149,
+          "sadness": 0.138,
+          "anger": 0.145,
+          "fear": 0.143,
+          "surprise": 0.14,
+          "disgust": 0.14,
+          "neutral": 0.144
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 1432.6019050018583,
+        "spectral_rolloff": 2701.0416666666665,
+        "zero_crossing_rate": 0.078125,
+        "energy": 0.07392141222953796,
+        "pitch_mean": 1190.3065185546875,
+        "pitch_std": 880.5345458984375,
+        "mfcc_mean": [
+          -184.86131286621094, 112.48872375488281, -1.4068868160247803,
+          16.568073272705078, -12.469514846801758, -17.291765213012695,
+          -6.593441486358643, -7.37734317779541, -4.01040506362915,
+          -24.69162368774414, 13.324136734008789, 10.364981651306152,
+          -9.855883598327637
+        ]
+      },
+      "text": "Sure.",
+      "words": [
+        {
+          "word": "Sure.",
+          "start": 12.279,
+          "end": 12.74,
+          "confidence": 0.0,
+          "volume_db": -22.624594894839927,
+          "pitch_hz": 1190.3065185546875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1432.6019050018583
+        }
+      ]
+    },
+    {
+      "start_time": 12.78,
+      "end_time": 20.351,
+      "duration": 7.571,
+      "speaker": {
+        "speaker_id": "SPEAKER_03",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "joy",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.15,
+          "sadness": 0.146,
+          "anger": 0.148,
+          "fear": 0.141,
+          "surprise": 0.141,
+          "disgust": 0.135,
+          "neutral": 0.139
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 2351.0484172767347,
+        "spectral_rolloff": 4246.769514767932,
+        "zero_crossing_rate": 0.19199960443037975,
+        "energy": 0.05499750003218651,
+        "pitch_mean": 1695.7921142578125,
+        "pitch_std": 1086.122802734375,
+        "mfcc_mean": [
+          -199.1280059814453, 53.40414047241211, -12.610607147216797,
+          18.362031936645508, -9.86888599395752, 4.338550090789795,
+          -8.948587417602539, -8.429240226745605, -5.270861625671387,
+          -5.253878593444824, -6.8457112312316895, -8.661040306091309,
+          -0.11863315850496292
+        ]
+      },
+      "text": "And you know which one we should see? The 1996 Tony Award winner.",
+      "words": [
+        {
+          "word": "And",
+          "start": 12.78,
+          "end": 12.84,
+          "confidence": 0.0,
+          "volume_db": -18.46028405070465,
+          "pitch_hz": 429.5971374511719,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1041.4682285199842
+        },
+        {
+          "word": "you",
+          "start": 15.023,
+          "end": 15.103,
+          "confidence": 0.0,
+          "volume_db": -26.98977279056291,
+          "pitch_hz": 2173.449951171875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2352.089205023264
+        },
+        {
+          "word": "know",
+          "start": 15.123,
+          "end": 15.203,
+          "confidence": 0.0,
+          "volume_db": -18.34161781267283,
+          "pitch_hz": 1436.56005859375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2055.0166955138716
+        },
+        {
+          "word": "which",
+          "start": 15.223,
+          "end": 15.343,
+          "confidence": 0.0,
+          "volume_db": -30.472695412073065,
+          "pitch_hz": 1998.5980224609375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3122.1388554875334
+        },
+        {
+          "word": "one",
+          "start": 15.404,
+          "end": 15.464,
+          "confidence": 0.0,
+          "volume_db": -21.404934730127305,
+          "pitch_hz": 471.2284851074219,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1353.5022427251365
+        },
+        {
+          "word": "we",
+          "start": 15.504,
+          "end": 15.544,
+          "confidence": 0.0,
+          "volume_db": -24.332605338777142,
+          "pitch_hz": 2293.154296875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3059.996491939291
+        },
+        {
+          "word": "should",
+          "start": 15.584,
+          "end": 15.744,
+          "confidence": 0.0,
+          "volume_db": -30.621730058653466,
+          "pitch_hz": 2041.1873779296875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 4116.881353647456
+        },
+        {
+          "word": "see?",
+          "start": 15.804,
+          "end": 16.004,
+          "confidence": 0.0,
+          "volume_db": -19.811949569995807,
+          "pitch_hz": 2378.51904296875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2834.0499418313957
+        },
+        {
+          "word": "The",
+          "start": 16.024,
+          "end": 16.085,
+          "confidence": 0.0,
+          "volume_db": -29.65385812150279,
+          "pitch_hz": 358.8784484863281,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1318.30049334474
+        },
+        {
+          "word": "1996",
+          "start": 17.587,
+          "end": 19.269,
+          "confidence": 0.0,
+          "volume_db": -22.184738915958548,
+          "pitch_hz": 2211.2529296875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2824.9839045565277
+        },
+        {
+          "word": "Tony",
+          "start": 19.369,
+          "end": 19.73,
+          "confidence": 0.0,
+          "volume_db": -20.815782214155988,
+          "pitch_hz": 1880.6334228515625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2023.9296837542968
+        },
+        {
+          "word": "Award",
+          "start": 19.77,
+          "end": 20.091,
+          "confidence": 0.0,
+          "volume_db": -26.326393331726653,
+          "pitch_hz": 735.8668823242188,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1106.9843662026014
+        },
+        {
+          "word": "winner.",
+          "start": 20.131,
+          "end": 20.351,
+          "confidence": 0.0,
+          "volume_db": -30.29608814415443,
+          "pitch_hz": 1457.8643798828125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1831.7693356732577
+        }
+      ]
+    },
+    {
+      "start_time": 22.474,
+      "end_time": 23.996,
+      "duration": 1.5219999999999985,
+      "speaker": {
+        "speaker_id": "SPEAKER_03",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "anger",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.145,
+          "sadness": 0.143,
+          "anger": 0.147,
+          "fear": 0.146,
+          "surprise": 0.139,
+          "disgust": 0.137,
+          "neutral": 0.143
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 2225.5727715978805,
+        "spectral_rolloff": 3994.140625,
+        "zero_crossing_rate": 0.146636962890625,
+        "energy": 0.051858507096767426,
+        "pitch_mean": 1866.0911865234375,
+        "pitch_std": 1132.3544921875,
+        "mfcc_mean": [
+          -162.3927764892578, 50.79890060424805, -24.56052589416504,
+          18.334579467773438, -21.758575439453125, 7.7767510414123535,
+          -8.353312492370605, -8.645003318786621, -0.42373132705688477,
+          -7.36676549911499, -7.087584018707275, -5.767893314361572,
+          5.249164581298828
+        ]
+      },
+      "text": "Do you happen to know the name of that one?",
+      "words": [
+        {
+          "word": "Do",
+          "start": 22.474,
+          "end": 22.534,
+          "confidence": 0.0,
+          "volume_db": -27.754589162199963,
+          "pitch_hz": 2471.587646484375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3631.189055495031
+        },
+        {
+          "word": "you",
+          "start": 22.554,
+          "end": 22.634,
+          "confidence": 0.0,
+          "volume_db": -21.994115772636146,
+          "pitch_hz": 1273.283447265625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2089.0475274611813
+        },
+        {
+          "word": "happen",
+          "start": 22.694,
+          "end": 22.895,
+          "confidence": 0.0,
+          "volume_db": -28.31833209281882,
+          "pitch_hz": 1434.6201171875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2068.0140884130246
+        },
+        {
+          "word": "to",
+          "start": 22.935,
+          "end": 23.015,
+          "confidence": 0.0,
+          "volume_db": -31.368692130245265,
+          "pitch_hz": 1256.9803466796875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1831.8178610372925
+        },
+        {
+          "word": "know",
+          "start": 23.035,
+          "end": 23.135,
+          "confidence": 0.0,
+          "volume_db": -25.790403926225892,
+          "pitch_hz": 1401.9417724609375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2196.827932524001
+        },
+        {
+          "word": "the",
+          "start": 23.175,
+          "end": 23.255,
+          "confidence": 0.0,
+          "volume_db": -30.546002556060316,
+          "pitch_hz": 468.9639892578125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1426.681751879322
+        },
+        {
+          "word": "name",
+          "start": 23.315,
+          "end": 23.536,
+          "confidence": 0.0,
+          "volume_db": -24.451607684234034,
+          "pitch_hz": 2278.958740234375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2586.9973594794174
+        },
+        {
+          "word": "of",
+          "start": 23.596,
+          "end": 23.636,
+          "confidence": 0.0,
+          "volume_db": -30.19434520464867,
+          "pitch_hz": 941.8980712890625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2306.2181919410496
+        },
+        {
+          "word": "that",
+          "start": 23.676,
+          "end": 23.816,
+          "confidence": 0.0,
+          "volume_db": -25.522870394039458,
+          "pitch_hz": 1208.43115234375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1842.836367038461
+        },
+        {
+          "word": "one?",
+          "start": 23.896,
+          "end": 23.996,
+          "confidence": 0.0,
+          "volume_db": -30.36846667760073,
+          "pitch_hz": 338.92803955078125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1435.7404175458505
+        }
+      ]
+    },
+    {
+      "start_time": 25.378,
+      "end_time": 26.22,
+      "duration": 0.8419999999999987,
+      "speaker": {
+        "speaker_id": "SPEAKER_01",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "joy",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.148,
+          "sadness": 0.141,
+          "anger": 0.148,
+          "fear": 0.142,
+          "surprise": 0.139,
+          "disgust": 0.138,
+          "neutral": 0.144
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 1952.3409634738591,
+        "spectral_rolloff": 3455.150462962963,
+        "zero_crossing_rate": 0.14957682291666666,
+        "energy": 0.09003692120313644,
+        "pitch_mean": 1942.868408203125,
+        "pitch_std": 1308.79931640625,
+        "mfcc_mean": [
+          -141.438720703125, 72.17168426513672, 3.0518457889556885,
+          20.791053771972656, -1.9461089372634888, 8.056921005249023,
+          -10.571951866149902, -10.411823272705078, -5.692925930023193,
+          -15.802549362182617, -6.400598526000977, -3.8131837844848633,
+          -12.904067039489746
+        ]
+      },
+      "text": "I don't know, Greece.",
+      "words": [
+        {
+          "word": "I",
+          "start": 25.378,
+          "end": 25.398,
+          "confidence": 0.0,
+          "volume_db": -18.139119970338996,
+          "pitch_hz": 881.741455078125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1639.7237127693031
+        },
+        {
+          "word": "don't",
+          "start": 25.418,
+          "end": 25.519,
+          "confidence": 0.0,
+          "volume_db": -18.355598364920315,
+          "pitch_hz": 711.7509155273438,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1176.7334025625423
+        },
+        {
+          "word": "know,",
+          "start": 25.539,
+          "end": 25.639,
+          "confidence": 0.0,
+          "volume_db": -19.227396443340847,
+          "pitch_hz": 503.3401184082031,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 791.7015765044852
+        },
+        {
+          "word": "Greece.",
+          "start": 25.899,
+          "end": 26.22,
+          "confidence": 0.0,
+          "volume_db": -22.521632409238546,
+          "pitch_hz": 2275.47998046875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2958.477764613384
+        }
+      ]
+    },
+    {
+      "start_time": 28.563,
+      "end_time": 29.004,
+      "duration": 0.4410000000000025,
+      "speaker": {
+        "speaker_id": "SPEAKER_03",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "joy",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.15,
+          "sadness": 0.139,
+          "anger": 0.144,
+          "fear": 0.144,
+          "surprise": 0.14,
+          "disgust": 0.141,
+          "neutral": 0.143
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 1929.9941821750185,
+        "spectral_rolloff": 3689.7321428571427,
+        "zero_crossing_rate": 0.15066964285714285,
+        "energy": 0.12203169614076614,
+        "pitch_mean": 1516.123779296875,
+        "pitch_std": 961.097412109375,
+        "mfcc_mean": [
+          -103.01741027832031, 65.14466094970703, -31.500593185424805,
+          12.237920761108398, -17.750137329101562, 32.62470626831055,
+          12.147132873535156, -10.328567504882812, 2.335249662399292,
+          -5.757282257080078, -1.2340203523635864, -1.3312245607376099,
+          -2.344407796859741
+        ]
+      },
+      "text": "No.",
+      "words": [
+        {
+          "word": "No.",
+          "start": 28.563,
+          "end": 29.004,
+          "confidence": 0.0,
+          "volume_db": -18.270547046967597,
+          "pitch_hz": 1516.123779296875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1929.9941821750185
+        }
+      ]
+    },
+    {
+      "start_time": 32.028,
+      "end_time": 32.569,
+      "duration": 0.5410000000000039,
+      "speaker": {
+        "speaker_id": "SPEAKER_01",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "joy",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.148,
+          "sadness": 0.144,
+          "anger": 0.147,
+          "fear": 0.142,
+          "surprise": 0.14,
+          "disgust": 0.138,
+          "neutral": 0.141
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 2454.8740983095577,
+        "spectral_rolloff": 4755.055147058823,
+        "zero_crossing_rate": 0.17443129595588236,
+        "energy": 0.03256135433912277,
+        "pitch_mean": 1741.8466796875,
+        "pitch_std": 1198.4595947265625,
+        "mfcc_mean": [
+          -200.07144165039062, 55.98693084716797, -3.1387879848480225,
+          27.947498321533203, -11.254068374633789, -1.3481074571609497,
+          -10.33393383026123, -4.965208530426025, 11.222161293029785,
+          -2.1462934017181396, -8.28115463256836, -2.6531381607055664,
+          -3.587101697921753
+        ]
+      },
+      "text": "Rent.",
+      "words": [
+        {
+          "word": "Rent.",
+          "start": 32.028,
+          "end": 32.569,
+          "confidence": 0.0,
+          "volume_db": -29.745950792011016,
+          "pitch_hz": 1741.8466796875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2454.8740983095577
+        }
+      ]
+    },
+    {
+      "start_time": 33.815,
+      "end_time": 36.579,
+      "duration": 2.764000000000003,
+      "speaker": {
+        "speaker_id": "SPEAKER_03",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "joy",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.149,
+          "sadness": 0.142,
+          "anger": 0.146,
+          "fear": 0.14,
+          "surprise": 0.143,
+          "disgust": 0.136,
+          "neutral": 0.143
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 2364.8456546750995,
+        "spectral_rolloff": 4219.558189655172,
+        "zero_crossing_rate": 0.2170269845545977,
+        "energy": 0.058324914425611496,
+        "pitch_mean": 1633.159912109375,
+        "pitch_std": 1038.4461669921875,
+        "mfcc_mean": [
+          -106.92902374267578, 63.492000579833984, -25.297439575195312,
+          3.781907320022583, -16.590572357177734, 3.233938694000244,
+          -13.722250938415527, -6.650073528289795, -5.381712913513184,
+          -7.919439792633057, -9.450573921203613, -0.7521228194236755,
+          -1.1529489755630493
+        ]
+      },
+      "text": "Yes! Rent!",
+      "words": [
+        {
+          "word": "Yes!",
+          "start": 33.815,
+          "end": 34.616,
+          "confidence": 0.0,
+          "volume_db": -15.847979967215373,
+          "pitch_hz": 1915.0374755859375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3233.1405854433356
+        },
+        {
+          "word": "Rent!",
+          "start": 34.636,
+          "end": 36.579,
+          "confidence": 0.0,
+          "volume_db": -15.236579350055166,
+          "pitch_hz": 1571.1051025390625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1993.7980535155107
+        }
+      ]
+    },
+    {
+      "start_time": 36.599,
+      "end_time": 37.68,
+      "duration": 1.081000000000003,
+      "speaker": {
+        "speaker_id": "SPEAKER_01",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "anger",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.145,
+          "sadness": 0.143,
+          "anger": 0.149,
+          "fear": 0.143,
+          "surprise": 0.139,
+          "disgust": 0.139,
+          "neutral": 0.142
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 1683.9690696794735,
+        "spectral_rolloff": 3116.0386029411766,
+        "zero_crossing_rate": 0.12785788143382354,
+        "energy": 0.09444226324558258,
+        "pitch_mean": 1473.959716796875,
+        "pitch_std": 1041.794677734375,
+        "mfcc_mean": [
+          -95.87879180908203, 95.64911651611328, -31.210460662841797,
+          20.250133514404297, -15.490318298339844, -9.18250846862793,
+          -10.729655265808105, -8.21849250793457, -5.573751449584961,
+          -9.04834270477295, -6.769159317016602, 3.936981678009033,
+          -15.160089492797852
+        ]
+      },
+      "text": "Okay, so when do you want to go?",
+      "words": [
+        {
+          "word": "Okay,",
+          "start": 36.599,
+          "end": 36.959,
+          "confidence": 0.0,
+          "volume_db": -22.76883362268304,
+          "pitch_hz": 1613.4989013671875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1938.5573202382966
+        },
+        {
+          "word": "so",
+          "start": 36.979,
+          "end": 37.099,
+          "confidence": 0.0,
+          "volume_db": -22.40123868561248,
+          "pitch_hz": 1685.5081787109375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2230.4069649995236
+        },
+        {
+          "word": "when",
+          "start": 37.119,
+          "end": 37.2,
+          "confidence": 0.0,
+          "volume_db": -18.6145150609058,
+          "pitch_hz": 922.2083740234375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1402.4199822161718
+        },
+        {
+          "word": "do",
+          "start": 37.22,
+          "end": 37.26,
+          "confidence": 0.0,
+          "volume_db": -15.850769962075388,
+          "pitch_hz": 291.95025634765625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1641.5047777218924
+        },
+        {
+          "word": "you",
+          "start": 37.28,
+          "end": 37.34,
+          "confidence": 0.0,
+          "volume_db": -18.1489315598293,
+          "pitch_hz": 435.4761657714844,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1109.5330505425663
+        },
+        {
+          "word": "want",
+          "start": 37.36,
+          "end": 37.44,
+          "confidence": 0.0,
+          "volume_db": -18.357329908134627,
+          "pitch_hz": 980.9752197265625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1457.742828137776
+        },
+        {
+          "word": "to",
+          "start": 37.46,
+          "end": 37.5,
+          "confidence": 0.0,
+          "volume_db": -23.554305615809188,
+          "pitch_hz": 808.0903930664062,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1315.7900560214166
+        },
+        {
+          "word": "go?",
+          "start": 37.56,
+          "end": 37.68,
+          "confidence": 0.0,
+          "volume_db": -21.638809347756375,
+          "pitch_hz": 1164.6922607421875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1393.274381275596
+        }
+      ]
+    },
+    {
+      "start_time": 38.161,
+      "end_time": 40.464,
+      "duration": 2.3029999999999973,
+      "speaker": {
+        "speaker_id": "SPEAKER_03",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "sadness",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.151,
+          "sadness": 0.151,
+          "anger": 0.149,
+          "fear": 0.14,
+          "surprise": 0.14,
+          "disgust": 0.133,
+          "neutral": 0.136
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 2405.4137476757355,
+        "spectral_rolloff": 4615.885416666667,
+        "zero_crossing_rate": 0.20759412977430555,
+        "energy": 0.039538152515888214,
+        "pitch_mean": 1733.19189453125,
+        "pitch_std": 1109.5159912109375,
+        "mfcc_mean": [
+          -212.97314453125, 51.77928161621094, -20.254405975341797,
+          10.814221382141113, -18.78695297241211, 11.972578048706055,
+          -3.6596298217773438, -2.2325448989868164, 0.6751954555511475,
+          -2.490267753601074, -3.3089282512664795, -7.7918524742126465,
+          -1.7911616563796997
+        ]
+      },
+      "text": "What? Oh, I'm sorry I can't, I'm busy.",
+      "words": [
+        {
+          "word": "What?",
+          "start": 38.161,
+          "end": 38.361,
+          "confidence": 0.0,
+          "volume_db": -24.3254031324412,
+          "pitch_hz": 1741.965576171875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2075.2177119573307
+        },
+        {
+          "word": "Oh,",
+          "start": 39.222,
+          "end": 39.302,
+          "confidence": 0.0,
+          "volume_db": -18.210579455489633,
+          "pitch_hz": 1336.6033935546875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1618.8535405784303
+        },
+        {
+          "word": "I'm",
+          "start": 39.322,
+          "end": 39.443,
+          "confidence": 0.0,
+          "volume_db": -27.149476206317082,
+          "pitch_hz": 1655.578369140625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2484.7328174330423
+        },
+        {
+          "word": "sorry",
+          "start": 39.483,
+          "end": 39.663,
+          "confidence": 0.0,
+          "volume_db": -19.78513827510083,
+          "pitch_hz": 1439.3599853515625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2024.9451034474505
+        },
+        {
+          "word": "I",
+          "start": 39.683,
+          "end": 39.743,
+          "confidence": 0.0,
+          "volume_db": -26.508163374929836,
+          "pitch_hz": 1497.6072998046875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1863.3352421188115
+        },
+        {
+          "word": "can't,",
+          "start": 39.803,
+          "end": 40.063,
+          "confidence": 0.0,
+          "volume_db": -25.171101985013124,
+          "pitch_hz": 2156.85986328125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2391.862237713147
+        },
+        {
+          "word": "I'm",
+          "start": 40.123,
+          "end": 40.184,
+          "confidence": 0.0,
+          "volume_db": -33.27570042536027,
+          "pitch_hz": 357.9162902832031,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1455.132406267195
+        },
+        {
+          "word": "busy.",
+          "start": 40.204,
+          "end": 40.464,
+          "confidence": 0.0,
+          "volume_db": -34.613841532813325,
+          "pitch_hz": 991.962890625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2649.5946438850983
+        }
+      ]
+    },
+    {
+      "start_time": 44.229,
+      "end_time": 48.995,
+      "duration": 4.765999999999998,
+      "speaker": {
+        "speaker_id": "SPEAKER_02",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "joy",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.152,
+          "sadness": 0.151,
+          "anger": 0.148,
+          "fear": 0.14,
+          "surprise": 0.14,
+          "disgust": 0.133,
+          "neutral": 0.136
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 2142.4821738291007,
+        "spectral_rolloff": 4080.0650167785234,
+        "zero_crossing_rate": 0.17553547084731544,
+        "energy": 0.05922219157218933,
+        "pitch_mean": 1698.8466796875,
+        "pitch_std": 1114.1954345703125,
+        "mfcc_mean": [
+          -147.025146484375, 69.95096588134766, -12.919336318969727,
+          9.945032119750977, -7.823554515838623, 1.2295174598693848,
+          -1.1838626861572266, -2.0306994915008545, -7.57134485244751,
+          -0.8910931944847107, -7.189655303955078, 1.1315176486968994,
+          -5.099703788757324
+        ]
+      },
+      "text": "Hey, man, it is so hard to shop for girls.",
+      "words": [
+        {
+          "word": "Hey,",
+          "start": 44.229,
+          "end": 44.309,
+          "confidence": 0.0,
+          "volume_db": -27.25109773894767,
+          "pitch_hz": 1374.79541015625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1660.0124237939374
+        },
+        {
+          "word": "man,",
+          "start": 46.132,
+          "end": 46.552,
+          "confidence": 0.0,
+          "volume_db": -20.424977076464877,
+          "pitch_hz": 1386.2713623046875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1615.147656708604
+        },
+        {
+          "word": "it",
+          "start": 46.572,
+          "end": 46.632,
+          "confidence": 0.0,
+          "volume_db": -33.72102042813724,
+          "pitch_hz": 1453.0975341796875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1810.3985361767554
+        },
+        {
+          "word": "is",
+          "start": 46.732,
+          "end": 46.792,
+          "confidence": 0.0,
+          "volume_db": -20.465563672116577,
+          "pitch_hz": 2870.78173828125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 4456.164032492883
+        },
+        {
+          "word": "so",
+          "start": 46.913,
+          "end": 47.193,
+          "confidence": 0.0,
+          "volume_db": -19.97739591204534,
+          "pitch_hz": 1572.8948974609375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1726.79590419563
+        },
+        {
+          "word": "hard",
+          "start": 47.313,
+          "end": 47.614,
+          "confidence": 0.0,
+          "volume_db": -20.715169799309948,
+          "pitch_hz": 1129.4512939453125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1506.407913880114
+        },
+        {
+          "word": "to",
+          "start": 47.674,
+          "end": 47.774,
+          "confidence": 0.0,
+          "volume_db": -21.945009514442447,
+          "pitch_hz": 2299.38671875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3135.9633428500315
+        },
+        {
+          "word": "shop",
+          "start": 47.894,
+          "end": 48.194,
+          "confidence": 0.0,
+          "volume_db": -23.699281556649083,
+          "pitch_hz": 1691.983642578125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2279.894323802323
+        },
+        {
+          "word": "for",
+          "start": 48.254,
+          "end": 48.395,
+          "confidence": 0.0,
+          "volume_db": -29.42631447093953,
+          "pitch_hz": 704.2185668945312,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1702.5455330356551
+        },
+        {
+          "word": "girls.",
+          "start": 48.495,
+          "end": 48.995,
+          "confidence": 0.0,
+          "volume_db": -22.441729968887326,
+          "pitch_hz": 1281.11962890625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1659.0862515572296
+        }
+      ]
+    },
+    {
+      "start_time": 50.738,
+      "end_time": 52.861,
+      "duration": 2.1229999999999976,
+      "speaker": {
+        "speaker_id": "SPEAKER_01",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "joy",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.151,
+          "sadness": 0.148,
+          "anger": 0.147,
+          "fear": 0.139,
+          "surprise": 0.14,
+          "disgust": 0.135,
+          "neutral": 0.139
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 2404.058301357874,
+        "spectral_rolloff": 4401.4692164179105,
+        "zero_crossing_rate": 0.20383920242537312,
+        "energy": 0.06737211346626282,
+        "pitch_mean": 1837.280029296875,
+        "pitch_std": 1211.825439453125,
+        "mfcc_mean": [
+          -130.3123779296875, 50.17251205444336, -3.416853666305542,
+          20.408859252929688, -11.134552955627441, 5.529059410095215,
+          -15.494268417358398, -5.720500946044922, -3.0085699558258057,
+          -11.986907958984375, -6.5797319412231445, -4.456639766693115,
+          -0.3362596929073334
+        ]
+      },
+      "text": "Yes, it is at office max.",
+      "words": [
+        {
+          "word": "Yes,",
+          "start": 50.738,
+          "end": 50.918,
+          "confidence": 0.0,
+          "volume_db": -22.715038226030902,
+          "pitch_hz": 1792.867431640625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2866.197434985043
+        },
+        {
+          "word": "it",
+          "start": 50.978,
+          "end": 51.038,
+          "confidence": 0.0,
+          "volume_db": -19.044080038844882,
+          "pitch_hz": 764.8218994140625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2082.956910703153
+        },
+        {
+          "word": "is",
+          "start": 51.198,
+          "end": 51.339,
+          "confidence": 0.0,
+          "volume_db": -21.766957103706744,
+          "pitch_hz": 1394.05859375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1805.919034011761
+        },
+        {
+          "word": "at",
+          "start": 51.379,
+          "end": 51.559,
+          "confidence": 0.0,
+          "volume_db": -27.636956852472665,
+          "pitch_hz": 1100.8031005859375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1789.2352225053612
+        },
+        {
+          "word": "office",
+          "start": 51.839,
+          "end": 52.22,
+          "confidence": 0.0,
+          "volume_db": -25.54133875280916,
+          "pitch_hz": 1839.3468017578125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2869.9276686230296
+        },
+        {
+          "word": "max.",
+          "start": 52.4,
+          "end": 52.861,
+          "confidence": 0.0,
+          "volume_db": -23.94301703168553,
+          "pitch_hz": 1972.0810546875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2774.2698515496013
+        }
+      ]
+    },
+    {
+      "start_time": 55.905,
+      "end_time": 56.646,
+      "duration": 0.7409999999999997,
+      "speaker": {
+        "speaker_id": "SPEAKER_03",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "anger",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.146,
+          "sadness": 0.138,
+          "anger": 0.148,
+          "fear": 0.144,
+          "surprise": 0.139,
+          "disgust": 0.14,
+          "neutral": 0.145
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 2071.83936965783,
+        "spectral_rolloff": 3849.609375,
+        "zero_crossing_rate": 0.16719563802083334,
+        "energy": 0.09140308946371078,
+        "pitch_mean": 1549.58984375,
+        "pitch_std": 976.1690063476562,
+        "mfcc_mean": [
+          -65.65580749511719, 71.4635238647461, -43.8773078918457,
+          10.07434368133545, -14.360278129577637, -4.1828718185424805,
+          -15.769649505615234, -6.959661483764648, 3.523670196533203,
+          -20.892864227294922, -3.239276170730591, -14.330963134765625,
+          -4.6147284507751465
+        ]
+      },
+      "text": "What did you get her?",
+      "words": [
+        {
+          "word": "What",
+          "start": 55.905,
+          "end": 56.025,
+          "confidence": 0.0,
+          "volume_db": -19.893267159993,
+          "pitch_hz": 1271.781982421875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1995.5716404160678
+        },
+        {
+          "word": "did",
+          "start": 56.065,
+          "end": 56.165,
+          "confidence": 0.0,
+          "volume_db": -23.070026765927754,
+          "pitch_hz": 1588.5335693359375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2240.218185204755
+        },
+        {
+          "word": "you",
+          "start": 56.205,
+          "end": 56.285,
+          "confidence": 0.0,
+          "volume_db": -27.78084009518193,
+          "pitch_hz": 1458.081298828125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1750.7566443412209
+        },
+        {
+          "word": "get",
+          "start": 56.345,
+          "end": 56.505,
+          "confidence": 0.0,
+          "volume_db": -19.756420817848138,
+          "pitch_hz": 1766.236083984375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2116.307965798811
+        },
+        {
+          "word": "her?",
+          "start": 56.566,
+          "end": 56.646,
+          "confidence": 0.0,
+          "volume_db": -22.50387628351847,
+          "pitch_hz": 1395.8551025390625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1914.0247807679825
+        }
+      ]
+    },
+    {
+      "start_time": 56.686,
+      "end_time": 64.618,
+      "duration": 7.931999999999995,
+      "speaker": {
+        "speaker_id": "SPEAKER_02",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "sadness",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.153,
+          "sadness": 0.153,
+          "anger": 0.148,
+          "fear": 0.139,
+          "surprise": 0.14,
+          "disgust": 0.132,
+          "neutral": 0.135
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 2092.73536991423,
+        "spectral_rolloff": 3993.9201108870966,
+        "zero_crossing_rate": 0.17430853074596775,
+        "energy": 0.049889545887708664,
+        "pitch_mean": 1556.5897216796875,
+        "pitch_std": 1052.4444580078125,
+        "mfcc_mean": [
+          -191.0897216796875, 75.54542541503906, -19.722553253173828,
+          13.244239807128906, -15.10929012298584, 4.57623291015625,
+          -7.595585823059082, -1.8514074087142944, -3.3624937534332275,
+          -0.8663971424102783, -5.942065715789795, -0.3419399857521057,
+          -5.508596897125244
+        ]
+      },
+      "text": "A pen. It's two gifts in one. It's a pen. That's also a clock.",
+      "words": [
+        {
+          "word": "A",
+          "start": 56.686,
+          "end": 56.706,
+          "confidence": 0.0,
+          "volume_db": -36.20519984417068,
+          "pitch_hz": 1674.2197265625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1831.9646714391952
+        },
+        {
+          "word": "pen.",
+          "start": 59.189,
+          "end": 59.89,
+          "confidence": 0.0,
+          "volume_db": -27.876016417337503,
+          "pitch_hz": 1688.2049560546875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1919.0974344710696
+        },
+        {
+          "word": "It's",
+          "start": 61.372,
+          "end": 61.552,
+          "confidence": 0.0,
+          "volume_db": -27.834372192835566,
+          "pitch_hz": 1421.93115234375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3722.7197849142617
+        },
+        {
+          "word": "two",
+          "start": 61.572,
+          "end": 61.733,
+          "confidence": 0.0,
+          "volume_db": -20.308532853075878,
+          "pitch_hz": 1652.7698974609375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1855.5442561733028
+        },
+        {
+          "word": "gifts",
+          "start": 61.773,
+          "end": 61.973,
+          "confidence": 0.0,
+          "volume_db": -21.123834689013204,
+          "pitch_hz": 2378.00048828125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3120.009482893876
+        },
+        {
+          "word": "in",
+          "start": 62.033,
+          "end": 62.113,
+          "confidence": 0.0,
+          "volume_db": -22.193899064538748,
+          "pitch_hz": 593.20703125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1209.1224797501864
+        },
+        {
+          "word": "one.",
+          "start": 62.214,
+          "end": 62.334,
+          "confidence": 0.0,
+          "volume_db": -20.527384504491483,
+          "pitch_hz": 1183.752685546875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1383.5208340957383
+        },
+        {
+          "word": "It's",
+          "start": 62.354,
+          "end": 62.454,
+          "confidence": 0.0,
+          "volume_db": -23.501001474320272,
+          "pitch_hz": 1300.0238037109375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3215.1372395008216
+        },
+        {
+          "word": "a",
+          "start": 62.514,
+          "end": 62.534,
+          "confidence": 0.0,
+          "volume_db": -44.05091331497752,
+          "pitch_hz": 1258.861083984375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2043.451331345011
+        },
+        {
+          "word": "pen.",
+          "start": 62.594,
+          "end": 62.895,
+          "confidence": 0.0,
+          "volume_db": -20.058814734555316,
+          "pitch_hz": 1915.943603515625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1915.0830111008654
+        },
+        {
+          "word": "That's",
+          "start": 63.195,
+          "end": 63.416,
+          "confidence": 0.0,
+          "volume_db": -22.55374510959967,
+          "pitch_hz": 1637.996337890625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2752.6131457378265
+        },
+        {
+          "word": "also",
+          "start": 63.536,
+          "end": 63.877,
+          "confidence": 0.0,
+          "volume_db": -20.272866544332693,
+          "pitch_hz": 1826.40576171875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2452.3653855121247
+        },
+        {
+          "word": "a",
+          "start": 63.897,
+          "end": 63.917,
+          "confidence": 0.0,
+          "volume_db": -16.489447358736527,
+          "pitch_hz": 894.7636108398438,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1330.7424617005381
+        },
+        {
+          "word": "clock.",
+          "start": 64.137,
+          "end": 64.618,
+          "confidence": 0.0,
+          "volume_db": -23.40448287074402,
+          "pitch_hz": 1465.8809814453125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1795.314754124884
+        }
+      ]
+    },
+    {
+      "start_time": 67.624,
+      "end_time": 74.757,
+      "duration": 7.13300000000001,
+      "speaker": {
+        "speaker_id": "SPEAKER_01",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "joy",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.15,
+          "sadness": 0.147,
+          "anger": 0.148,
+          "fear": 0.141,
+          "surprise": 0.141,
+          "disgust": 0.134,
+          "neutral": 0.139
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 1933.8981829205225,
+        "spectral_rolloff": 3643.112387892377,
+        "zero_crossing_rate": 0.15624562079596413,
+        "energy": 0.06769436597824097,
+        "pitch_mean": 1508.3182373046875,
+        "pitch_std": 1002.9866943359375,
+        "mfcc_mean": [
+          -136.39990234375, 79.58404541015625, -31.193370819091797,
+          13.197469711303711, -15.396087646484375, 2.816762685775757,
+          -12.626331329345703, -7.046102046966553, -2.3202145099639893,
+          -2.6246252059936523, -9.554827690124512, -5.001512050628662,
+          -3.341507911682129
+        ]
+      },
+      "text": "You can't give her that. Why not? Because she's not 11. And it's not the seventh night of Hanukkah.",
+      "words": [
+        {
+          "word": "You",
+          "start": 67.624,
+          "end": 67.744,
+          "confidence": 0.0,
+          "volume_db": -22.258105704486635,
+          "pitch_hz": 793.2578125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1569.33352190116
+        },
+        {
+          "word": "can't",
+          "start": 67.804,
+          "end": 68.044,
+          "confidence": 0.0,
+          "volume_db": -22.607401339861823,
+          "pitch_hz": 1751.78662109375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1735.8591657896777
+        },
+        {
+          "word": "give",
+          "start": 68.105,
+          "end": 68.285,
+          "confidence": 0.0,
+          "volume_db": -21.29770747164365,
+          "pitch_hz": 1531.63720703125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1877.9380425352363
+        },
+        {
+          "word": "her",
+          "start": 68.325,
+          "end": 68.405,
+          "confidence": 0.0,
+          "volume_db": -21.909292728951254,
+          "pitch_hz": 957.1741943359375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1258.2490727797472
+        },
+        {
+          "word": "that.",
+          "start": 68.485,
+          "end": 68.706,
+          "confidence": 0.0,
+          "volume_db": -29.795302632736572,
+          "pitch_hz": 1959.27734375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2183.050932914585
+        },
+        {
+          "word": "Why",
+          "start": 69.487,
+          "end": 69.547,
+          "confidence": 0.0,
+          "volume_db": -22.511319152766074,
+          "pitch_hz": 676.1751708984375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1111.4747551427397
+        },
+        {
+          "word": "not?",
+          "start": 69.567,
+          "end": 69.768,
+          "confidence": 0.0,
+          "volume_db": -24.148698533287146,
+          "pitch_hz": 1082.675537109375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1352.4080168546045
+        },
+        {
+          "word": "Because",
+          "start": 69.828,
+          "end": 70.048,
+          "confidence": 0.0,
+          "volume_db": -21.715829501397167,
+          "pitch_hz": 1640.1719970703125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2099.3367592246263
+        },
+        {
+          "word": "she's",
+          "start": 70.068,
+          "end": 70.229,
+          "confidence": 0.0,
+          "volume_db": -19.422334350032287,
+          "pitch_hz": 2289.630615234375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2958.591582113386
+        },
+        {
+          "word": "not",
+          "start": 70.289,
+          "end": 70.409,
+          "confidence": 0.0,
+          "volume_db": -19.678862788833406,
+          "pitch_hz": 1419.41650390625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1843.5557549993646
+        },
+        {
+          "word": "11.",
+          "start": 70.429,
+          "end": 70.689,
+          "confidence": 0.0,
+          "volume_db": -20.544016341977766,
+          "pitch_hz": 1067.6627197265625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1749.442717855369
+        },
+        {
+          "word": "And",
+          "start": 70.73,
+          "end": 73.074,
+          "confidence": 0.0,
+          "volume_db": -22.429363986897577,
+          "pitch_hz": 1434.6949462890625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1734.61219050594
+        },
+        {
+          "word": "it's",
+          "start": 73.094,
+          "end": 73.194,
+          "confidence": 0.0,
+          "volume_db": -20.697352443874667,
+          "pitch_hz": 1918.7423095703125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2874.8057892697675
+        },
+        {
+          "word": "not",
+          "start": 73.214,
+          "end": 73.334,
+          "confidence": 0.0,
+          "volume_db": -24.445351177523808,
+          "pitch_hz": 1523.963623046875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1913.2113809841017
+        },
+        {
+          "word": "the",
+          "start": 73.374,
+          "end": 73.435,
+          "confidence": 0.0,
+          "volume_db": -20.552238359648094,
+          "pitch_hz": 1976.3079833984375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 4295.296323460984
+        },
+        {
+          "word": "seventh",
+          "start": 73.455,
+          "end": 73.755,
+          "confidence": 0.0,
+          "volume_db": -21.86052926708782,
+          "pitch_hz": 1361.564697265625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2058.5095139739888
+        },
+        {
+          "word": "night",
+          "start": 73.795,
+          "end": 73.915,
+          "confidence": 0.0,
+          "volume_db": -20.94237667536151,
+          "pitch_hz": 1517.99853515625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1856.8717566771431
+        },
+        {
+          "word": "of",
+          "start": 73.936,
+          "end": 73.976,
+          "confidence": 0.0,
+          "volume_db": -26.284983505020776,
+          "pitch_hz": 784.1177978515625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1799.3780085962037
+        },
+        {
+          "word": "Hanukkah.",
+          "start": 74.016,
+          "end": 74.757,
+          "confidence": 0.0,
+          "volume_db": -25.87054494129041,
+          "pitch_hz": 1357.2689208984375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1779.724712852154
+        }
+      ]
+    },
+    {
+      "start_time": 78.179,
+      "end_time": 84.669,
+      "duration": 6.489999999999995,
+      "speaker": {
+        "speaker_id": "SPEAKER_03",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "joy",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.15,
+          "sadness": 0.149,
+          "anger": 0.148,
+          "fear": 0.14,
+          "surprise": 0.14,
+          "disgust": 0.134,
+          "neutral": 0.139
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 2355.137092033856,
+        "spectral_rolloff": 4347.944889162562,
+        "zero_crossing_rate": 0.18128223137315272,
+        "energy": 0.047116972506046295,
+        "pitch_mean": 1580.4989013671875,
+        "pitch_std": 1059.12109375,
+        "mfcc_mean": [
+          -191.28163146972656, 55.0544548034668, -8.430837631225586,
+          17.683218002319336, -7.027551174163818, -6.3947296142578125,
+          -8.28980541229248, -4.70908260345459, -5.768928527832031,
+          -8.66436767578125, -7.189473628997803, -8.167827606201172,
+          2.0369884967803955
+        ]
+      },
+      "text": "Honey, what he means by that is, while this is a very nice gift, maybe it's just not something a boyfriend gives?",
+      "words": [
+        {
+          "word": "Honey,",
+          "start": 78.179,
+          "end": 78.96,
+          "confidence": 0.0,
+          "volume_db": -28.611621268289078,
+          "pitch_hz": 1577.2418212890625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2056.37262719326
+        },
+        {
+          "word": "what",
+          "start": 78.98,
+          "end": 79.121,
+          "confidence": 0.0,
+          "volume_db": -21.173686539842013,
+          "pitch_hz": 1216.2420654296875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1705.6503347344085
+        },
+        {
+          "word": "he",
+          "start": 79.161,
+          "end": 79.241,
+          "confidence": 0.0,
+          "volume_db": -18.568790346998963,
+          "pitch_hz": 1267.897216796875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1588.1354134947796
+        },
+        {
+          "word": "means",
+          "start": 79.301,
+          "end": 79.481,
+          "confidence": 0.0,
+          "volume_db": -24.104751930511647,
+          "pitch_hz": 2035.38427734375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2908.698781240917
+        },
+        {
+          "word": "by",
+          "start": 79.541,
+          "end": 79.621,
+          "confidence": 0.0,
+          "volume_db": -19.98341762659968,
+          "pitch_hz": 1485.4097900390625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1682.8016629224094
+        },
+        {
+          "word": "that",
+          "start": 79.681,
+          "end": 79.822,
+          "confidence": 0.0,
+          "volume_db": -21.832616859886272,
+          "pitch_hz": 1529.8271484375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1954.857835531679
+        },
+        {
+          "word": "is,",
+          "start": 79.882,
+          "end": 79.962,
+          "confidence": 0.0,
+          "volume_db": -24.116345454854404,
+          "pitch_hz": 500.3625793457031,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3123.4617593031508
+        },
+        {
+          "word": "while",
+          "start": 80.543,
+          "end": 80.703,
+          "confidence": 0.0,
+          "volume_db": -19.340314760716776,
+          "pitch_hz": 836.1353149414062,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1541.4515077090598
+        },
+        {
+          "word": "this",
+          "start": 80.723,
+          "end": 80.843,
+          "confidence": 0.0,
+          "volume_db": -27.88481473661018,
+          "pitch_hz": 1009.48388671875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3694.9885470911036
+        },
+        {
+          "word": "is",
+          "start": 80.883,
+          "end": 80.963,
+          "confidence": 0.0,
+          "volume_db": -26.74026105380902,
+          "pitch_hz": 674.3618774414062,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3576.017589746151
+        },
+        {
+          "word": "a",
+          "start": 81.004,
+          "end": 81.044,
+          "confidence": 0.0,
+          "volume_db": -24.416347550023232,
+          "pitch_hz": 748.3204345703125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1366.3421011197956
+        },
+        {
+          "word": "very",
+          "start": 81.184,
+          "end": 81.484,
+          "confidence": 0.0,
+          "volume_db": -20.786447058432124,
+          "pitch_hz": 1737.1634521484375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1852.949125521319
+        },
+        {
+          "word": "nice",
+          "start": 81.564,
+          "end": 81.765,
+          "confidence": 0.0,
+          "volume_db": -25.878200178801727,
+          "pitch_hz": 2013.5302734375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3152.4446866517646
+        },
+        {
+          "word": "gift,",
+          "start": 81.845,
+          "end": 82.105,
+          "confidence": 0.0,
+          "volume_db": -29.761446052060812,
+          "pitch_hz": 2111.617919921875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2800.914029398799
+        },
+        {
+          "word": "maybe",
+          "start": 82.486,
+          "end": 82.706,
+          "confidence": 0.0,
+          "volume_db": -20.870277915767062,
+          "pitch_hz": 1361.2760009765625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2178.998213992628
+        },
+        {
+          "word": "it's",
+          "start": 82.726,
+          "end": 82.806,
+          "confidence": 0.0,
+          "volume_db": -34.5198634078944,
+          "pitch_hz": 1969.8779296875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 4348.795091727188
+        },
+        {
+          "word": "just",
+          "start": 82.847,
+          "end": 82.987,
+          "confidence": 0.0,
+          "volume_db": -30.730779030438335,
+          "pitch_hz": 2218.434814453125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 4766.3612634300425
+        },
+        {
+          "word": "not",
+          "start": 83.027,
+          "end": 83.187,
+          "confidence": 0.0,
+          "volume_db": -29.699816013113907,
+          "pitch_hz": 1422.4459228515625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3369.8436049639554
+        },
+        {
+          "word": "something",
+          "start": 83.227,
+          "end": 83.528,
+          "confidence": 0.0,
+          "volume_db": -28.855860714853172,
+          "pitch_hz": 1241.5816650390625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2093.5068141558904
+        },
+        {
+          "word": "a",
+          "start": 83.548,
+          "end": 83.568,
+          "confidence": 0.0,
+          "volume_db": -30.69376683283208,
+          "pitch_hz": 692.8557739257812,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1519.9398476897272
+        },
+        {
+          "word": "boyfriend",
+          "start": 83.888,
+          "end": 84.329,
+          "confidence": 0.0,
+          "volume_db": -26.471260304000197,
+          "pitch_hz": 1304.8424072265625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1947.0884008578773
+        },
+        {
+          "word": "gives?",
+          "start": 84.369,
+          "end": 84.669,
+          "confidence": 0.0,
+          "volume_db": -32.4347229170821,
+          "pitch_hz": 1388.5574951171875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2899.4797583560694
+        }
+      ]
+    },
+    {
+      "start_time": 85.05,
+      "end_time": 91.861,
+      "duration": 6.811000000000007,
+      "speaker": {
+        "speaker_id": "SPEAKER_02",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "joy",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.15,
+          "sadness": 0.149,
+          "anger": 0.148,
+          "fear": 0.141,
+          "surprise": 0.139,
+          "disgust": 0.134,
+          "neutral": 0.138
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 2275.8001544567937,
+        "spectral_rolloff": 4095.107100938967,
+        "zero_crossing_rate": 0.18253466109154928,
+        "energy": 0.065152607858181,
+        "pitch_mean": 1819.834228515625,
+        "pitch_std": 1170.5186767578125,
+        "mfcc_mean": [
+          -169.18797302246094, 59.157779693603516, -9.167583465576172,
+          20.5725154876709, -10.313505172729492, 3.0798308849334717,
+          -6.615881443023682, -8.207623481750488, -13.09740161895752,
+          -9.709238052368164, -7.997714042663574, 1.0987169742584229,
+          -3.994649887084961
+        ]
+      },
+      "text": "Sure it is. She needs a pen for work. She's writing. She turns it over. Whoa! It's time for my date with Joey!",
+      "words": [
+        {
+          "word": "Sure",
+          "start": 85.05,
+          "end": 85.25,
+          "confidence": 0.0,
+          "volume_db": -21.890418005537562,
+          "pitch_hz": 1470.7608642578125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1617.14924420565
+        },
+        {
+          "word": "it",
+          "start": 85.331,
+          "end": 85.451,
+          "confidence": 0.0,
+          "volume_db": -21.06258031922476,
+          "pitch_hz": 1354.31591796875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1657.757704334244
+        },
+        {
+          "word": "is.",
+          "start": 85.471,
+          "end": 85.851,
+          "confidence": 0.0,
+          "volume_db": -21.101376454583733,
+          "pitch_hz": 1674.2275390625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1930.6510534138781
+        },
+        {
+          "word": "She",
+          "start": 85.891,
+          "end": 86.833,
+          "confidence": 0.0,
+          "volume_db": -33.8170994766732,
+          "pitch_hz": 2152.65771484375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3416.556117721207
+        },
+        {
+          "word": "needs",
+          "start": 86.893,
+          "end": 87.053,
+          "confidence": 0.0,
+          "volume_db": -21.751325610648877,
+          "pitch_hz": 1495.626953125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2374.375255358424
+        },
+        {
+          "word": "a",
+          "start": 87.113,
+          "end": 87.133,
+          "confidence": 0.0,
+          "volume_db": -43.19386407395649,
+          "pitch_hz": 1188.690185546875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1858.954566723213
+        },
+        {
+          "word": "pen",
+          "start": 87.173,
+          "end": 87.354,
+          "confidence": 0.0,
+          "volume_db": -22.969175218927784,
+          "pitch_hz": 1041.6890869140625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1518.3583474433617
+        },
+        {
+          "word": "for",
+          "start": 87.394,
+          "end": 87.514,
+          "confidence": 0.0,
+          "volume_db": -21.181299899723065,
+          "pitch_hz": 606.9093627929688,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1075.037863440784
+        },
+        {
+          "word": "work.",
+          "start": 87.574,
+          "end": 87.875,
+          "confidence": 0.0,
+          "volume_db": -22.681194141769232,
+          "pitch_hz": 1262.001953125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1472.7754024396515
+        },
+        {
+          "word": "She's",
+          "start": 88.335,
+          "end": 88.516,
+          "confidence": 0.0,
+          "volume_db": -24.082792093263606,
+          "pitch_hz": 2109.944580078125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3154.8090769499104
+        },
+        {
+          "word": "writing.",
+          "start": 88.616,
+          "end": 89.016,
+          "confidence": 0.0,
+          "volume_db": -20.99613401600033,
+          "pitch_hz": 1625.8143310546875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1483.7957855795628
+        },
+        {
+          "word": "She",
+          "start": 89.057,
+          "end": 89.237,
+          "confidence": 0.0,
+          "volume_db": -34.54709059183135,
+          "pitch_hz": 2376.4072265625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3240.8649234866884
+        },
+        {
+          "word": "turns",
+          "start": 89.277,
+          "end": 89.497,
+          "confidence": 0.0,
+          "volume_db": -22.27376072812959,
+          "pitch_hz": 1082.642333984375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1738.5560779564569
+        },
+        {
+          "word": "it",
+          "start": 89.557,
+          "end": 89.597,
+          "confidence": 0.0,
+          "volume_db": -17.994514183351537,
+          "pitch_hz": 1114.1748046875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1416.302268220244
+        },
+        {
+          "word": "over.",
+          "start": 89.698,
+          "end": 89.858,
+          "confidence": 0.0,
+          "volume_db": -21.098525058879538,
+          "pitch_hz": 604.24267578125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 982.2695065030794
+        },
+        {
+          "word": "Whoa!",
+          "start": 89.918,
+          "end": 90.299,
+          "confidence": 0.0,
+          "volume_db": -18.914607086399375,
+          "pitch_hz": 1799.7071533203125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2237.229280552139
+        },
+        {
+          "word": "It's",
+          "start": 90.599,
+          "end": 90.699,
+          "confidence": 0.0,
+          "volume_db": -21.174407347864076,
+          "pitch_hz": 2174.057373046875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3633.077817745267
+        },
+        {
+          "word": "time",
+          "start": 90.719,
+          "end": 90.819,
+          "confidence": 0.0,
+          "volume_db": -23.77888921748773,
+          "pitch_hz": 1377.8165283203125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2145.4275622354703
+        },
+        {
+          "word": "for",
+          "start": 90.839,
+          "end": 90.94,
+          "confidence": 0.0,
+          "volume_db": -17.89955740675633,
+          "pitch_hz": 874.6304931640625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1785.555631585703
+        },
+        {
+          "word": "my",
+          "start": 90.98,
+          "end": 91.1,
+          "confidence": 0.0,
+          "volume_db": -24.393545897948176,
+          "pitch_hz": 1377.073486328125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2258.720704414445
+        },
+        {
+          "word": "date",
+          "start": 91.12,
+          "end": 91.26,
+          "confidence": 0.0,
+          "volume_db": -25.42085398006423,
+          "pitch_hz": 1972.935302734375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2450.482470445134
+        },
+        {
+          "word": "with",
+          "start": 91.3,
+          "end": 91.42,
+          "confidence": 0.0,
+          "volume_db": -24.31097993564517,
+          "pitch_hz": 1848.7994384765625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3176.6186215293856
+        },
+        {
+          "word": "Joey!",
+          "start": 91.44,
+          "end": 91.861,
+          "confidence": 0.0,
+          "volume_db": -21.02267967272269,
+          "pitch_hz": 1458.3131103515625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1773.5589139447122
+        }
+      ]
+    },
+    {
+      "start_time": 94.866,
+      "end_time": 99.093,
+      "duration": 4.227000000000004,
+      "speaker": {
+        "speaker_id": "SPEAKER_01",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "anger",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.147,
+          "sadness": 0.145,
+          "anger": 0.148,
+          "fear": 0.143,
+          "surprise": 0.14,
+          "disgust": 0.136,
+          "neutral": 0.141
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 1914.7331755370517,
+        "spectral_rolloff": 3716.4591165413535,
+        "zero_crossing_rate": 0.14996108435150377,
+        "energy": 0.05258926749229431,
+        "pitch_mean": 1592.6634521484375,
+        "pitch_std": 1049.68994140625,
+        "mfcc_mean": [
+          -153.0819854736328, 84.62129974365234, -14.256562232971191,
+          10.64539623260498, -10.090230941772461, 2.1095728874206543,
+          -8.564427375793457, -5.8663835525512695, -2.15572190284729,
+          -5.972286224365234, -4.543984413146973, 1.1580448150634766,
+          -3.0906972885131836
+        ]
+      },
+      "text": "All right, look, look. What did you get for Angela Delvecchio for her birthday?",
+      "words": [
+        {
+          "word": "All",
+          "start": 94.866,
+          "end": 94.926,
+          "confidence": 0.0,
+          "volume_db": -19.24698114475322,
+          "pitch_hz": 1201.124267578125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1490.4637141823544
+        },
+        {
+          "word": "right,",
+          "start": 94.946,
+          "end": 95.066,
+          "confidence": 0.0,
+          "volume_db": -23.51787672122955,
+          "pitch_hz": 886.0071411132812,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1671.843449788577
+        },
+        {
+          "word": "look,",
+          "start": 95.086,
+          "end": 95.287,
+          "confidence": 0.0,
+          "volume_db": -27.19903762824849,
+          "pitch_hz": 1247.8812255859375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1559.100341450256
+        },
+        {
+          "word": "look.",
+          "start": 95.307,
+          "end": 95.547,
+          "confidence": 0.0,
+          "volume_db": -27.43135188715996,
+          "pitch_hz": 1511.9248046875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1778.87393743755
+        },
+        {
+          "word": "What",
+          "start": 96.769,
+          "end": 96.869,
+          "confidence": 0.0,
+          "volume_db": -18.989188081147486,
+          "pitch_hz": 1170.0516357421875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1433.4967287649115
+        },
+        {
+          "word": "did",
+          "start": 96.909,
+          "end": 96.989,
+          "confidence": 0.0,
+          "volume_db": -22.960208549966442,
+          "pitch_hz": 2218.78076171875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2678.2194819551178
+        },
+        {
+          "word": "you",
+          "start": 97.009,
+          "end": 97.089,
+          "confidence": 0.0,
+          "volume_db": -19.837144111076597,
+          "pitch_hz": 1578.857666015625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1801.2936452205838
+        },
+        {
+          "word": "get",
+          "start": 97.109,
+          "end": 97.21,
+          "confidence": 0.0,
+          "volume_db": -28.042428290087187,
+          "pitch_hz": 1323.68017578125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2074.5625185218523
+        },
+        {
+          "word": "for",
+          "start": 97.25,
+          "end": 97.33,
+          "confidence": 0.0,
+          "volume_db": -19.67709738812274,
+          "pitch_hz": 1654.375244140625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1701.2745279502235
+        },
+        {
+          "word": "Angela",
+          "start": 97.41,
+          "end": 97.73,
+          "confidence": 0.0,
+          "volume_db": -23.019105565665846,
+          "pitch_hz": 1468.5611572265625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1912.8858079600411
+        },
+        {
+          "word": "Delvecchio",
+          "start": 97.771,
+          "end": 98.331,
+          "confidence": 0.0,
+          "volume_db": -24.30678828063297,
+          "pitch_hz": 1485.604736328125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1864.0909326179599
+        },
+        {
+          "word": "for",
+          "start": 98.372,
+          "end": 98.472,
+          "confidence": 0.0,
+          "volume_db": -24.427230812112725,
+          "pitch_hz": 869.67041015625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1262.6791830364632
+        },
+        {
+          "word": "her",
+          "start": 98.532,
+          "end": 98.632,
+          "confidence": 0.0,
+          "volume_db": -23.826298803536346,
+          "pitch_hz": 674.9498291015625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 926.1082548597619
+        },
+        {
+          "word": "birthday?",
+          "start": 98.692,
+          "end": 99.093,
+          "confidence": 0.0,
+          "volume_db": -33.97845387668863,
+          "pitch_hz": 997.673583984375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1799.0052926572716
+        }
+      ]
+    },
+    {
+      "start_time": 99.894,
+      "end_time": 103.039,
+      "duration": 3.144999999999996,
+      "speaker": {
+        "speaker_id": "SPEAKER_01",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "joy",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.15,
+          "sadness": 0.148,
+          "anger": 0.149,
+          "fear": 0.141,
+          "surprise": 0.139,
+          "disgust": 0.134,
+          "neutral": 0.138
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 1936.4606615089224,
+        "spectral_rolloff": 3446.8907828282827,
+        "zero_crossing_rate": 0.15768031881313133,
+        "energy": 0.05787687748670578,
+        "pitch_mean": 1674.775634765625,
+        "pitch_std": 1107.5992431640625,
+        "mfcc_mean": [
+          -174.55474853515625, 81.51112365722656, -28.510499954223633,
+          28.598918914794922, -2.106947422027588, 4.291286468505859,
+          -0.07028171420097351, -7.917610168457031, -8.692482948303223,
+          -8.161186218261719, -6.933061599731445, 3.657123327255249,
+          -1.0948461294174194
+        ]
+      },
+      "text": "She didn't have a birthday while we were going out. For three years,",
+      "words": [
+        {
+          "word": "She",
+          "start": 99.894,
+          "end": 99.974,
+          "confidence": 0.0,
+          "volume_db": -23.945380311278925,
+          "pitch_hz": 2340.76611328125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2300.452628147815
+        },
+        {
+          "word": "didn't",
+          "start": 100.014,
+          "end": 100.174,
+          "confidence": 0.0,
+          "volume_db": -19.467632372543633,
+          "pitch_hz": 1342.577880859375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1501.2715345209979
+        },
+        {
+          "word": "have",
+          "start": 100.194,
+          "end": 100.315,
+          "confidence": 0.0,
+          "volume_db": -23.81790613606187,
+          "pitch_hz": 1362.9337158203125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1298.5135614142673
+        },
+        {
+          "word": "a",
+          "start": 100.335,
+          "end": 100.375,
+          "confidence": 0.0,
+          "volume_db": -29.10334192850695,
+          "pitch_hz": 371.2685241699219,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1258.8396890846418
+        },
+        {
+          "word": "birthday",
+          "start": 100.415,
+          "end": 100.695,
+          "confidence": 0.0,
+          "volume_db": -24.44252896267976,
+          "pitch_hz": 1181.6104736328125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1318.0633394134131
+        },
+        {
+          "word": "while",
+          "start": 100.735,
+          "end": 100.856,
+          "confidence": 0.0,
+          "volume_db": -21.980894911626734,
+          "pitch_hz": 795.1867065429688,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1133.633746490612
+        },
+        {
+          "word": "we",
+          "start": 100.896,
+          "end": 100.956,
+          "confidence": 0.0,
+          "volume_db": -25.488586542369056,
+          "pitch_hz": 824.1220703125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 997.9446246993878
+        },
+        {
+          "word": "were",
+          "start": 100.976,
+          "end": 101.076,
+          "confidence": 0.0,
+          "volume_db": -28.628937062441494,
+          "pitch_hz": 928.6805419921875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1238.155558152465
+        },
+        {
+          "word": "going",
+          "start": 101.116,
+          "end": 101.276,
+          "confidence": 0.0,
+          "volume_db": -27.12841123910776,
+          "pitch_hz": 1122.9361572265625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1345.378492341091
+        },
+        {
+          "word": "out.",
+          "start": 101.356,
+          "end": 101.456,
+          "confidence": 0.0,
+          "volume_db": -44.201809906341616,
+          "pitch_hz": 1786.02685546875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2300.2818426883255
+        },
+        {
+          "word": "For",
+          "start": 101.877,
+          "end": 101.977,
+          "confidence": 0.0,
+          "volume_db": -24.019896131370935,
+          "pitch_hz": 711.209716796875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1527.9483070393508
+        },
+        {
+          "word": "three",
+          "start": 102.077,
+          "end": 102.318,
+          "confidence": 0.0,
+          "volume_db": -20.57009398804453,
+          "pitch_hz": 1504.463623046875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1816.8448515610596
+        },
+        {
+          "word": "years,",
+          "start": 102.378,
+          "end": 103.039,
+          "confidence": 0.0,
+          "volume_db": -23.72063091138771,
+          "pitch_hz": 2277.12744140625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2818.046124129582
+        }
+      ]
+    },
+    {
+      "start_time": 106.276,
+      "end_time": 110.762,
+      "duration": 4.486000000000004,
+      "speaker": {
+        "speaker_id": "SPEAKER_02",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "joy",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.151,
+          "sadness": 0.15,
+          "anger": 0.148,
+          "fear": 0.141,
+          "surprise": 0.14,
+          "disgust": 0.133,
+          "neutral": 0.137
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 2214.7195977612955,
+        "spectral_rolloff": 4202.9033687943265,
+        "zero_crossing_rate": 0.17448262965425532,
+        "energy": 0.06326045840978622,
+        "pitch_mean": 1646.6126708984375,
+        "pitch_std": 1102.4718017578125,
+        "mfcc_mean": [
+          -135.3703155517578, 60.09159469604492, -13.897917747497559,
+          5.255007266998291, -21.889375686645508, -2.3642683029174805,
+          -16.689401626586914, -0.979533314704895, -12.285837173461914,
+          -2.820582628250122, -6.67048978805542, -6.251689910888672,
+          -2.7355809211730957
+        ]
+      },
+      "text": "Look, it's too late and I got an audition. I can't shop anymore.",
+      "words": [
+        {
+          "word": "Look,",
+          "start": 106.276,
+          "end": 107.097,
+          "confidence": 0.0,
+          "volume_db": -26.63450548442969,
+          "pitch_hz": 1361.46630859375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1833.932196769855
+        },
+        {
+          "word": "it's",
+          "start": 107.117,
+          "end": 107.237,
+          "confidence": 0.0,
+          "volume_db": -24.411291710770605,
+          "pitch_hz": 2040.3179931640625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 4050.6562767134465
+        },
+        {
+          "word": "too",
+          "start": 107.337,
+          "end": 107.578,
+          "confidence": 0.0,
+          "volume_db": -23.405511499270872,
+          "pitch_hz": 2169.24560546875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2670.7062433715755
+        },
+        {
+          "word": "late",
+          "start": 107.678,
+          "end": 108.018,
+          "confidence": 0.0,
+          "volume_db": -21.334058067290563,
+          "pitch_hz": 1799.3209228515625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2049.57094507255
+        },
+        {
+          "word": "and",
+          "start": 108.158,
+          "end": 108.259,
+          "confidence": 0.0,
+          "volume_db": -23.745687669794336,
+          "pitch_hz": 733.6331176757812,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1156.635114189197
+        },
+        {
+          "word": "I",
+          "start": 108.319,
+          "end": 108.419,
+          "confidence": 0.0,
+          "volume_db": -25.093884771147184,
+          "pitch_hz": 1700.7442626953125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1881.1710562286517
+        },
+        {
+          "word": "got",
+          "start": 108.439,
+          "end": 108.559,
+          "confidence": 0.0,
+          "volume_db": -21.50380993599834,
+          "pitch_hz": 1004.71728515625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1792.3002504151937
+        },
+        {
+          "word": "an",
+          "start": 108.619,
+          "end": 108.699,
+          "confidence": 0.0,
+          "volume_db": -19.12724045486676,
+          "pitch_hz": 919.189453125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1467.3049822196438
+        },
+        {
+          "word": "audition.",
+          "start": 108.759,
+          "end": 109.08,
+          "confidence": 0.0,
+          "volume_db": -24.667345235715324,
+          "pitch_hz": 1934.3365478515625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2777.869405191415
+        },
+        {
+          "word": "I",
+          "start": 109.12,
+          "end": 109.16,
+          "confidence": 0.0,
+          "volume_db": -31.58837366784581,
+          "pitch_hz": 1614.7398681640625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2487.2688220407445
+        },
+        {
+          "word": "can't",
+          "start": 109.24,
+          "end": 109.48,
+          "confidence": 0.0,
+          "volume_db": -30.830970678391605,
+          "pitch_hz": 1713.1534423828125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2404.3929126263065
+        },
+        {
+          "word": "shop",
+          "start": 109.6,
+          "end": 109.961,
+          "confidence": 0.0,
+          "volume_db": -24.814546828528982,
+          "pitch_hz": 1869.1400146484375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2462.126694311507
+        },
+        {
+          "word": "anymore.",
+          "start": 110.081,
+          "end": 110.762,
+          "confidence": 0.0,
+          "volume_db": -20.035695445177186,
+          "pitch_hz": 1164.0374755859375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1633.896167033191
+        }
+      ]
+    },
+    {
+      "start_time": 110.802,
+      "end_time": 117.771,
+      "duration": 6.968999999999994,
+      "speaker": {
+        "speaker_id": "SPEAKER_01",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "joy",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.149,
+          "sadness": 0.145,
+          "anger": 0.147,
+          "fear": 0.141,
+          "surprise": 0.141,
+          "disgust": 0.136,
+          "neutral": 0.141
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 1923.3360986633813,
+        "spectral_rolloff": 3704.200114678899,
+        "zero_crossing_rate": 0.16494722978784404,
+        "energy": 0.07011837512254715,
+        "pitch_mean": 1529.7108154296875,
+        "pitch_std": 1011.7706909179688,
+        "mfcc_mean": [
+          -121.4231185913086, 83.79228973388672, -34.03934860229492,
+          6.161643028259277, -17.33662223815918, 6.978724956512451,
+          -11.86955451965332, -8.53194522857666, 0.3596096336841583,
+          -4.65101957321167, -6.170460224151611, -0.7508937120437622,
+          -2.054818630218506
+        ]
+      },
+      "text": "I will go out and I will try to find something for her, okay? Thanks, man.",
+      "words": [
+        {
+          "word": "I",
+          "start": 110.802,
+          "end": 110.822,
+          "confidence": 0.0,
+          "volume_db": -21.71512383198567,
+          "pitch_hz": 1665.601806640625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2203.863990245246
+        },
+        {
+          "word": "will",
+          "start": 113.285,
+          "end": 113.465,
+          "confidence": 0.0,
+          "volume_db": -21.54786546282951,
+          "pitch_hz": 996.8989868164062,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1590.862809390299
+        },
+        {
+          "word": "go",
+          "start": 113.525,
+          "end": 113.665,
+          "confidence": 0.0,
+          "volume_db": -17.805911022714042,
+          "pitch_hz": 775.8218994140625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1397.778876074139
+        },
+        {
+          "word": "out",
+          "start": 113.806,
+          "end": 113.906,
+          "confidence": 0.0,
+          "volume_db": -21.320549458577915,
+          "pitch_hz": 1311.304931640625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1605.8211490362683
+        },
+        {
+          "word": "and",
+          "start": 114.006,
+          "end": 114.086,
+          "confidence": 0.0,
+          "volume_db": -20.519846898414542,
+          "pitch_hz": 1562.67041015625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1578.7094477541443
+        },
+        {
+          "word": "I",
+          "start": 114.126,
+          "end": 114.166,
+          "confidence": 0.0,
+          "volume_db": -20.30150297186494,
+          "pitch_hz": 1192.5655517578125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1541.3664182440439
+        },
+        {
+          "word": "will",
+          "start": 114.186,
+          "end": 114.326,
+          "confidence": 0.0,
+          "volume_db": -23.77902120295544,
+          "pitch_hz": 1786.153076171875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1996.576433025568
+        },
+        {
+          "word": "try",
+          "start": 114.346,
+          "end": 114.466,
+          "confidence": 0.0,
+          "volume_db": -21.30720776247443,
+          "pitch_hz": 1124.142822265625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1398.029383599519
+        },
+        {
+          "word": "to",
+          "start": 114.506,
+          "end": 114.567,
+          "confidence": 0.0,
+          "volume_db": -28.886447527267546,
+          "pitch_hz": 1592.6380615234375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2009.5688274959962
+        },
+        {
+          "word": "find",
+          "start": 114.647,
+          "end": 114.887,
+          "confidence": 0.0,
+          "volume_db": -21.91497541624985,
+          "pitch_hz": 1443.37841796875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1782.6902806308265
+        },
+        {
+          "word": "something",
+          "start": 114.947,
+          "end": 115.267,
+          "confidence": 0.0,
+          "volume_db": -28.372622328044088,
+          "pitch_hz": 1064.65869140625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1495.217594223864
+        },
+        {
+          "word": "for",
+          "start": 115.348,
+          "end": 115.568,
+          "confidence": 0.0,
+          "volume_db": -26.97872122566066,
+          "pitch_hz": 976.9662475585938,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1388.8555908038747
+        },
+        {
+          "word": "her,",
+          "start": 115.608,
+          "end": 115.748,
+          "confidence": 0.0,
+          "volume_db": -27.84600971709418,
+          "pitch_hz": 968.381591796875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1268.2941348917714
+        },
+        {
+          "word": "okay?",
+          "start": 115.768,
+          "end": 116.169,
+          "confidence": 0.0,
+          "volume_db": -27.811096894026544,
+          "pitch_hz": 1463.3092041015625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1841.1668148956485
+        },
+        {
+          "word": "Thanks,",
+          "start": 116.97,
+          "end": 117.39,
+          "confidence": 0.0,
+          "volume_db": -25.23982073602733,
+          "pitch_hz": 1859.7667236328125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2668.203803917051
+        },
+        {
+          "word": "man.",
+          "start": 117.47,
+          "end": 117.771,
+          "confidence": 0.0,
+          "volume_db": -19.75948519239653,
+          "pitch_hz": 1332.1470947265625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1487.3089302001206
+        }
+      ]
+    },
+    {
+      "start_time": 118.472,
+      "end_time": 120.694,
+      "duration": 2.2220000000000084,
+      "speaker": {
+        "speaker_id": "SPEAKER_02",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "anger",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.148,
+          "sadness": 0.146,
+          "anger": 0.149,
+          "fear": 0.143,
+          "surprise": 0.138,
+          "disgust": 0.136,
+          "neutral": 0.14
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 1621.5332216544455,
+        "spectral_rolloff": 3117.96875,
+        "zero_crossing_rate": 0.10694056919642857,
+        "energy": 0.052410054951906204,
+        "pitch_mean": 1151.9647216796875,
+        "pitch_std": 867.8230590820312,
+        "mfcc_mean": [
+          -212.45968627929688, 101.88839721679688, -16.31298065185547,
+          16.161752700805664, 0.49949803948402405, -2.4631543159484863,
+          -12.023924827575684, -3.509856700897217, -11.248062133789062,
+          -0.6794988512992859, -4.973209381103516, 5.048748970031738,
+          1.3551076650619507
+        ]
+      },
+      "text": "And oh, while you're at it, could you get her a card?",
+      "words": [
+        {
+          "word": "And",
+          "start": 118.472,
+          "end": 118.552,
+          "confidence": 0.0,
+          "volume_db": -26.758719599428584,
+          "pitch_hz": 1325.9873046875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1625.5154186144266
+        },
+        {
+          "word": "oh,",
+          "start": 118.652,
+          "end": 119.313,
+          "confidence": 0.0,
+          "volume_db": -37.5756853680672,
+          "pitch_hz": 959.1649780273438,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1808.5027934628476
+        },
+        {
+          "word": "while",
+          "start": 119.333,
+          "end": 119.473,
+          "confidence": 0.0,
+          "volume_db": -19.0603328238726,
+          "pitch_hz": 882.000244140625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1278.6967248597618
+        },
+        {
+          "word": "you're",
+          "start": 119.493,
+          "end": 119.613,
+          "confidence": 0.0,
+          "volume_db": -18.06792496601058,
+          "pitch_hz": 1314.113037109375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1247.3599707247827
+        },
+        {
+          "word": "at",
+          "start": 119.633,
+          "end": 119.713,
+          "confidence": 0.0,
+          "volume_db": -22.45128033193225,
+          "pitch_hz": 1353.11181640625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1414.909558115598
+        },
+        {
+          "word": "it,",
+          "start": 119.753,
+          "end": 119.813,
+          "confidence": 0.0,
+          "volume_db": -38.806974813280746,
+          "pitch_hz": 1641.3236083984375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2471.625533727144
+        },
+        {
+          "word": "could",
+          "start": 119.833,
+          "end": 119.953,
+          "confidence": 0.0,
+          "volume_db": -26.582718016445664,
+          "pitch_hz": 767.866455078125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1989.5998656311785
+        },
+        {
+          "word": "you",
+          "start": 119.973,
+          "end": 120.054,
+          "confidence": 0.0,
+          "volume_db": -28.386710558329547,
+          "pitch_hz": 1287.9105224609375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1730.6237610828605
+        },
+        {
+          "word": "get",
+          "start": 120.074,
+          "end": 120.174,
+          "confidence": 0.0,
+          "volume_db": -19.778969776779263,
+          "pitch_hz": 1205.1358642578125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1346.8845148833598
+        },
+        {
+          "word": "her",
+          "start": 120.194,
+          "end": 120.274,
+          "confidence": 0.0,
+          "volume_db": -21.911452937986414,
+          "pitch_hz": 1025.3123779296875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1224.0448021244122
+        },
+        {
+          "word": "a",
+          "start": 120.314,
+          "end": 120.334,
+          "confidence": 0.0,
+          "volume_db": -38.518453570339155,
+          "pitch_hz": 1849.9637451171875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2599.875716261906
+        },
+        {
+          "word": "card?",
+          "start": 120.394,
+          "end": 120.694,
+          "confidence": 0.0,
+          "volume_db": -25.766140209134065,
+          "pitch_hz": 1019.4329833984375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1283.977945673291
+        }
+      ]
+    },
+    {
+      "start_time": 122.296,
+      "end_time": 124.399,
+      "duration": 2.1029999999999944,
+      "speaker": {
+        "speaker_id": "SPEAKER_01",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "anger",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.147,
+          "sadness": 0.143,
+          "anger": 0.149,
+          "fear": 0.144,
+          "surprise": 0.14,
+          "disgust": 0.136,
+          "neutral": 0.142
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 1303.9558766791674,
+        "spectral_rolloff": 2594.933712121212,
+        "zero_crossing_rate": 0.08570075757575757,
+        "energy": 0.10076163709163666,
+        "pitch_mean": 1026.3072509765625,
+        "pitch_std": 976.711181640625,
+        "mfcc_mean": [
+          -132.66554260253906, 120.2200927734375, -7.5112175941467285,
+          18.192506790161133, -23.577312469482422, -2.4955360889434814,
+          -2.409106492996216, -12.407613754272461, -5.357180595397949,
+          -11.731339454650879, -9.0314359664917, -0.2825319170951843,
+          -4.323391437530518
+        ]
+      },
+      "text": "Would you like me to write her a little poem as well?",
+      "words": [
+        {
+          "word": "Would",
+          "start": 122.296,
+          "end": 122.417,
+          "confidence": 0.0,
+          "volume_db": -20.683062239112186,
+          "pitch_hz": 796.9984130859375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1389.5613914216435
+        },
+        {
+          "word": "you",
+          "start": 122.457,
+          "end": 122.557,
+          "confidence": 0.0,
+          "volume_db": -17.600974240298616,
+          "pitch_hz": 447.6913146972656,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1015.2494638342703
+        },
+        {
+          "word": "like",
+          "start": 122.597,
+          "end": 122.877,
+          "confidence": 0.0,
+          "volume_db": -26.250022570370678,
+          "pitch_hz": 1180.5611572265625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1435.1087838472401
+        },
+        {
+          "word": "me",
+          "start": 122.917,
+          "end": 122.957,
+          "confidence": 0.0,
+          "volume_db": -17.69149269747403,
+          "pitch_hz": 482.5881652832031,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 887.7367130236396
+        },
+        {
+          "word": "to",
+          "start": 122.997,
+          "end": 123.037,
+          "confidence": 0.0,
+          "volume_db": -17.90853679273535,
+          "pitch_hz": 690.956298828125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1049.9947399839834
+        },
+        {
+          "word": "write",
+          "start": 123.057,
+          "end": 123.198,
+          "confidence": 0.0,
+          "volume_db": -19.084284598793534,
+          "pitch_hz": 486.61773681640625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1280.4875168881813
+        },
+        {
+          "word": "her",
+          "start": 123.238,
+          "end": 123.318,
+          "confidence": 0.0,
+          "volume_db": -17.286312089110414,
+          "pitch_hz": 705.363525390625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1100.3945770886714
+        },
+        {
+          "word": "a",
+          "start": 123.338,
+          "end": 123.358,
+          "confidence": 0.0,
+          "volume_db": -19.07104982880633,
+          "pitch_hz": 524.6090087890625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1110.9292205396491
+        },
+        {
+          "word": "little",
+          "start": 123.378,
+          "end": 123.558,
+          "confidence": 0.0,
+          "volume_db": -22.40277463626091,
+          "pitch_hz": 523.3135986328125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 904.220469817099
+        },
+        {
+          "word": "poem",
+          "start": 123.618,
+          "end": 123.979,
+          "confidence": 0.0,
+          "volume_db": -17.96134886453868,
+          "pitch_hz": 857.4799194335938,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1230.974152313088
+        },
+        {
+          "word": "as",
+          "start": 124.059,
+          "end": 124.139,
+          "confidence": 0.0,
+          "volume_db": -26.85195216239991,
+          "pitch_hz": 2110.673583984375,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3239.8556917000174
+        },
+        {
+          "word": "well?",
+          "start": 124.179,
+          "end": 124.399,
+          "confidence": 0.0,
+          "volume_db": -19.002455534855024,
+          "pitch_hz": 812.960205078125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1228.4101001443112
+        }
+      ]
+    },
+    {
+      "start_time": 125.861,
+      "end_time": 128.284,
+      "duration": 2.4229999999999876,
+      "speaker": {
+        "speaker_id": "SPEAKER_02",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "anger",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.147,
+          "sadness": 0.144,
+          "anger": 0.148,
+          "fear": 0.143,
+          "surprise": 0.14,
+          "disgust": 0.137,
+          "neutral": 0.141
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 1887.2825445796318,
+        "spectral_rolloff": 3632.1957236842104,
+        "zero_crossing_rate": 0.1330052425986842,
+        "energy": 0.053741343319416046,
+        "pitch_mean": 1392.93359375,
+        "pitch_std": 1090.1229248046875,
+        "mfcc_mean": [
+          -195.0245361328125, 82.86746978759766, -8.624719619750977,
+          14.219738006591797, -5.914858341217041, 0.8738325834274292,
+          -8.33437728881836, -4.640791416168213, -10.568615913391113,
+          -0.5360571146011353, -5.874708652496338, 4.462192058563232,
+          1.5759303569793701
+        ]
+      },
+      "text": "Or just get a card that has a poem already in it?",
+      "words": [
+        {
+          "word": "Or",
+          "start": 125.861,
+          "end": 125.981,
+          "confidence": 0.0,
+          "volume_db": -19.30291152538603,
+          "pitch_hz": 936.7943725585938,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1339.396800350273
+        },
+        {
+          "word": "just",
+          "start": 126.462,
+          "end": 126.642,
+          "confidence": 0.0,
+          "volume_db": -24.8141914245842,
+          "pitch_hz": 2644.888671875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 3489.1635874444605
+        },
+        {
+          "word": "get",
+          "start": 126.742,
+          "end": 126.862,
+          "confidence": 0.0,
+          "volume_db": -21.676336461192523,
+          "pitch_hz": 1354.9517822265625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1600.291690571409
+        },
+        {
+          "word": "a",
+          "start": 126.922,
+          "end": 126.942,
+          "confidence": 0.0,
+          "volume_db": -34.41762620776716,
+          "pitch_hz": 1376.4073486328125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2584.2523055723914
+        },
+        {
+          "word": "card",
+          "start": 126.982,
+          "end": 127.143,
+          "confidence": 0.0,
+          "volume_db": -20.74665524692643,
+          "pitch_hz": 846.85107421875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1232.6805587511126
+        },
+        {
+          "word": "that",
+          "start": 127.163,
+          "end": 127.263,
+          "confidence": 0.0,
+          "volume_db": -17.936333949024476,
+          "pitch_hz": 995.4243774414062,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1520.7674935028735
+        },
+        {
+          "word": "has",
+          "start": 127.283,
+          "end": 127.383,
+          "confidence": 0.0,
+          "volume_db": -24.68940003612206,
+          "pitch_hz": 915.8273315429688,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2436.5034982943794
+        },
+        {
+          "word": "a",
+          "start": 127.423,
+          "end": 127.443,
+          "confidence": 0.0,
+          "volume_db": -38.026352607377795,
+          "pitch_hz": 1459.4639892578125,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 2297.3413395446587
+        },
+        {
+          "word": "poem",
+          "start": 127.463,
+          "end": 127.683,
+          "confidence": 0.0,
+          "volume_db": -19.747043715424226,
+          "pitch_hz": 704.6688842773438,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1091.482996466731
+        },
+        {
+          "word": "already",
+          "start": 127.743,
+          "end": 127.924,
+          "confidence": 0.0,
+          "volume_db": -23.816600535156066,
+          "pitch_hz": 893.1802368164062,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1472.4414136380192
+        },
+        {
+          "word": "in",
+          "start": 127.944,
+          "end": 128.004,
+          "confidence": 0.0,
+          "volume_db": -27.776810215887227,
+          "pitch_hz": 722.6190185546875,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1388.257644980346
+        },
+        {
+          "word": "it?",
+          "start": 128.024,
+          "end": 128.284,
+          "confidence": 0.0,
+          "volume_db": -47.47235395304293,
+          "pitch_hz": 758.1949462890625,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1882.6107181345744
+        }
+      ]
+    },
+    {
+      "start_time": 142.473,
+      "end_time": 143.439,
+      "duration": 0.9659999999999798,
+      "speaker": {
+        "speaker_id": "SPEAKER_00",
+        "confidence": 0.9,
+        "gender": null,
+        "age_group": null
+      },
+      "emotion": {
+        "emotion": "joy",
+        "confidence": 0.3,
+        "probabilities": {
+          "joy": 0.15,
+          "sadness": 0.142,
+          "anger": 0.145,
+          "fear": 0.143,
+          "surprise": 0.139,
+          "disgust": 0.14,
+          "neutral": 0.142
+        }
+      },
+      "acoustic_features": {
+        "spectral_centroid": 1224.1427971162136,
+        "spectral_rolloff": 2802.532327586207,
+        "zero_crossing_rate": 0.06810681573275862,
+        "energy": 0.015898052603006363,
+        "pitch_mean": 786.6083374023438,
+        "pitch_std": 761.2141723632812,
+        "mfcc_mean": [
+          -330.6069641113281, 116.6789779663086, 7.51411771774292,
+          47.84406280517578, 2.8031837940216064, 7.869020462036133,
+          4.291265964508057, -9.646984100341797, -7.22291374206543,
+          -8.064458847045898, -1.380569338798523, -5.724270343780518,
+          -5.132674694061279
+        ]
+      },
+      "text": "you",
+      "words": [
+        {
+          "word": "you",
+          "start": 142.473,
+          "end": 143.439,
+          "confidence": 0.0,
+          "volume_db": -35.973121407383495,
+          "pitch_hz": 786.6083374023438,
+          "harmonics_ratio": 1.0,
+          "spectral_centroid": 1224.1427971162136
+        }
+      ]
+    }
+  ],
+  "volume_statistics": {
+    "global_min_db": -47.47235395304293,
+    "global_max_db": -15.850769962075388,
+    "global_mean_db": -24.34942604181825,
+    "baseline_db": -23.0445661657968,
+    "whisper_threshold_db": -27.093751626971546,
+    "loud_threshold_db": -20.5567022667472
+  },
+  "pitch_statistics": {
+    "global_min_hz": 291.95025634765625,
+    "global_max_hz": 2870.78173828125,
+    "global_mean_hz": 1345.8361987304688,
+    "baseline_range": {
+      "min_hz": 1085.7572229003906,
+      "max_hz": 1531.3294970703125
+    }
+  },
+  "harmonics_statistics": {
+    "global_min_ratio": 1.0,
+    "global_max_ratio": 1.0,
+    "global_mean_ratio": 1.0,
+    "baseline_ratio": 1.0
+  },
+  "spectral_statistics": {
+    "global_min_hz": 791.7015765044852,
+    "global_max_hz": 4766.3612634300425,
+    "global_mean_hz": 1996.145294093602,
+    "baseline_hz": 1831.8912662382438
+  },
+  "subtitle_optimized_segments": [
+    {
+      "start_time": 4.908,
+      "end_time": 8.754,
+      "duration": 3.845999999999999,
+      "text": "You know, we should all do. Go see a musical.",
+      "speaker_id": "SPEAKER_03",
+      "confidence": 0.9,
+      "word_count": 10,
+      "characters_per_second": 11.7,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 12.279,
+      "end_time": 12.74,
+      "duration": 0.4610000000000003,
+      "text": "Sure.",
+      "speaker_id": "SPEAKER_01",
+      "confidence": 0.9,
+      "word_count": 1,
+      "characters_per_second": 10.85,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 12.78,
+      "end_time": 16.78,
+      "duration": 4.000000000000002,
+      "text": "And you know which one we should see?",
+      "speaker_id": "SPEAKER_03",
+      "confidence": 0.9,
+      "word_count": 8,
+      "characters_per_second": 7.94,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 17.43907692307692,
+      "end_time": 20.351,
+      "duration": 2.9119230769230775,
+      "text": "The 1996 Tony Award winner.",
+      "speaker_id": "SPEAKER_03",
+      "confidence": 0.9,
+      "word_count": 5,
+      "characters_per_second": 9.27,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 22.474,
+      "end_time": 23.996,
+      "duration": 1.5219999999999985,
+      "text": "Do you happen to know the name of that one?",
+      "speaker_id": "SPEAKER_03",
+      "confidence": 0.9,
+      "word_count": 10,
+      "characters_per_second": 28.25,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 25.378,
+      "end_time": 26.22,
+      "duration": 0.8419999999999987,
+      "text": "I don't know, Greece.",
+      "speaker_id": "SPEAKER_01",
+      "confidence": 0.9,
+      "word_count": 4,
+      "characters_per_second": 24.94,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 28.563,
+      "end_time": 29.004,
+      "duration": 0.4410000000000025,
+      "text": "No.",
+      "speaker_id": "SPEAKER_03",
+      "confidence": 0.9,
+      "word_count": 1,
+      "characters_per_second": 6.8,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 32.028,
+      "end_time": 32.569,
+      "duration": 0.5410000000000039,
+      "text": "Rent.",
+      "speaker_id": "SPEAKER_01",
+      "confidence": 0.9,
+      "word_count": 1,
+      "characters_per_second": 9.24,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 33.815,
+      "end_time": 36.579,
+      "duration": 2.764000000000003,
+      "text": "Yes! Rint!",
+      "speaker_id": "SPEAKER_03",
+      "confidence": 0.9,
+      "word_count": 2,
+      "characters_per_second": 3.62,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 36.599,
+      "end_time": 37.68,
+      "duration": 1.081000000000003,
+      "text": "Okay, so when do you want to go?",
+      "speaker_id": "SPEAKER_01",
+      "confidence": 0.9,
+      "word_count": 8,
+      "characters_per_second": 29.6,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 38.161,
+      "end_time": 40.464,
+      "duration": 2.3029999999999973,
+      "text": "What? Oh, I'm sorry I can't, I'm busy.",
+      "speaker_id": "SPEAKER_03",
+      "confidence": 0.9,
+      "word_count": 8,
+      "characters_per_second": 16.5,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 44.229,
+      "end_time": 48.229,
+      "duration": 4.0,
+      "text": "Hey, man, it is so hard to shop for girls.",
+      "speaker_id": "SPEAKER_02",
+      "confidence": 0.9,
+      "word_count": 10,
+      "characters_per_second": 8.81,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 50.738,
+      "end_time": 52.861,
+      "duration": 2.1229999999999976,
+      "text": "Yes, it is at office max.",
+      "speaker_id": "SPEAKER_01",
+      "confidence": 0.9,
+      "word_count": 6,
+      "characters_per_second": 11.78,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 55.905,
+      "end_time": 56.646,
+      "duration": 0.7409999999999997,
+      "text": "What did you get her?",
+      "speaker_id": "SPEAKER_03",
+      "confidence": 0.9,
+      "word_count": 5,
+      "characters_per_second": 28.34,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 56.686,
+      "end_time": 57.886,
+      "duration": 1.2000000000000028,
+      "text": "A pen.",
+      "speaker_id": "SPEAKER_02",
+      "confidence": 0.9,
+      "word_count": 2,
+      "characters_per_second": 5.3,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 57.81914285714286,
+      "end_time": 60.652,
+      "duration": 2.8328571428571436,
+      "text": "It's two gifts in one.",
+      "speaker_id": "SPEAKER_02",
+      "confidence": 0.9,
+      "word_count": 5,
+      "characters_per_second": 7.77,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 60.652,
+      "end_time": 62.35171428571428,
+      "duration": 1.699714285714279,
+      "text": "It's a pen.",
+      "speaker_id": "SPEAKER_02",
+      "confidence": 0.9,
+      "word_count": 3,
+      "characters_per_second": 6.47,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 62.35171428571428,
+      "end_time": 64.618,
+      "duration": 2.266285714285715,
+      "text": "That's also a clock.",
+      "speaker_id": "SPEAKER_02",
+      "confidence": 0.9,
+      "word_count": 4,
+      "characters_per_second": 8.83,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 67.624,
+      "end_time": 69.5011052631579,
+      "duration": 1.877105263157901,
+      "text": "You can't give her that.",
+      "speaker_id": "SPEAKER_01",
+      "confidence": 0.9,
+      "word_count": 5,
+      "characters_per_second": 12.79,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 69.5011052631579,
+      "end_time": 70.7011052631579,
+      "duration": 1.2000000000000028,
+      "text": "Why not?",
+      "speaker_id": "SPEAKER_01",
+      "confidence": 0.9,
+      "word_count": 2,
+      "characters_per_second": 10.65,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 70.25194736842106,
+      "end_time": 71.75363157894736,
+      "duration": 1.5016842105263066,
+      "text": "Because she's not 11.",
+      "speaker_id": "SPEAKER_01",
+      "confidence": 0.9,
+      "word_count": 4,
+      "characters_per_second": 13.98,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 71.75363157894736,
+      "end_time": 74.757,
+      "duration": 3.0033684210526417,
+      "text": "And it's not the seventh night of Hanukkah.",
+      "speaker_id": "SPEAKER_01",
+      "confidence": 0.9,
+      "word_count": 8,
+      "characters_per_second": 14.32,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 78.179,
+      "end_time": 82.179,
+      "duration": 4.0,
+      "text": "Honey, what he means by that is, while this is a very nice gift, maybe it's just not something a boyfriend gives?",
+      "speaker_id": "SPEAKER_03",
+      "confidence": 0.9,
+      "word_count": 22,
+      "characters_per_second": 17.41,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 85.05,
+      "end_time": 86.25,
+      "duration": 1.2000000000000028,
+      "text": "Sure it is.",
+      "speaker_id": "SPEAKER_02",
+      "confidence": 0.9,
+      "word_count": 3,
+      "characters_per_second": 12.38,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 85.93839130434782,
+      "end_time": 87.71517391304347,
+      "duration": 1.7767826086956546,
+      "text": "She needs a pen for work.",
+      "speaker_id": "SPEAKER_02",
+      "confidence": 0.9,
+      "word_count": 6,
+      "characters_per_second": 14.07,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 87.71517391304347,
+      "end_time": 88.91517391304347,
+      "duration": 1.2000000000000028,
+      "text": "She's writing.",
+      "speaker_id": "SPEAKER_02",
+      "confidence": 0.9,
+      "word_count": 2,
+      "characters_per_second": 23.64,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 88.3074347826087,
+      "end_time": 89.5074347826087,
+      "duration": 1.2000000000000028,
+      "text": "She turns it over.",
+      "speaker_id": "SPEAKER_02",
+      "confidence": 0.9,
+      "word_count": 4,
+      "characters_per_second": 15.2,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 89.49195652173913,
+      "end_time": 90.69195652173913,
+      "duration": 1.2000000000000028,
+      "text": "Whoa!",
+      "speaker_id": "SPEAKER_02",
+      "confidence": 0.9,
+      "word_count": 1,
+      "characters_per_second": 16.88,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 89.78808695652174,
+      "end_time": 91.861,
+      "duration": 2.072913043478266,
+      "text": "It's time for my date with Joey!",
+      "speaker_id": "SPEAKER_02",
+      "confidence": 0.9,
+      "word_count": 7,
+      "characters_per_second": 15.44,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 94.866,
+      "end_time": 96.07371428571429,
+      "duration": 1.2077142857142888,
+      "text": "All right, look, look.",
+      "speaker_id": "SPEAKER_01",
+      "confidence": 0.9,
+      "word_count": 4,
+      "characters_per_second": 18.22,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 96.07371428571429,
+      "end_time": 99.093,
+      "duration": 3.019285714285715,
+      "text": "What did you get for Angela Delvecchio for her birthday?",
+      "speaker_id": "SPEAKER_01",
+      "confidence": 0.9,
+      "word_count": 10,
+      "characters_per_second": 18.55,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 99.894,
+      "end_time": 103.039,
+      "duration": 3.144999999999996,
+      "text": "She didn't have a birthday while we were going out. For three years,",
+      "speaker_id": "SPEAKER_01",
+      "confidence": 0.9,
+      "word_count": 13,
+      "characters_per_second": 21.62,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 106.276,
+      "end_time": 109.3816923076923,
+      "duration": 3.1056923076923084,
+      "text": "Look, it's too late and I got an audition.",
+      "speaker_id": "SPEAKER_02",
+      "confidence": 0.9,
+      "word_count": 9,
+      "characters_per_second": 13.52,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 109.3816923076923,
+      "end_time": 110.762,
+      "duration": 1.3803076923076958,
+      "text": "I can't shop anymore.",
+      "speaker_id": "SPEAKER_02",
+      "confidence": 0.9,
+      "word_count": 4,
+      "characters_per_second": 15.21,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 110.802,
+      "end_time": 114.802,
+      "duration": 4.0,
+      "text": "I will go out and I will try to find something for her, okay?",
+      "speaker_id": "SPEAKER_01",
+      "confidence": 0.9,
+      "word_count": 14,
+      "characters_per_second": 10.0,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 116.89987500000001,
+      "end_time": 118.09987500000001,
+      "duration": 1.2000000000000028,
+      "text": "Thanks, man.",
+      "speaker_id": "SPEAKER_01",
+      "confidence": 0.9,
+      "word_count": 2,
+      "characters_per_second": 13.78,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 118.472,
+      "end_time": 120.694,
+      "duration": 2.2220000000000084,
+      "text": "And oh, while you're at it, could you get her a card?",
+      "speaker_id": "SPEAKER_02",
+      "confidence": 0.9,
+      "word_count": 12,
+      "characters_per_second": 23.85,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 122.296,
+      "end_time": 124.399,
+      "duration": 2.1029999999999944,
+      "text": "Would you like me to write her a little poem as well?",
+      "speaker_id": "SPEAKER_01",
+      "confidence": 0.9,
+      "word_count": 12,
+      "characters_per_second": 25.2,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 125.861,
+      "end_time": 128.284,
+      "duration": 2.4229999999999876,
+      "text": "Or just get a card that has a poem already in it?",
+      "speaker_id": "SPEAKER_02",
+      "confidence": 0.9,
+      "word_count": 12,
+      "characters_per_second": 20.22,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    },
+    {
+      "start_time": 142.473,
+      "end_time": 143.439,
+      "duration": 0.9659999999999798,
+      "text": "you",
+      "speaker_id": "SPEAKER_00",
+      "confidence": 0.9,
+      "word_count": 1,
+      "characters_per_second": 3.11,
+      "subtitle_ready": true,
+      "reading_time_optimal": true
+    }
+  ],
+  "optimization_stats": {
+    "total_subtitles": 40,
+    "avg_duration": 2.0144908441672746,
+    "avg_words_per_subtitle": 6.25,
+    "avg_characters_per_second": 14.651259750162481,
+    "optimization_settings": {
+      "max_duration": 4.0,
+      "min_duration": 1.2,
+      "max_cps": 200.0,
+      "target_cps": 150.0,
+      "max_words_per_line": 7
+    }
+  }
+}

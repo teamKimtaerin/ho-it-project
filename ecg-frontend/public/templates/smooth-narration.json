@@ -1,0 +1,215 @@
+{
+  "id": "smooth-narration",
+  "name": "Smooth Narration",
+  "description": "Elegant, minimal captions perfect for narration and educational content. Emphasizes clarity and readability with gentle, non-distracting animations.",
+  "version": "1.0.0",
+  "author": "ECG Template System",
+  "category": "narrative",
+
+  "style": {
+    "text": {
+      "fontFamily": "Inter, sans-serif",
+      "fontSize": "4.5vh",
+      "fontWeight": 400,
+      "color": "#f8f9fa",
+      "textAlign": "center",
+      "textShadow": "1px 1px 2px rgba(0,0,0,0.7)",
+      "letterSpacing": "0.01em",
+      "lineHeight": 1.4
+    },
+    "background": {
+      "type": "box",
+      "color": "#000000",
+      "opacity": 0.75,
+      "borderRadius": 12,
+      "padding": "16px 24px",
+      "borderWidth": 1,
+      "borderColor": "#333333"
+    }
+  },
+
+  "layout": {
+    "track": {
+      "position": "bottom",
+      "safeArea": {
+        "top": "85%",
+        "bottom": "10%",
+        "left": "8%",
+        "right": "8%"
+      },
+      "maxWidth": "84%",
+      "alignment": "center"
+    },
+    "words": {
+      "spacing": "0.25em",
+      "lineBreaking": "auto",
+      "maxWordsPerLine": 10
+    }
+  },
+
+  "variables": {
+    "moderate_volume": {
+      "name": "Moderate Volume Level",
+      "description": "Baseline volume for subtle emphasis",
+      "expression": "{{volume_statistics.baseline_db}}",
+      "cached": true
+    },
+    "energy_threshold": {
+      "name": "Energy Threshold",
+      "description": "Threshold for detecting important segments",
+      "expression": "{{volume_statistics.global_mean_db}} + 3",
+      "cached": true
+    }
+  },
+
+  "animationRules": [
+    {
+      "id": "gentle-fade-in",
+      "name": "Gentle Fade In",
+      "description": "Smooth fade-in for all words",
+      "condition": {
+        "field": "confidence",
+        "operator": "gt",
+        "value": 0.5
+      },
+      "animation": {
+        "pluginName": "fade",
+        "params": {
+          "startOpacity": 0.0,
+          "endOpacity": 1.0,
+          "fadeInDuration": 0.3
+        },
+        "timing": {
+          "offset": ["-0.15s", "0s"],
+          "easing": "easeOutQuad"
+        },
+        "intensity": {
+          "min": 0.8,
+          "max": 1.0,
+          "mapping": "linear"
+        }
+      },
+      "priority": 2,
+      "exclusive": false
+    },
+
+    {
+      "id": "emphasis-glow",
+      "name": "Subtle Emphasis Glow",
+      "description": "Gentle glow for slightly louder words",
+      "condition": {
+        "field": "volume_db",
+        "operator": "gt",
+        "value": "{{energy_threshold}}"
+      },
+      "animation": {
+        "pluginName": "glow",
+        "params": {
+          "color": "#ffffff",
+          "intensity": [0.1, 0.3],
+          "blur": [1, 2],
+          "spread": 0.5
+        },
+        "timing": {
+          "offset": ["0s", "+0.2s"],
+          "easing": "easeInOutQuad"
+        },
+        "intensity": {
+          "min": 0.4,
+          "max": 0.7,
+          "mapping": "linear"
+        }
+      },
+      "priority": 5,
+      "exclusive": false
+    },
+
+    {
+      "id": "pause-indicator",
+      "name": "Pause Indicator",
+      "description": "Slightly longer display for words before pauses",
+      "condition": {
+        "field": "word",
+        "operator": "contains",
+        "value": ".",
+        "or": [
+          {
+            "field": "word",
+            "operator": "contains",
+            "value": ","
+          }
+        ]
+      },
+      "animation": {
+        "pluginName": "timing",
+        "params": {
+          "extendDuration": 0.2,
+          "fadeOutDelay": 0.1
+        },
+        "timing": {
+          "offset": ["0s", "+0.3s"],
+          "easing": "linear"
+        },
+        "intensity": {
+          "min": 1.0,
+          "max": 1.0,
+          "mapping": "linear"
+        }
+      },
+      "priority": 3,
+      "exclusive": false
+    },
+
+    {
+      "id": "key-phrase-scaling",
+      "name": "Key Phrase Subtle Scaling",
+      "description": "Very subtle scaling for important phrases",
+      "condition": {
+        "field": "segment.emotion.confidence",
+        "operator": "gt",
+        "value": 0.6,
+        "and": [
+          {
+            "field": "volume_db",
+            "operator": "gt",
+            "value": "{{moderate_volume}}"
+          }
+        ]
+      },
+      "animation": {
+        "pluginName": "scale",
+        "params": {
+          "scale": [1.0, 1.05],
+          "duration": 0.4,
+          "smooth": true
+        },
+        "timing": {
+          "offset": ["0s", "+0.2s"],
+          "easing": "easeInOutQuad"
+        },
+        "intensity": {
+          "min": 0.3,
+          "max": 0.6,
+          "mapping": "linear"
+        }
+      },
+      "priority": 4,
+      "exclusive": false
+    }
+  ],
+
+  "metadata": {
+    "tags": ["minimal", "educational", "professional", "narration"],
+    "useCase": ["documentary", "tutorial", "audiobook", "lecture"],
+    "audioFeatures": ["volume_db", "confidence", "emotion"],
+    "complexity": "simple",
+    "performance": {
+      "estimatedRenderTime": "fast",
+      "memoryUsage": "low"
+    },
+    "compatibility": {
+      "minRendererVersion": "2.0.0",
+      "supportedAspectRatios": ["16:9", "9:16"]
+    }
+  }
+}

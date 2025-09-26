@@ -1,0 +1,23 @@
+{
+  "CORSRules": [
+    {
+      "ID": "ECGVideoPlayerCORS",
+      "AllowedHeaders": ["*"],
+      "AllowedMethods": ["GET", "HEAD"],
+      "AllowedOrigins": [
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "https://yourdomain.com"
+      ],
+      "ExposeHeaders": [
+        "Content-Length",
+        "Content-Type",
+        "Content-Range",
+        "Accept-Ranges",
+        "Cache-Control",
+        "Expires"
+      ],
+      "MaxAgeSeconds": 3600
+    }
+  ]
+}

@@ -1,0 +1,351 @@
+{
+  "id": "dynamic-conversation",
+  "name": "Dynamic Conversation",
+  "description": "Vibrant captions designed for multi-speaker conversations. Each speaker gets unique styling, with emphasis on speaker changes and emotional dynamics.",
+  "version": "1.0.0",
+  "author": "ECG Template System",
+  "category": "conversation",
+
+  "style": {
+    "text": {
+      "fontFamily": "Poppins, sans-serif",
+      "fontSize": "4.8vh",
+      "fontWeight": 500,
+      "color": "#ffffff",
+      "textAlign": "center",
+      "textShadow": "2px 2px 6px rgba(0,0,0,0.9)",
+      "letterSpacing": "0.015em",
+      "lineHeight": 1.3
+    },
+    "background": {
+      "type": "box",
+      "color": "#1a1a1a",
+      "opacity": 0.95,
+      "borderRadius": 16,
+      "padding": "14px 20px",
+      "borderWidth": 2,
+      "borderColor": "#444444"
+    }
+  },
+
+  "layout": {
+    "track": {
+      "position": "bottom",
+      "safeArea": {
+        "top": "88%",
+        "bottom": "8%",
+        "left": "6%",
+        "right": "6%"
+      },
+      "maxWidth": "88%",
+      "alignment": "center"
+    },
+    "words": {
+      "spacing": "0.35em",
+      "lineBreaking": "auto",
+      "maxWordsPerLine": 7
+    }
+  },
+
+  "variables": {
+    "speaker_change_threshold": {
+      "name": "Speaker Change Detection",
+      "description": "Used to detect when speaker changes",
+      "expression": "1",
+      "cached": false
+    },
+    "excitement_threshold": {
+      "name": "Excitement Volume Threshold",
+      "description": "Volume level that indicates excitement or emphasis",
+      "expression": "{{volume_statistics.baseline_db}} + ({{volume_statistics.global_max_db}} - {{volume_statistics.baseline_db}}) * 0.75",
+      "cached": true
+    }
+  },
+
+  "animationRules": [
+    {
+      "id": "speaker-color-coding",
+      "name": "Speaker Color Coding",
+      "description": "Different colors for different speakers",
+      "condition": {
+        "field": "segment.speaker.speaker_id",
+        "operator": "eq",
+        "value": "SPEAKER_01"
+      },
+      "animation": {
+        "pluginName": "color-tint",
+        "params": {
+          "color": "#4FC3F7",
+          "intensity": 0.8,
+          "blend": "multiply"
+        },
+        "timing": {
+          "offset": ["0s", "0s"],
+          "easing": "linear"
+        },
+        "intensity": {
+          "min": 1.0,
+          "max": 1.0,
+          "mapping": "linear"
+        }
+      },
+      "priority": 10,
+      "exclusive": false
+    },
+
+    {
+      "id": "speaker-02-color",
+      "name": "Speaker 02 Color",
+      "description": "Green tint for second speaker",
+      "condition": {
+        "field": "segment.speaker.speaker_id",
+        "operator": "eq",
+        "value": "SPEAKER_02"
+      },
+      "animation": {
+        "pluginName": "color-tint",
+        "params": {
+          "color": "#81C784",
+          "intensity": 0.8,
+          "blend": "multiply"
+        },
+        "timing": {
+          "offset": ["0s", "0s"],
+          "easing": "linear"
+        },
+        "intensity": {
+          "min": 1.0,
+          "max": 1.0,
+          "mapping": "linear"
+        }
+      },
+      "priority": 10,
+      "exclusive": false
+    },
+
+    {
+      "id": "speaker-03-color",
+      "name": "Speaker 03 Color",
+      "description": "Purple tint for third speaker",
+      "condition": {
+        "field": "segment.speaker.speaker_id",
+        "operator": "eq",
+        "value": "SPEAKER_03"
+      },
+      "animation": {
+        "pluginName": "color-tint",
+        "params": {
+          "color": "#BA68C8",
+          "intensity": 0.8,
+          "blend": "multiply"
+        },
+        "timing": {
+          "offset": ["0s", "0s"],
+          "easing": "linear"
+        },
+        "intensity": {
+          "min": 1.0,
+          "max": 1.0,
+          "mapping": "linear"
+        }
+      },
+      "priority": 10,
+      "exclusive": false
+    },
+
+    {
+      "id": "excitement-bounce",
+      "name": "Excitement Bounce",
+      "description": "Bouncy animation for excited/loud speech",
+      "condition": {
+        "field": "volume_db",
+        "operator": "gt",
+        "value": "{{excitement_threshold}}"
+      },
+      "animation": {
+        "pluginName": "cwi-bouncing",
+        "params": {
+          "amplitude": [0.15, 0.35],
+          "frequency": [2.5, 4.5],
+          "damping": 0.7,
+          "direction": "vertical"
+        },
+        "timing": {
+          "offset": ["-0.1s", "+0.25s"],
+          "easing": "easeOutBounce"
+        },
+        "intensity": {
+          "min": 0.6,
+          "max": 1.0,
+          "mapping": "exponential"
+        }
+      },
+      "priority": 8,
+      "exclusive": false
+    },
+
+    {
+      "id": "emotional-emphasis",
+      "name": "Emotional Emphasis",
+      "description": "Scale animation for high-emotion segments",
+      "condition": {
+        "field": "segment.emotion.confidence",
+        "operator": "gt",
+        "value": 0.8,
+        "and": [
+          {
+            "field": "segment.emotion.emotion",
+            "operator": "in",
+            "value": ["joy", "anger", "surprise", "fear"]
+          }
+        ]
+      },
+      "animation": {
+        "pluginName": "elastic",
+        "params": {
+          "scale": [1.1, 1.25],
+          "elasticity": 0.4,
+          "duration": 0.4
+        },
+        "timing": {
+          "offset": ["0s", "+0.3s"],
+          "easing": "easeOutElastic"
+        },
+        "intensity": {
+          "min": 0.5,
+          "max": 0.9,
+          "mapping": "linear"
+        }
+      },
+      "priority": 7,
+      "exclusive": false
+    },
+
+    {
+      "id": "pitch-rotation",
+      "name": "Pitch-based Rotation",
+      "description": "Subtle rotation for varying pitch",
+      "condition": {
+        "field": "pitch_hz",
+        "operator": "between",
+        "value": "{{pitch_statistics.baseline_range.max_hz}}",
+        "secondValue": "{{pitch_statistics.global_max_hz}}"
+      },
+      "animation": {
+        "pluginName": "rotation",
+        "params": {
+          "angle": [3, 8],
+          "axis": "z",
+          "oscillate": true,
+          "cycles": 1.5
+        },
+        "timing": {
+          "offset": ["0s", "+0.15s"],
+          "easing": "easeInOutSine"
+        },
+        "intensity": {
+          "min": 0.3,
+          "max": 0.7,
+          "mapping": "linear"
+        }
+      },
+      "priority": 6,
+      "exclusive": false
+    },
+
+    {
+      "id": "laughter-shake",
+      "name": "Laughter Shake",
+      "description": "Shake effect for joyful moments",
+      "condition": {
+        "field": "segment.emotion.emotion",
+        "operator": "eq",
+        "value": "joy",
+        "and": [
+          {
+            "field": "segment.emotion.confidence",
+            "operator": "gt",
+            "value": 0.7
+          },
+          {
+            "field": "volume_db",
+            "operator": "gt",
+            "value": "{{volume_statistics.baseline_db}}"
+          }
+        ]
+      },
+      "animation": {
+        "pluginName": "shake",
+        "params": {
+          "amplitude": [2, 5],
+          "frequency": [8, 12],
+          "duration": 0.3,
+          "direction": "horizontal"
+        },
+        "timing": {
+          "offset": ["0s", "+0.2s"],
+          "easing": "easeOutQuad"
+        },
+        "intensity": {
+          "min": 0.4,
+          "max": 0.8,
+          "mapping": "linear"
+        }
+      },
+      "priority": 9,
+      "exclusive": false
+    },
+
+    {
+      "id": "question-emphasis",
+      "name": "Question Emphasis",
+      "description": "Special styling for questions",
+      "condition": {
+        "field": "word",
+        "operator": "contains",
+        "value": "?",
+        "or": [
+          {
+            "field": "segment.text",
+            "operator": "contains",
+            "value": "?"
+          }
+        ]
+      },
+      "animation": {
+        "pluginName": "pulse",
+        "params": {
+          "scale": [1.0, 1.1],
+          "pulses": 2,
+          "duration": 0.6
+        },
+        "timing": {
+          "offset": ["0s", "+0.4s"],
+          "easing": "easeInOutQuad"
+        },
+        "intensity": {
+          "min": 0.5,
+          "max": 0.8,
+          "mapping": "linear"
+        }
+      },
+      "priority": 8,
+      "exclusive": false
+    }
+  ],
+
+  "metadata": {
+    "tags": ["conversation", "multi-speaker", "dynamic", "colorful"],
+    "useCase": ["interview", "podcast", "debate", "group-discussion"],
+    "audioFeatures": ["volume_db", "pitch_hz", "emotion", "speaker_id"],
+    "complexity": "complex",
+    "performance": {
+      "estimatedRenderTime": "medium",
+      "memoryUsage": "medium"
+    },
+    "compatibility": {
+      "minRendererVersion": "2.0.0",
+      "supportedAspectRatios": ["16:9", "9:16", "1:1"]
+    }
+  }
+}

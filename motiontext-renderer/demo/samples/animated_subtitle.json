@@ -1,0 +1,131 @@
+{
+  "version": "2.0",
+  "timebase": {
+    "unit": "seconds"
+  },
+  "stage": {
+    "baseAspect": "16:9"
+  },
+  "tracks": [
+    {
+      "id": "subtitle",
+      "type": "subtitle",
+      "layer": 10,
+      "defaultStyle": {
+        "color": "#ffffff",
+        "stroke": {
+          "widthRel": 0.002,
+          "color": "#000000"
+        }
+      }
+    }
+  ],
+  "cues": [
+    {
+      "id": "sub-1",
+      "track": "subtitle",
+      "root": {
+        "eType": "group",
+        "children": [
+          {
+            "eType": "text",
+            "text": "애니메이션 자막 – fadeIn + pop + wave",
+            "layout": {
+              "position": {
+                "x": 0.5,
+                "y": 0.86
+              },
+              "anchor": "bc"
+            },
+            "pluginChain": [
+              {
+                "name": "fadeIn",
+                "timeOffset": [
+                  "0%",
+                  "0.25%"
+                ]
+              },
+              {
+                "name": "pop",
+                "compose": "multiply",
+                "params": {
+                  "maxScale": 1.25
+                },
+                "timeOffset": [
+                  "0%",
+                  "0.35%"
+                ]
+              },
+              {
+                "name": "bobY",
+                "compose": "add",
+                "params": {
+                  "amplitudePx": 6,
+                  "cycles": 2
+                },
+                "timeOffset": [
+                  "0.1%",
+                  "0.9%"
+                ]
+              }
+            ],
+            "displayTime": [
+              1,
+              5
+            ],
+            "id": "cue-0-1-child-0-1"
+          }
+        ],
+        "id": "cue-0-1"
+      }
+    },
+    {
+      "id": "sub-2",
+      "track": "subtitle",
+      "root": {
+        "eType": "group",
+        "children": [
+          {
+            "eType": "text",
+            "text": "두 번째 자막 – 흔들림",
+            "layout": {
+              "position": {
+                "x": 0.5,
+                "y": 0.86
+              },
+              "anchor": "bc"
+            },
+            "pluginChain": [
+              {
+                "name": "fadeIn",
+                "timeOffset": [
+                  "0%",
+                  "0.2%"
+                ]
+              },
+              {
+                "name": "shakeX",
+                "compose": "add",
+                "params": {
+                  "amplitudePx": 4,
+                  "cycles": 6
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              }
+            ],
+            "displayTime": [
+              6,
+              10
+            ],
+            "id": "cue-1-1-child-0-1"
+          }
+        ],
+        "id": "cue-1-1"
+      }
+    }
+  ],
+  "define": {}
+}

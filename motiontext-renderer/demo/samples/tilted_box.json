@@ -1,0 +1,89 @@
+{
+  "version": "2.0",
+  "timebase": {
+    "unit": "seconds"
+  },
+  "stage": {
+    "baseAspect": "16:9"
+  },
+  "tracks": [
+    {
+      "id": "free",
+      "type": "free",
+      "layer": 210,
+      "defaultStyle": {
+        "color": "#ffffff",
+        "stroke": {
+          "widthRel": 0.002,
+          "color": "#000000"
+        }
+      }
+    }
+  ],
+  "cues": [
+    {
+      "id": "tilted-30deg",
+      "track": "free",
+      "root": {
+        "eType": "group",
+        "children": [
+          {
+            "eType": "text",
+            "text": "기울어진 텍스트 30°",
+            "layout": {
+              "position": {
+                "x": 0.65,
+                "y": 0.55
+              },
+              "anchor": "cc",
+              "transform": {
+                "rotate": {
+                  "deg": 30
+                }
+              }
+            },
+            "pluginChain": [
+              {
+                "name": "fadeIn",
+                "timeOffset": [
+                  "0%",
+                  "0.2%"
+                ]
+              },
+              {
+                "name": "pop",
+                "compose": "multiply",
+                "params": {
+                  "maxScale": 1.15
+                },
+                "timeOffset": [
+                  "0%",
+                  "0.3%"
+                ]
+              },
+              {
+                "name": "bobY",
+                "compose": "add",
+                "params": {
+                  "amplitudePx": 10,
+                  "cycles": 1.5
+                },
+                "timeOffset": [
+                  "0.1%",
+                  "0.9%"
+                ]
+              }
+            ],
+            "displayTime": [
+              0,
+              6
+            ],
+            "id": "cue-0-1-child-0-1"
+          }
+        ],
+        "id": "cue-0-1"
+      }
+    }
+  ],
+  "define": {}
+}

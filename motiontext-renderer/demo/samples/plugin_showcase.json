@@ -1,0 +1,425 @@
+{
+  "version": "2.0",
+  "timebase": {
+    "unit": "seconds"
+  },
+  "stage": {
+    "baseAspect": "16:9"
+  },
+  "tracks": [
+    {
+      "id": "free",
+      "type": "free",
+      "layer": 20,
+      "defaultStyle": {
+        "color": "#ffffff",
+        "stroke": {
+          "widthRel": 0.004,
+          "color": "#000000"
+        }
+      }
+    }
+  ],
+  "cues": [
+    {
+      "id": "spin-demo",
+      "track": "free",
+      "root": {
+        "eType": "group",
+        "children": [
+          {
+            "eType": "text",
+            "text": "Spin Demo",
+            "layout": {
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchor": "cc"
+            },
+            "pluginChain": [
+              {
+                "name": "spin",
+                "params": {
+                  "fullTurns": 2
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              }
+            ],
+            "displayTime": [
+              1,
+              4
+            ],
+            "id": "cue-0-1-child-0-1"
+          }
+        ],
+        "id": "cue-0-1"
+      }
+    },
+    {
+      "id": "bobY-demo",
+      "track": "free",
+      "root": {
+        "eType": "group",
+        "children": [
+          {
+            "eType": "text",
+            "text": "BobY Demo",
+            "layout": {
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchor": "cc"
+            },
+            "pluginChain": [
+              {
+                "name": "bobY",
+                "params": {
+                  "amplitudePx": 12,
+                  "cycles": 2
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              }
+            ],
+            "displayTime": [
+              4.2,
+              7.2
+            ],
+            "id": "cue-1-1-child-0-1"
+          }
+        ],
+        "id": "cue-1-1"
+      }
+    },
+    {
+      "id": "pulse-demo",
+      "track": "free",
+      "root": {
+        "eType": "group",
+        "children": [
+          {
+            "eType": "text",
+            "text": "Pulse Demo",
+            "layout": {
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchor": "cc"
+            },
+            "pluginChain": [
+              {
+                "name": "pulse",
+                "params": {
+                  "maxScale": 1.2,
+                  "cycles": 2
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              }
+            ],
+            "displayTime": [
+              7.5,
+              10.5
+            ],
+            "id": "cue-2-1-child-0-1"
+          }
+        ],
+        "id": "cue-2-1"
+      }
+    },
+    {
+      "id": "flames-demo",
+      "track": "free",
+      "root": {
+        "eType": "group",
+        "children": [
+          {
+            "eType": "text",
+            "text": "Flames Demo",
+            "layout": {
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchor": "cc"
+            },
+            "pluginChain": [
+              {
+                "name": "flames",
+                "params": {
+                  "baseOpacity": 0.8,
+                  "flicker": 0.3,
+                  "cycles": 10
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              }
+            ],
+            "displayTime": [
+              11,
+              14
+            ],
+            "id": "cue-3-1-child-0-1"
+          }
+        ],
+        "id": "cue-3-1"
+      }
+    },
+    {
+      "id": "glow-demo",
+      "track": "free",
+      "root": {
+        "eType": "group",
+        "children": [
+          {
+            "eType": "text",
+            "text": "Glow Demo",
+            "layout": {
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchor": "cc"
+            },
+            "pluginChain": [
+              {
+                "name": "glow",
+                "params": {
+                  "color": "#00ffff",
+                  "intensity": 0.35,
+                  "pulse": true,
+                  "cycles": 8
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              }
+            ],
+            "displayTime": [
+              14.3,
+              17.3
+            ],
+            "id": "cue-4-1-child-0-1"
+          }
+        ],
+        "id": "cue-4-1"
+      }
+    },
+    {
+      "id": "combo-demo",
+      "track": "free",
+      "root": {
+        "eType": "group",
+        "children": [
+          {
+            "eType": "text",
+            "text": "Combo Demo (Multiple Plugins)",
+            "layout": {
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchor": "cc"
+            },
+            "pluginChain": [
+              {
+                "name": "glow",
+                "params": {
+                  "color": "#ff00ff",
+                  "intensity": 0.3,
+                  "pulse": true,
+                  "cycles": 6
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              },
+              {
+                "name": "pulse",
+                "params": {
+                  "maxScale": 1.15,
+                  "cycles": 3
+                },
+                "compose": "multiply",
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              },
+              {
+                "name": "bobY",
+                "params": {
+                  "amplitudePx": 10,
+                  "cycles": 3
+                },
+                "compose": "add",
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              },
+              {
+                "name": "spin",
+                "params": {
+                  "fullTurns": 1
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              }
+            ],
+            "displayTime": [
+              17.6,
+              21.6
+            ],
+            "id": "cue-5-1-child-0-1"
+          }
+        ],
+        "id": "cue-5-1"
+      }
+    },
+    {
+      "id": "multi-area-demo",
+      "track": "free",
+      "root": {
+        "eType": "group",
+        "children": [
+          {
+            "eType": "text",
+            "text": "TL Spin",
+            "layout": {
+              "position": {
+                "x": 0.2,
+                "y": 0.2
+              },
+              "anchor": "cc"
+            },
+            "pluginChain": [
+              {
+                "name": "spin",
+                "params": {
+                  "fullTurns": 1
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              }
+            ],
+            "displayTime": [
+              22,
+              26
+            ],
+            "id": "cue-6-1-child-0-1"
+          },
+          {
+            "eType": "text",
+            "text": "TR BobY",
+            "layout": {
+              "position": {
+                "x": 0.8,
+                "y": 0.2
+              },
+              "anchor": "cc"
+            },
+            "pluginChain": [
+              {
+                "name": "bobY",
+                "params": {
+                  "amplitudePx": 14,
+                  "cycles": 3
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              }
+            ],
+            "displayTime": [
+              22,
+              26
+            ],
+            "id": "cue-6-1-child-1-1"
+          },
+          {
+            "eType": "text",
+            "text": "BL Pulse",
+            "layout": {
+              "position": {
+                "x": 0.2,
+                "y": 0.8
+              },
+              "anchor": "cc"
+            },
+            "pluginChain": [
+              {
+                "name": "pulse",
+                "params": {
+                  "maxScale": 1.2,
+                  "cycles": 2
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              }
+            ],
+            "displayTime": [
+              22,
+              26
+            ],
+            "id": "cue-6-1-child-2-1"
+          },
+          {
+            "eType": "text",
+            "text": "BR Glow",
+            "layout": {
+              "position": {
+                "x": 0.8,
+                "y": 0.8
+              },
+              "anchor": "cc"
+            },
+            "pluginChain": [
+              {
+                "name": "glow",
+                "params": {
+                  "color": "#ffaa00",
+                  "intensity": 0.4,
+                  "pulse": true,
+                  "cycles": 10
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              }
+            ],
+            "displayTime": [
+              22,
+              26
+            ],
+            "id": "cue-6-1-child-3-1"
+          }
+        ],
+        "id": "cue-6-1"
+      }
+    }
+  ],
+  "define": {}
+}

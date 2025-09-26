@@ -1,0 +1,112 @@
+{
+  "name": "cwi-loud",
+  "version": "2.0.0",
+  "type": "dom",
+  "pluginApi": "3.0",
+  "minRenderer": "2.0.0",
+  "entry": "index.mjs",
+  "targets": ["text"],
+  "capabilities": ["style-vars", "dom-manipulation"],
+  "preload": [],
+  "timeOffset": [-0.3, 0.3],
+  "schema": {
+    "speaker": {
+      "type": "string",
+      "default": "",
+      "ui": { "control": "text", "allowDefine": true },
+      "i18n": {
+        "label": { "ko": "화자 ID", "en": "Speaker ID" },
+        "description": { "ko": "화자별 색상을 적용할 때 사용되는 화자 식별자", "en": "Speaker identifier for color mapping" }
+      }
+    },
+    "palette": {
+      "type": "object",
+      "default": {},
+      "ui": { "control": "object", "allowDefine": true },
+      "i18n": {
+        "label": { "ko": "색상 팔레트", "en": "Color Palette" },
+        "description": { "ko": "화자별 색상 매핑 객체", "en": "Speaker-to-color mapping object" }
+      }
+    },
+    "color": {
+      "type": "string",
+      "default": "",
+      "pattern": "^#[0-9a-fA-F]{6}$",
+      "ui": { "control": "color", "allowDefine": true },
+      "i18n": {
+        "label": { "ko": "고정 색상", "en": "Fixed Color" },
+        "description": { "ko": "특정 색상을 직접 지정 (팔레트보다 우선순위 높음)", "en": "Direct color specification (overrides palette)" }
+      }
+    },
+    "pulse": {
+      "type": "object",
+      "default": { "scale": 2.15, "lift": 12 },
+      "ui": { "control": "object", "allowDefine": true },
+      "i18n": {
+        "label": { "ko": "맥동", "en": "Pulse" },
+        "description": { "ko": "커졌다 작아지는 맥동 강도와 상승량", "en": "Growth intensity and lift for the pulse" }
+      },
+      "properties": {
+        "scale": {
+          "type": "number",
+          "default": 2.15,
+          "min": 1.2,
+          "max": 3,
+          "step": 0.05,
+          "ui": { "control": "slider", "allowDefine": true },
+          "i18n": {
+            "label": { "ko": "최대 스케일", "en": "Max Scale" },
+            "description": { "ko": "맥동 시 최고 확장 배율", "en": "Peak scale reached during pulse" }
+          }
+        },
+        "lift": {
+          "type": "number",
+          "default": 12,
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "ui": { "control": "slider", "unit": "px", "allowDefine": true },
+          "i18n": {
+            "label": { "ko": "상승 높이", "en": "Lift Height" },
+            "description": { "ko": "맥동 정점에서 위로 솟는 픽셀 높이", "en": "Upward offset at pulse crest in pixels" }
+          }
+        }
+      }
+    },
+    "tremble": {
+      "type": "object",
+      "default": { "ampPx": 1.5, "freq": 12 },
+      "ui": { "control": "object", "allowDefine": true },
+      "i18n": {
+        "label": { "ko": "잔떨림", "en": "Tremble" },
+        "description": { "ko": "정점에서의 잔떨림 효과", "en": "Shiver effect near the pulse peak" }
+      },
+      "properties": {
+        "ampPx": {
+          "type": "number",
+          "default": 1.5,
+          "min": 0,
+          "max": 10,
+          "step": 0.1,
+          "ui": { "control": "slider", "unit": "px", "allowDefine": true },
+          "i18n": {
+            "label": { "ko": "진폭", "en": "Amplitude" },
+            "description": { "ko": "잔떨림의 픽셀 단위 진폭", "en": "Tremble amplitude in pixels" }
+          }
+        },
+        "freq": {
+          "type": "number",
+          "default": 12,
+          "min": 1,
+          "max": 30,
+          "step": 1,
+          "ui": { "control": "slider", "unit": "Hz", "allowDefine": true },
+          "i18n": {
+            "label": { "ko": "주파수", "en": "Frequency" },
+            "description": { "ko": "초당 잔떨림 횟수", "en": "Tremble cycles per second" }
+          }
+        }
+      }
+    }
+  }
+}

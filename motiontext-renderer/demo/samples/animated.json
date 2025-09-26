@@ -1,0 +1,179 @@
+{
+  "version": "2.0",
+  "timebase": {
+    "unit": "seconds"
+  },
+  "stage": {
+    "baseAspect": "16:9"
+  },
+  "tracks": [
+    {
+      "id": "title",
+      "type": "free",
+      "layer": 2,
+      "defaultStyle": {
+        "fontSize": "32px",
+        "fontFamily": "'Arial Black', sans-serif",
+        "fontWeight": "bold",
+        "color": "#ffdd00",
+        "textShadow": "3px 3px 6px rgba(0,0,0,0.9)",
+        "stroke": {
+          "widthRel": 0.002,
+          "color": "#000000"
+        },
+        "textAlign": "center"
+      }
+    },
+    {
+      "id": "subtitle",
+      "type": "subtitle",
+      "layer": 1,
+      "defaultStyle": {
+        "fontSize": "20px",
+        "fontFamily": "Arial, sans-serif",
+        "color": "#ffffff",
+        "textShadow": "2px 2px 4px rgba(0,0,0,0.8)",
+        "stroke": {
+          "widthRel": 0.002,
+          "color": "#000000"
+        },
+        "textAlign": "center"
+      }
+    }
+  ],
+  "cues": [
+    {
+      "id": "title-cue",
+      "track": "title",
+      "root": {
+        "id": "title-group",
+        "type": "group",
+        "children": [
+          {
+            "id": "title-text",
+            "type": "text",
+            "content": "🎬 애니메이션 테스트",
+            "layout": {
+              "position": [
+                0.5,
+                0.2
+              ],
+              "transform": {
+                "scale": [
+                  1.2,
+                  1.2
+                ],
+                "anchor": [
+                  0.5,
+                  0.5
+                ]
+              }
+            },
+            "displayTime": [
+              1,
+              4
+            ]
+          }
+        ]
+      },
+      "domLifetime": [
+        1,
+        6
+      ]
+    },
+    {
+      "id": "subtitle-cue-1",
+      "track": "subtitle",
+      "root": {
+        "id": "subtitle-group-1",
+        "eType": "group",
+        "children": [
+          {
+            "id": "subtitle-text-1",
+            "eType": "text",
+            "text": "다양한 애니메이션 효과를 지원합니다",
+            "layout": {
+              "position": [
+                0.5,
+                0.8
+              ]
+            },
+            "displayTime": [
+              4,
+              8
+            ]
+          }
+        ]
+      },
+      "domLifetime": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": "moving-text-cue",
+      "track": "title",
+      "root": {
+        "id": "moving-group",
+        "eType": "group",
+        "children": [
+          {
+            "id": "moving-text",
+            "eType": "text",
+            "text": "← 움직이는 텍스트 →",
+            "layout": {
+              "position": [
+                0.1,
+                0.5
+              ],
+              "transform": {
+                "anchor": [
+                  0.5,
+                  0.5
+                ]
+              }
+            },
+            "displayTime": [
+              8,
+              12
+            ]
+          }
+        ]
+      },
+      "domLifetime": [
+        8,
+        13
+      ]
+    },
+    {
+      "id": "fade-cue",
+      "track": "subtitle",
+      "root": {
+        "id": "fade-group",
+        "type": "group",
+        "children": [
+          {
+            "id": "fade-text",
+            "type": "text",
+            "content": "페이드 인/아웃 효과 테스트",
+            "layout": {
+              "position": [
+                0.5,
+                0.7
+              ]
+            },
+            "displayTime": [
+              12,
+              16
+            ]
+          }
+        ]
+      },
+      "domLifetime": [
+        12,
+        17
+      ]
+    }
+  ],
+  "define": {}
+}

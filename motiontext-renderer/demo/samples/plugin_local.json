@@ -1,0 +1,101 @@
+{
+  "version": "2.0",
+  "timebase": {
+    "unit": "seconds"
+  },
+  "stage": {
+    "baseAspect": "16:9"
+  },
+  "tracks": [
+    {
+      "id": "free",
+      "type": "free",
+      "layer": 10,
+      "defaultStyle": {
+        "color": "#ffffff",
+        "stroke": {
+          "widthRel": 0.004,
+          "color": "#000000"
+        }
+      }
+    }
+  ],
+  "cues": [
+    {
+      "id": "dev-plugins",
+      "track": "free",
+      "root": {
+        "eType": "group",
+        "children": [
+          {
+            "eType": "text",
+            "text": "Local Dev Plugins Demo",
+            "layout": {
+              "position": {
+                "x": 0.5,
+                "y": 0.5
+              },
+              "anchor": "cc"
+            },
+            "pluginChain": [
+              {
+                "name": "spin",
+                "params": {
+                  "fullTurns": 1
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              },
+              {
+                "name": "bobY",
+                "compose": "add",
+                "params": {
+                  "amplitudePx": 10,
+                  "cycles": 2
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              },
+              {
+                "name": "pulse",
+                "compose": "multiply",
+                "params": {
+                  "maxScale": 1.15,
+                  "cycles": 2
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              },
+              {
+                "name": "glow",
+                "params": {
+                  "color": "#00ffff",
+                  "intensity": 0.35,
+                  "pulse": true,
+                  "cycles": 6
+                },
+                "timeOffset": [
+                  "0%",
+                  "100%"
+                ]
+              }
+            ],
+            "displayTime": [
+              1,
+              8
+            ],
+            "id": "cue-0-1-child-0-1"
+          }
+        ],
+        "id": "cue-0-1"
+      }
+    }
+  ],
+  "define": {}
+}

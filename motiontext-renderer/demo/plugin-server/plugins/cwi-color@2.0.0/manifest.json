@@ -1,0 +1,67 @@
+{
+  "name": "cwi-color",
+  "version": "2.0.0",
+  "type": "dom",
+  "pluginApi": "3.0",
+  "minRenderer": "2.0.0",
+  "entry": "index.mjs",
+  "targets": ["text"],
+  "capabilities": ["style-vars", "dom-manipulation"],
+  "preload": [],
+  "timeOffset": ["0%", "-10%"],
+  "schema": {
+    "speaker": {
+      "type": "string",
+      "default": "",
+      "ui": {
+        "control": "text",
+        "allowDefine": true,
+        "autofill": {
+          "enabled": true,
+          "source": "clip.speaker",
+          "description": "현재 선택된 화자 ID가 자동으로 입력됩니다"
+        }
+      },
+      "i18n": {
+        "label": { "ko": "화자 ID", "en": "Speaker ID" },
+        "description": { "ko": "화자별 색상을 적용할 때 사용되는 화자 식별자", "en": "Speaker identifier for color mapping" }
+      }
+    },
+    "palette": {
+      "type": "object",
+      "default": {},
+      "ui": {
+        "control": "object",
+        "allowDefine": true,
+        "autofill": {
+          "enabled": true,
+          "source": "editor.speakerColors",
+          "description": "에디터에서 설정한 화자별 색상 팔레트가 자동 입력됩니다"
+        }
+      },
+      "i18n": {
+        "label": { "ko": "색상 팔레트", "en": "Color Palette" },
+        "description": { "ko": "화자별 색상 매핑 객체", "en": "Speaker-to-color mapping object" }
+      }
+    },
+    "color": {
+      "type": "string",
+      "default": "",
+      "pattern": "^#[0-9a-fA-F]{6}$",
+      "ui": { "control": "color", "allowDefine": true },
+      "i18n": {
+        "label": { "ko": "고정 색상", "en": "Fixed Color" },
+        "description": { "ko": "특정 색상을 직접 지정 (팔레트보다 우선순위 높음)", "en": "Direct color specification (overrides palette)" }
+      }
+    },
+    "bulk": {
+      "type": "boolean",
+      "default": false,
+      "ui": { "control": "switch", "allowDefine": true },
+      "i18n": {
+        "label": { "ko": "일괄 변경 모드", "en": "Bulk Color Mode" },
+        "description": { "ko": "글자별 스윕 대신 전체 단어 색을 동시에 변화", "en": "Change whole word color instead of per-letter sweep" }
+      }
+    }
+  }
+}

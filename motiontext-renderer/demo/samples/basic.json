@@ -1,0 +1,117 @@
+{
+  "version": "2.0",
+  "timebase": {
+    "unit": "seconds"
+  },
+  "stage": {
+    "baseAspect": "16:9"
+  },
+  "tracks": [
+    {
+      "id": "subtitle",
+      "type": "subtitle",
+      "layer": 1,
+      "defaultStyle": {
+        "fontSize": "24px",
+        "fontFamily": "Arial, sans-serif",
+        "color": "#ffffff",
+        "textShadow": "2px 2px 4px rgba(0,0,0,0.8)",
+        "stroke": {
+          "widthRel": 0.002,
+          "color": "#000000"
+        },
+        "textAlign": "center"
+      }
+    }
+  ],
+  "cues": [
+    {
+      "id": "cue1",
+      "track": "subtitle",
+      "root": {
+        "id": "group1",
+        "eType": "group",
+        "children": [
+          {
+            "id": "text1",
+            "eType": "text",
+            "text": "안녕하세요! MotionText Renderer입니다.",
+            "layout": {
+              "position": [
+                0.5,
+                0.85
+              ]
+            },
+            "displayTime": [
+              2,
+              5
+            ]
+          }
+        ]
+      },
+      "domLifetime": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": "cue2",
+      "track": "subtitle",
+      "root": {
+        "id": "group2",
+        "eType": "group",
+        "children": [
+          {
+            "id": "text2",
+            "eType": "text",
+            "text": "이것은 기본 자막 테스트입니다.",
+            "layout": {
+              "position": [
+                0.5,
+                0.85
+              ]
+            },
+            "displayTime": [
+              6,
+              9
+            ]
+          }
+        ]
+      },
+      "domLifetime": [
+        6,
+        11
+      ]
+    },
+    {
+      "id": "cue3",
+      "track": "subtitle",
+      "root": {
+        "id": "group3",
+        "eType": "group",
+        "children": [
+          {
+            "id": "text3",
+            "eType": "text",
+            "text": "정규화된 좌표계(0~1)를 사용합니다.",
+            "layout": {
+              "position": [
+                0.5,
+                0.85
+              ]
+            },
+            "displayTime": [
+              10,
+              13
+            ]
+          }
+        ]
+      },
+      "domLifetime": [
+        10,
+        15
+      ]
+    }
+  ],
+  "define": {}
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MotionText Renderer Demo</title>
+    <!-- Roboto Flex for CwI demo (dev) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+    <!-- GSAP for plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  </head>
+  <body>
+    <div class="demo-container">
+      <header class="demo-header">
+        <h1>🎬 MotionText Renderer Demo</h1>
+        <p>웹 기반 애니메이션 자막 렌더러 테스트 페이지</p>
+      </header>
+
+      <main class="demo-main">
+        <!-- 비디오 및 자막 영역 -->
+        <section class="video-section">
+          <div class="video-container">
+            <video
+              id="demo-video"
+              width="800"
+              height="450"
+              controls
+              crossorigin="anonymous"
+            >
+              <!-- Demo sample video (local) -->
+              <source src="./samples/assets/friends.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            <!-- 자막 렌더러 컨테이너 -->
+            <div id="caption-container" class="caption-overlay"></div>
+          </div>
+        </section>
+
+        <!-- 컨트롤 패널 -->
+        <section class="control-panel">
+          <div class="panel-group">
+            <h3>🧩 플러그인 빠른 미리보기</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;">
+              <select id="plugin-preview-selector" class="sample-selector" style="min-width:16rem;">
+                <option value="">-- 플러그인 선택 --</option>
+              </select>
+              <input id="plugin-preview-text" type="text" placeholder="표시할 텍스트" value="Plugin Preview" style="flex:1;min-width:12rem;padding:.4rem;" />
+              <label style="display:flex;gap:.25rem;align-items:center;"><input id="plugin-preview-loop" type="checkbox" /> loop</label>
+              <label style="display:flex;gap:.25rem;align-items:center;">dur(s)<input id="plugin-preview-duration" type="number" min="1" step="0.5" value="3" style="width:5rem;" /></label>
+              <button id="plugin-preview-generate" class="btn btn-primary">미리보기 생성</button>
+            </div>
+            <p style="margin:.5rem 0 0;font-size:.9em;opacity:.8;">좌측 셀렉트에서 플러그인을 고르고 미리보기 시나리오를 생성해 바로 재생합니다.</p>
+          </div>
+          <div class="panel-group">
+            <h3>📁 샘플 선택</h3>
+            <select id="sample-selector" class="sample-selector">
+              <option value="">-- 샘플 선택 --</option>
+              <option value="basic">기본 자막</option>
+              <option value="animated">애니메이션 효과</option>
+              <option value="plugin">플러그인 테스트</option>
+              <option value="plugin_local">플러그인 테스트 (로컬 Dev)</option>
+              <option value="plugin_showcase">플러그인 쇼케이스 (순차)</option>
+              <option value="animated_subtitle">애니 자막 체인(fade/pop/wave)</option>
+              <option value="animated_free_mixed">free 다위치 테스트</option>
+              <option value="tilted_box">기울어진 텍스트(30°)</option>
+              <option value="m5_layout_features">M5 레이아웃 기능 종합</option>
+              <option value="cwi_demo_full">CwI 캡션 데모</option>
+              <option value="dual_channel_test (v2.0)">🔄 듀얼 채널 테스트 (spin + typewriter)</option>
+              <option value="cwi_sentence_wave (v2.0)">CwI 문장 파도 + loud/whisper (v2.0)</option>
+              <option value="plugin_test_combined (v2.0)">플러그인 조합 테스트 (v2.0)</option>
+              <option value="boxstyle_inheritance_demo">BoxStyle 상속 데모</option>
+            </select>
+            <button id="load-sample" class="btn btn-primary">샘플 로드</button>
+          </div>
+
+          <div class="panel-group">
+            <h3>🎮 재생 컨트롤</h3>
+            <div class="control-buttons">
+              <button id="play-btn" class="btn btn-success">재생</button>
+              <button id="pause-btn" class="btn btn-warning">일시정지</button>
+              <button id="reset-btn" class="btn btn-secondary">리셋</button>
+            </div>
+          </div>
+
+          <div class="panel-group">
+            <h3>📊 상태 정보</h3>
+            <div class="status-info">
+              <div class="status-item">
+                <span class="label">렌더러 상태:</span>
+                <span id="renderer-status" class="value">미초기화</span>
+              </div>
+              <div class="status-item">
+                <span class="label">현재 시간:</span>
+                <span id="current-time" class="value">0.00s</span>
+              </div>
+              <div class="status-item">
+                <span class="label">활성 큐:</span>
+                <span id="active-cues" class="value">0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-group">
+            <h3>🔌 플러그인 모드</h3>
+            <div class="control-buttons" style="gap:.5rem;display:flex;flex-wrap:wrap;">
+              <button id="plugin-mode-server" class="btn btn-secondary">서버 모드</button>
+              <button id="plugin-mode-local" class="btn btn-secondary">로컬 모드</button>
+              <button id="plugin-mode-auto" class="btn btn-secondary">자동 모드</button>
+            </div>
+            <p style="margin:.5rem 0 0;font-size:.9em;opacity:.8;">
+              서버/로컬/자동 모드를 전환합니다. 자동은 서버 우선, 실패 시 로컬 폴백.
+            </p>
+          </div>
+
+          <div class="panel-group">
+            <h3>🤖 AI 자막 편집기 (MVP)</h3>
+            
+            <!-- 환경 설정 안내 -->
+            <div class="ai-config" style="margin-bottom: 1rem;">
+              <div style="padding: 0.8rem; background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px;">
+                <h4 style="margin: 0 0 0.5rem; font-size: 0.9em; color: #495057;">🔐 환경 설정</h4>
+                <div style="font-size: 0.8em; line-height: 1.4;">
+                  <p style="margin: 0 0 0.5rem;">✅ API 키는 서버 환경변수에서 관리됩니다</p>
+                  <p style="margin: 0 0 0.5rem;">1. <code>.env</code> 파일에 <code>ANTHROPIC_API_KEY=sk-ant-...</code> 추가</p>
+                  <p style="margin: 0 0 0.5rem;">2. 프록시 서버 실행: <code>pnpm proxy:server</code></p>
+                  <p style="margin: 0; opacity: 0.7;">💡 <a href="https://console.anthropic.com/" target="_blank">Anthropic Console</a>에서 API 키 발급</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 편집 요청 -->
+            <div class="edit-request" style="margin-bottom: 1rem;">
+              <textarea 
+                id="edit-instruction" 
+                placeholder="예: '첫 번째 자막을 더 강조되게 해줘', '모든 자막에 반짝이는 효과 추가', '두 번째 자막에 불꽃 효과와 회전 애니메이션 적용'"
+                style="width: 100%; height: 80px; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; resize: vertical; font-family: inherit;"
+              ></textarea>
+              <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                <button id="apply-ai-edit" class="btn btn-primary" disabled>🤖 AI로 편집하기</button>
+                <button id="reset-to-original" class="btn btn-secondary">원본 복원</button>
+              </div>
+            </div>
+
+            <!-- 상태 표시 -->
+            <div class="ai-status" style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="label">AI 상태:</span>
+              <span id="ai-loading" class="value" style="display: none; color: #007bff;">🤖 분석 중...</span>
+              <span id="ai-result" class="value">환경변수 설정 확인 중...</span>
+            </div>
+          </div>
+
+          <div class="panel-group">
+            <h3>🧪 Safe Area (dev)</h3>
+            <div class="status-info" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;align-items:center;">
+              <label>top(0..1)<input id="safe-top" type="number" step="0.01" min="0" max="1" value="0.06" style="width:100%;"></label>
+              <label>bottom<input id="safe-bottom" type="number" step="0.01" min="0" max="1" value="0.10" style="width:100%;"></label>
+              <label>left<input id="safe-left" type="number" step="0.01" min="0" max="1" value="0.06" style="width:100%;"></label>
+              <label>right<input id="safe-right" type="number" step="0.01" min="0" max="1" value="0.06" style="width:100%;"></label>
+            </div>
+            <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem;">
+              <label><input id="safe-apply-stage" type="checkbox" checked> stage.safeArea</label>
+              <label><input id="safe-apply-subtitle" type="checkbox"> subtitle.safeArea</label>
+              <label><input id="safe-apply-free" type="checkbox"> free.safeArea</label>
+              <label><input id="safe-force-clamp" type="checkbox" checked> 모든 노드 safeAreaClamp</label>
+            </div>
+            <div style="margin-top:.5rem;">
+              <button id="apply-safearea" class="btn btn-primary">Safe Area 적용</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- JSON 뷰어/에디터 -->
+        <section class="json-section">
+          <h3>⚙️ 설정 (JSON)</h3>
+          <div class="json-container">
+            <textarea
+              id="config-editor"
+              class="json-editor"
+              placeholder="샘플을 선택하면 JSON 설정이 여기에 표시됩니다..."
+            ></textarea>
+          </div>
+          <div class="json-actions">
+            <button id="apply-config" class="btn btn-primary">설정 적용</button>
+            <button id="reset-config" class="btn btn-secondary">초기화</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="demo-footer">
+        <p>
+          Made with ❤️ by Team Kimtaerin | 
+          <a href="https://github.com/teamKimtaerin/motiontext-renderer" target="_blank">
+            GitHub Repository
+          </a>
+        </p>
+      </footer>
+    </div>
+
+    <script type="module" src="/main.ts"></script>
+  </body>
+</html>

@@ -83,7 +83,7 @@
 
 ### 전체 시스템 구조
 
-![Hoit Architecture](./hoit-architecture.png)
+![Hoit Architecture](./public/hoit-architecture.png)
 
 ### 2단계 처리 파이프라인
 
@@ -203,7 +203,7 @@ docker-compose up -d
 
 ---
 ## 포스터
-![Hoit Poster](./hoit-poster.png)
+![Hoit Poster](./public/hoit-poster.png)
 
 
 ---

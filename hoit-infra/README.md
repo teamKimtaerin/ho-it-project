@@ -42,6 +42,36 @@
 - **CloudFront CDN**: 3개 Origin 라우팅
 - **Terraform IaC**: 일관된 인프라 배포 및 관리
 
+### 클라우드 인프라 자동화
+- **Infrastructure as Code**: Terraform으로 전체 AWS 인프라 자동 프로비저닝
+- **원클릭 배포**: terraform apply 한 번으로 모든 리소스 생성
+- **환경별 관리**: dev/staging/prod 환경 분리 배포
+- **상태 관리**: Terraform state로 인프라 변경 이력 추적
+
+### 확장성 및 가용성
+- **Multi-AZ 배포**: 2개 가용영역에 걸친 고가용성 구성
+- **Auto Scaling**: ECS Fargate 서비스 자동 확장/축소
+- **Load Balancing**: ALB를 통한 트래픽 분산 및 Health Check
+- **무중단 배포**: Rolling update 방식으로 서비스 중단 없는 배포
+
+### 보안 및 모니터링
+- **네트워크 보안**: VPC, Security Groups, Private Subnets 기반 보안
+- **데이터 암호화**: S3/RDS 저장 데이터 암호화, Secrets Manager 활용
+- **실시간 모니터링**: CloudWatch Logs/Metrics로 인프라 상태 추적
+- **접근 제어**: IAM 역할 기반 최소 권한 원칙 적용
+
+### 비용 최적화
+- **서버리스 우선**: ECS Fargate로 서버 관리 오버헤드 제거
+- **스팟 인스턴스**: GPU 서버를 필요시에만 활성화하여 비용 절약
+- **효율적 캐싱**: CloudFront CDN으로 대역폭 비용 절감
+- **리소스 최적화**: db.t3.micro 등 적정 사양으로 비용 효율성 확보
+
+### DevOps 통합
+- **CI/CD 파이프라인**: GitHub Actions와 연동된 자동 배포
+- **컨테이너 레지스트리**: AWS ECR을 통한 Docker 이미지 관리
+- **GitOps 워크플로우**: Git 기반 인프라 변경 관리
+- **백업/복구**: RDS 자동 백업, S3 버전 관리로 데이터 보호
+
 <br/>
 
 ## 🛠️ 기술 스택

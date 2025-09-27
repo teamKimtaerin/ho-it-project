@@ -6,41 +6,68 @@
 
 ---
 ## ✨ 주요 기능
-### 1. 🎭 고급 자막 편집기
+### 1. 고급 자막 편집기
 - **드래그 앤 드롭** 방식의 직관적 편집
 - **실시간 비디오 미리보기**와 동기화
 - **단어 단위 편집**과 타임라인 조정
 - **다중 선택**과 일괄 편집 기능
-### 2. 🎨 동적 애니메이션 시스템
+### 2. 동적 애니메이션 시스템
 - **60+ 프리셋 애니메이션** 플러그인
 - **MotionText 렌더러** 기반 고품질 효과
 - **GSAP 3.13** 활용 부드러운 애니메이션
 - **실시간 파라미터 조정**과 미리보기
-### 3. 👥 화자 관리 시스템
+### 3. 화자 관리 시스템
 - **자동 화자 인식**과 수동 할당
 - **화자별 스타일** 개별 설정
 - **음성 데이터** 기반 동적 효과
 - **음성 특성** 분석 (볼륨, 피치, 신뢰도)
-### 4. 🚀 GPU 가속 렌더링
+### 4. GPU 가속 렌더링
 - **서버 사이드 렌더링**으로 20-40배 성능 향상
 - **File System Access API** 활용 직접 저장
 - **실시간 진행률** 추적과 에러 핸들링
 - **다중 포맷** 지원 (MP4, WebM 등)
-### 5. 🔌 플러그인 마켓플레이스
+### 5. 플러그인 마켓플레이스
 - **외부 플러그인 서버** 연동
 - **동적 UI 생성**과 파라미터 제어
 - **플러그인 프리뷰**와 실시간 적용
 - **ES 모듈** 기반 확장 시스템
-### 6. 🤖 AI 통합 기능
+### 6. AI 통합 기능
 - **ChatBot 어시스턴트** 플로팅 UI
 - **자동 라인 분할**과 안전 영역 계산
 - **음성 분석** 데이터 활용 스마트 편집
 - **컨텍스트 기반** 편집 제안
-### YouTube 자동 업로드
+### 7. YouTube 자동 업로드
 - **원클릭 업로드**: 렌더링 완료 후 YouTube에 자동 업로드
 - **메타데이터 설정**: 제목, 설명, 공개 설정 자동 구성
 - **진행률 표시**: 실시간 업로드 상태 및 에러 핸들링
- 
+### 8. 컷편집 기능
+- **RVFC 기반**: `requestVideoFrameCallback`을 사용한 프레임 단위 정밀 동기화
+- **비파괴 편집**: 원본 비디오는 변경하지 않고 편집 정보만 JSON으로 관리
+- **Cut Edit 통합**: 기존 split, delete, move 작업을 Virtual Timeline으로 통합
+- **Frame-by-Frame Export**: WebCodecs API를 활용한 픽셀 단위 정확한 export
+- **Plugin 호환**: 기존 animation plugin 시스템과 완전 호환
+```
+React Components ──▶ VirtualTimelineSlice (Zustand)
+                              │
+                              ▼
+                    VirtualPlayerController
+                    ├─ RVFC Engine
+                    ├─ Virtual/Real time mapping
+                    └─ Frame-precise synchronization
+                              │
+                              ▼
+                    ┌─ VirtualSubtitleRenderer ─┐
+                    │  ├─ Frame-based subtitle   │
+                    │  ├─ Word-level timing     │
+                    │  └─ Animation integration │
+                    └─────────────────────────────┘
+                              │
+                              ▼
+                    VirtualTimelineExporter
+                    ├─ timeline.json generation
+                    ├─ Frame-by-frame capture
+                    └─ WebCodecs encoding
+```
 ---
 ## 📁 폴더 구조
 
